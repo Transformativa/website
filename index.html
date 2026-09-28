@@ -6,7 +6,7 @@
 <title>Transformativa | Business-Side ERP Readiness & Recovery</title>
 <meta name="description" content="Business-side ERP readiness, recovery, and stabilization for private capital backed companies.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --page: #f7f5f0;
@@ -51,6 +51,8 @@
     justify-content: space-between;
     height: 64px;
   }
+
+  .nav-mobile-cta { display: none; }
 
   .nav-logo {
     display: flex;
@@ -498,6 +500,62 @@
   }
 
   /* ─── WHO THIS IS FOR ─── */
+  /* ── How We Work Together ── */
+  .how-we-work { background: var(--accent-light); }
+  .engagement-models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 3rem;
+  }
+  .engagement-model-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+  }
+  .model-type {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-deep);
+    letter-spacing: 0.01em;
+    margin-bottom: 0.35rem;
+  }
+  .model-fee {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .model-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .model-examples {
+    font-size: 0.8rem;
+    color: var(--ink);
+    opacity: 0.55;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+  .model-closing {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--accent-deep);
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .engagement-models-grid { grid-template-columns: 1fr; }
+  }
+
   .who-for { background: var(--warm-black); color: var(--white); }
 
   .who-for .section-title { color: var(--white); }
@@ -919,13 +977,48 @@
   @media (max-width: 768px) {
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
+    .nav-mobile-cta { display: inline-flex; padding: 0.45rem 1rem; font-size: 0.78rem; }
     .engagements-grid { grid-template-columns: 1fr; }
     .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .diagram { flex-direction: column; }
     .diagram-arrow { transform: rotate(90deg); justify-content: center; }
     .who-for-grid { grid-template-columns: 1fr; }
     section { padding: 3.5rem 1.25rem; }
-    .signal-strip { gap: 1.25rem; }
+
+    /* Signal strip: stack vertically, center-align on mobile */
+    .signal-strip {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    /* Scale strip: hide dividers when items wrap */
+    .scale-divider { display: none; }
+    .scale-strip {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 1.25rem 1.5rem;
+    }
+
+    /* Hero: tighten heading size */
+    .hero h1 { font-size: clamp(2rem, 7vw, 3rem); }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .hero-ctas .btn { width: 100%; max-width: 320px; text-align: center; }
+
+    /* Contact CTAs: full width on mobile */
+    .contact-ctas { flex-direction: column; align-items: center; }
+    .contact-ctas .btn { width: 100%; max-width: 320px; text-align: center; }
+
+    /* Assessment widget padding */
+    .assessment-header { padding: 1.5rem 1.25rem; }
+    .assessment-body { padding: 1.5rem 1.25rem; }
+
+    /* How We Work Together: ensure container doesn't add extra indent */
+    .how-we-work .container { padding: 0; }
+
     footer { text-align: center; justify-content: center; }
   }
 </style>
@@ -955,6 +1048,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#assessment" class="btn btn-primary" style="padding:0.45rem 1.1rem;">ERP Health Check</a></li>
   </ul>
+  <a href="#assessment" class="nav-mobile-cta btn btn-primary">ERP Health Check</a>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -964,8 +1058,8 @@
   <p class="hero-tagline">Your system integrator gets the technology ready. Transformativa helps ensure your portfolio company can operate, close, and report from Day 1.</p>
   <p class="hero-sub">Business-side ERP readiness, recovery, and stabilization for private capital backed companies.</p>
   <div class="hero-ctas">
-    <a href="#assessment" class="btn btn-gold">Assess ERP Readiness</a>
-    <a href="#contact" class="btn btn-outline-white">Rescue an Implementation</a>
+    <a href="#contact" class="btn btn-gold">Talk to Natalie</a>
+    <a href="#assessment" class="btn btn-outline-white">Assess ERP Readiness</a>
   </div>
 </section>
 
@@ -1089,6 +1183,42 @@
     <a href="#assessment" class="btn btn-gold">Take the Health Check →</a>
   </div>
 </div>
+
+<!-- ─── HOW WE WORK TOGETHER ─── -->
+<section class="how-we-work" id="how-we-work">
+  <div class="container">
+    <p class="section-label">How We Work Together</p>
+    <h2 class="section-title">Built around the situation.</h2>
+    <p class="section-intro" style="max-width:680px;margin-top:1.25rem;line-height:1.75;color:var(--ink);opacity:0.75;">No two ERP challenges arrive in the same condition. Some need a fast, defined assessment. Others need hands-on recovery leadership for several months. And sometimes the need is targeted executive support at a critical moment. The engagement is structured around the problem, the level of intervention required, and the outcome we need to achieve.</p>
+
+    <div class="engagement-models-grid">
+
+      <div class="engagement-model-card">
+        <div class="model-type">Defined Engagement</div>
+        <div class="model-fee">Fixed fee</div>
+        <p class="model-description">For a clearly defined problem with a specific outcome and timeline.</p>
+        <div class="model-examples">Readiness assessment · Independent review · Recovery diagnostic</div>
+      </div>
+
+      <div class="engagement-model-card">
+        <div class="model-type">Embedded Leadership</div>
+        <div class="model-fee">Monthly retainer</div>
+        <p class="model-description">For situations that require sustained senior leadership through readiness, recovery, or stabilization.</p>
+        <div class="model-examples">ERP recovery · Go-live leadership · Stabilization</div>
+      </div>
+
+      <div class="engagement-model-card">
+        <div class="model-type">Targeted Advisory</div>
+        <div class="model-fee">Hourly / day rate</div>
+        <p class="model-description">For focused executive support, independent challenge, decision support, or a specific intervention.</p>
+        <div class="model-examples">Executive advisory · Critical decisions · Board / sponsor support</div>
+      </div>
+
+    </div>
+
+    <p class="model-closing">The structure follows the problem. Not the other way around.</p>
+  </div>
+</section>
 
 <!-- ─── HOW I WORK ─── -->
 <section class="how-i-work" id="how-i-work">
