@@ -52,7 +52,10 @@
     height: 64px;
   }
 
-  .nav-mobile-cta { display: none; }
+  .nav-mobile-cta { display: none !important; }
+  @media (max-width: 768px) {
+    .nav-mobile-cta { display: inline-flex !important; }
+  }
 
   .nav-logo {
     display: flex;
@@ -977,7 +980,7 @@
   @media (max-width: 768px) {
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
-    .nav-mobile-cta { display: inline-flex; padding: 0.45rem 1rem; font-size: 0.78rem; }
+    .nav-mobile-cta { padding: 0.45rem 1rem; font-size: 0.78rem; }
     .engagements-grid { grid-template-columns: 1fr; }
     .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .diagram { flex-direction: column; }
@@ -1058,7 +1061,7 @@
   <p class="hero-tagline">Your system integrator gets the technology ready. Transformativa helps ensure your portfolio company can operate, close, and report from Day 1.</p>
   <p class="hero-sub">Business-side ERP readiness, recovery, and stabilization for private capital backed companies.</p>
   <div class="hero-ctas">
-    <a href="#contact" class="btn btn-gold">Talk to Natalie</a>
+    <a href="#contact" class="btn btn-gold">Talk to Us</a>
     <a href="#assessment" class="btn btn-outline-white">Assess ERP Readiness</a>
   </div>
 </section>
@@ -1157,21 +1160,11 @@
         <h3>Post-Go-Live Stabilization</h3>
         <p class="trigger-phrase">"We went live but the business isn't running on the system the way we expected."</p>
         <p>Operational stabilization and adoption leadership after go-live — process adherence, data quality, reporting accuracy, and the sustained change needed to actually run the business on the new system.</p>
-        <p class="proof-point">Fortune 500 financial institution — led enterprise technology stability and operational-readiness governance across Finance, Treasury, Risk, Legal, and Human Resources.</p>
+        <p class="proof-point">Regional bank — led enterprise technology stabilization efforts across Finance and Technology.</p>
         <span class="outcome-badge">Restore operational control</span>
       </div>
     </div>
 
-    <!-- Experience at Scale strip -->
-    <div class="scale-strip">
-      <div class="scale-item">1,500+ Global Users</div>
-      <div class="scale-divider">·</div>
-      <div class="scale-item">47 Systems</div>
-      <div class="scale-divider">·</div>
-      <div class="scale-item">$100M+ Technology Investment</div>
-      <div class="scale-divider">·</div>
-      <div class="scale-item">US &nbsp;•&nbsp; Europe &nbsp;•&nbsp; APAC</div>
-    </div>
   </div>
 </section>
 
