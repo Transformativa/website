@@ -403,6 +403,14 @@
     letter-spacing: 0.08em;
   }
 
+  .engagement-scope {
+    font-size: 0.78rem !important;
+    color: var(--accent) !important;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem !important;
+  }
+
   .proof-point {
     font-size: 0.82rem !important;
     color: var(--ink-light) !important;
@@ -694,6 +702,101 @@
     line-height: 1.7;
   }
 
+  /* Readiness signals */
+  .result-signals {
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0 auto 1.25rem;
+    max-width: 440px;
+    text-align: left;
+  }
+
+  .result-signals-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .result-signals-list { margin-bottom: 0.5rem; }
+
+  .signal-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .signal-row:last-child { border-bottom: none; }
+
+  .signal-flag {
+    color: #b35c00;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .signal-dim {
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  .result-signals-note {
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+    margin: 0.5rem 0 0 !important;
+    font-style: italic;
+  }
+
+  /* Email opt-in */
+  .result-email-opt {
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+
+  .result-email-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin-bottom: 0.5rem !important;
+  }
+
+  .result-email-row {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .result-email-input {
+    padding: 0.5rem 0.85rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--page);
+    width: 220px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .result-email-input:focus { border-color: var(--accent); }
+
+  .result-email-confirm {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 0.5rem !important;
+    font-weight: 500;
+  }
+
   .result-recommendation {
     background: var(--accent-light);
     border: 1px solid rgba(26,46,32,0.15);
@@ -940,8 +1043,9 @@
         <div class="engagement-number">Before Go-Live</div>
         <h3>ERP Readiness Assessment</h3>
         <p class="trigger-phrase">"We go live in 90 days and I'm not sure the business is actually ready."</p>
-        <p>A structured review of business readiness across process ownership, data quality, controls, user acceptance testing completion, cutover planning, and reporting readiness — before you find out the hard way at go-live.</p>
-        <p class="proof-point">Private equity-backed industrial company approaching ERP go-live — rebuilt business readiness across finance, operations, data, user acceptance testing, and cutover to establish a credible day-one operating model.</p>
+        <p>A focused assessment of business readiness across process, data, controls, user acceptance testing, cutover, reporting, and day-one operations.</p>
+        <p class="engagement-scope">2–3 weeks · Executive readiness view · Prioritized action plan</p>
+        <p class="proof-point">Private equity-backed industrial company — established business readiness visibility across finance, data, user acceptance testing, reporting, and cutover ahead of ERP go-live.</p>
         <span class="outcome-badge">Identify gaps early</span>
       </div>
 
@@ -951,7 +1055,7 @@
         <p class="trigger-phrase">"The system is live but the business can't operate. We need help now."</p>
         <p>Senior business-side transformation leadership to stabilize a troubled implementation. Establish decision rights, reconnect technology to operations, rebuild confidence with the board, and create a credible path forward.</p>
         <p class="proof-point">Global enterprise transformation — led recovery and orchestration across complex SAP, Oracle, and Dynamics environments supporting 1,500+ users across the US, Europe, and APAC.</p>
-        <span class="outcome-badge">Stabilize immediately</span>
+        <span class="outcome-badge">Recover the implementation</span>
       </div>
 
       <div class="engagement-card">
@@ -1261,6 +1365,30 @@ function prevQ() {
   renderQuestion();
 }
 
+// Readiness dimensions: each maps question indices to a dimension label
+const dimensions = [
+  { label: 'Process & Ownership',     indices: [0, 8] },
+  { label: 'Data',                    indices: [1] },
+  { label: 'Controls',                indices: [2] },
+  { label: 'User Acceptance Testing & Business Validation', indices: [3, 7] },
+  { label: 'Finance & Reporting',     indices: [5, 6] },
+  { label: 'Cutover & Day 1',         indices: [4, 9] },
+];
+
+function getDimensionSignals() {
+  // Score each dimension; flag those where avg score < 6 (i.e. any answer below "mostly done")
+  const weak = [];
+  dimensions.forEach(dim => {
+    const scores = dim.indices.map(i => answers[i] !== null ? questions[i].options[answers[i]].score : null).filter(s => s !== null);
+    if (scores.length === 0) return;
+    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+    if (avg < 6) weak.push({ label: dim.label, avg });
+  });
+  // Sort weakest first
+  weak.sort((a, b) => a.avg - b.avg);
+  return weak;
+}
+
 function showResults() {
   const total = answers.reduce((sum, a, qi) => {
     if (a === null) return sum;
@@ -1280,13 +1408,30 @@ function showResults() {
     level = 'At Risk';
     levelClass = 'risk';
     summary = 'Your responses indicate meaningful business readiness gaps that could create real operational disruption at or after go-live. These aren\'t IT issues — they\'re the gaps that show up as missed orders, failed closes, and leadership visibility breakdowns.';
-    recommendation = '<strong>Recommended Engagement:</strong> ERP Readiness Assessment — a structured review to identify and close business-side gaps before they become go-live crises.';
+    recommendation = '<strong>Recommended Next Step:</strong> A focused ERP Readiness Assessment can identify the specific gaps, accountable owners, and actions required to establish a credible path to Day 1.';
   } else {
     level = 'Critical Gaps';
     levelClass = 'critical';
     summary = 'Your responses indicate significant business readiness gaps. If you go live in this state, the business is likely to experience operational disruption — across orders, close, reporting, and leadership visibility. The earlier you address these, the more options you have.';
-    recommendation = '<strong>Immediate Action Recommended:</strong> Contact Transformativa to discuss a business readiness assessment or implementation rescue, depending on your timeline.';
+    recommendation = '<strong>Recommended Next Step:</strong> Your responses indicate material business-readiness gaps that should be resolved before go-live. A focused ERP Readiness Assessment can identify the specific gaps, accountable owners, and actions required to establish a credible path to Day 1.';
   }
+
+  const weakDims = getDimensionSignals();
+  window.lastResult = { pct, level, weak: weakDims.map(d => d.label) };
+  const signalsHTML = weakDims.length > 0 ? `
+    <div class="result-signals">
+      <div class="result-signals-label">Your Readiness Signals</div>
+      <div class="result-signals-list">
+        ${weakDims.map(d => `
+          <div class="signal-row">
+            <span class="signal-flag">↓</span>
+            <span class="signal-dim">${d.label}</span>
+          </div>
+        `).join('')}
+      </div>
+      <p class="result-signals-note">Based on your responses. Areas where further attention may be needed before go-live.</p>
+    </div>
+  ` : '';
 
   const circumference = 2 * Math.PI * 50;
   const offset = circumference * (1 - pct / 100);
@@ -1305,13 +1450,38 @@ function showResults() {
       </div>
       <div class="result-level ${levelClass}">${level}</div>
       <p class="result-summary">${summary}</p>
+      ${signalsHTML}
       <div class="result-recommendation">${recommendation}</div>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="#contact" class="btn btn-primary">Talk to Transformativa</a>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <a href="#contact" class="btn btn-primary">Discuss Your Readiness →</a>
         <button class="btn btn-outline" onclick="restartAssessment()">Retake Assessment</button>
+      </div>
+      <div class="result-email-opt">
+        <p class="result-email-label">Send me a copy of my results <span style="font-weight:400;color:var(--ink-light);">(optional)</span></p>
+        <div class="result-email-row">
+          <input type="email" id="result-email" class="result-email-input" placeholder="your@email.com" />
+          <button class="btn btn-outline" style="font-size:0.82rem;padding:0.5rem 1rem;" onclick="sendResultsCopy()">Send</button>
+        </div>
+        <p id="result-email-confirm" class="result-email-confirm" style="display:none;">Your email app should open with your results ready to send. Hit Send and a copy comes to you too.</p>
       </div>
     </div>
   `;
+}
+
+function sendResultsCopy() {
+  const email = document.getElementById('result-email').value.trim();
+  if (!email || !email.includes('@')) return;
+  const r = window.lastResult || {};
+  const body = 'ERP Business Readiness Health Check results\n\n'
+    + 'Score: ' + r.pct + '% (' + r.level + ')\n'
+    + (r.weak && r.weak.length ? 'Areas needing attention:\n- ' + r.weak.join('\n- ') + '\n' : '')
+    + '\nI would like to discuss these results.';
+  const url = 'mailto:contact@gettransformativa.com'
+    + '?cc=' + encodeURIComponent(email)
+    + '&subject=' + encodeURIComponent('My ERP Readiness Health Check results')
+    + '&body=' + encodeURIComponent(body);
+  window.location.href = url;
+  document.getElementById('result-email-confirm').style.display = 'block';
 }
 
 function restartAssessment() {
