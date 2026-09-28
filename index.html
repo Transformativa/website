@@ -1,239 +1,1327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transformativa | ERP Recovery & Business-Led Transformation</title>
-<meta name="description" content="Transformativa helps PE-backed and growth companies get ERP and digital transformation programs back on track by getting the business ready, not just the system.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect x='1' y='1' width='94' height='94' rx='17' fill='%231a2e20'/%3E%3Cline x1='24' y1='27' x2='72' y2='27' stroke='%23c9a84c' stroke-width='6' stroke-linecap='round'/%3E%3Cline x1='48' y1='27' x2='48' y2='70' stroke='%23c9a84c' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformativa | Business-Side ERP Readiness & Recovery</title>
+<meta name="description" content="Business-side ERP readiness, recovery, and stabilization for private capital backed companies.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --green:#1a2e20; --green-deep:#142318; --green-soft:#24402c;
-    --gold:#c9a84c; --gold-soft:#e3cf94;
-    --cream:#f7f5f0; --ink:#1c1c1a; --muted:#5d5f58; --line:#e2ddd0;
-    --serif:'DM Serif Display', Georgia, serif;
-    --sans:'Public Sans', Arial, sans-serif;
+  :root {
+    --page: #f7f5f0;
+    --ink: #1a1a18;
+    --ink-mid: #4a4a44;
+    --ink-light: #7a7a72;
+    --accent: #1a2e20;
+    --accent-mid: #2d5c42;
+    --accent-deep: #142318;
+    --accent-light: #e8f0eb;
+    --gold: #c9a84c;
+    --gold-light: #f0e4c2;
+    --warm-black: #1a1a14;
+    --white: #ffffff;
+    --border: #d8d4cc;
+    --radius: 4px;
+    --radius-lg: 10px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
-  h2{font-size:clamp(32px,4.4vw,48px);margin:14px 0 20px}
-  .lead{font-size:19px;color:var(--muted);max-width:640px}
 
-  /* nav */
-  header{position:sticky;top:0;z-index:10;background:rgba(26,46,32,.97);backdrop-filter:blur(6px)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
-  .brand span{font-family:var(--serif);font-style:italic;font-size:24px}
-  .nav ul{display:flex;gap:28px;list-style:none}
-  .nav ul a{color:#d9d6cc;text-decoration:none;font-size:15px}
-  .nav ul a:hover{color:var(--gold)}
-  .btn{display:inline-block;background:var(--gold);color:var(--green-deep);padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:background .2s}
-  .btn:hover{background:var(--gold-soft)}
-  .btn.ghost{background:transparent;color:var(--cream);border:1px solid rgba(201,168,76,.6)}
-  .btn.ghost:hover{background:rgba(201,168,76,.12)}
-  .nav .btn{padding:10px 18px}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* hero */
-  .hero{background:var(--green);color:var(--cream);padding:110px 0 120px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-120px;top:-60px;width:520px;height:520px;border:1px solid rgba(201,168,76,.18);border-radius:50%}
-  .hero::before{content:"";position:absolute;right:-40px;top:40px;width:340px;height:340px;border:1px solid rgba(201,168,76,.12);border-radius:50%}
-  .hero h1{font-size:clamp(42px,6.6vw,76px);max-width:860px;margin:18px 0 26px}
-  .hero h1 em{color:var(--gold);font-style:italic}
-  .hero p{font-size:20px;color:#cfd3c9;max-width:620px;margin-bottom:38px}
-  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
-
-  section{padding:100px 0}
-
-  /* gap */
-  .gap-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:stretch;margin-top:48px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:32px}
-  .card h3{font-size:26px;margin-bottom:10px}
-  .card p{color:var(--muted)}
-  .bridge{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--green);color:var(--cream);border-radius:10px;padding:32px 26px;text-align:center;max-width:260px}
-  .bridge h3{color:var(--gold);font-size:24px;margin:8px 0}
-  .bridge p{font-size:15px;color:#cfd3c9}
-
-  /* lifecycle */
-  .lifecycle{background:var(--green-deep);color:var(--cream)}
-  .lifecycle .lead{color:#b9beb3}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,.25);margin-top:52px;border:1px solid rgba(201,168,76,.25);border-radius:10px;overflow:hidden}
-  .stage{background:var(--green-deep);padding:30px 26px}
-  .stage .n{font-family:var(--serif);color:var(--gold);font-size:34px;line-height:1}
-  .stage h3{font-size:24px;margin:12px 0 8px}
-  .stage p{font-size:15px;color:#b9beb3}
-
-  /* services */
-  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-  .svc .card{border-top:3px solid var(--gold)}
-
-  /* compare */
-  .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
-  .compare .card ul{list-style:none;margin-top:14px}
-  .compare .card li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:16px}
-  .compare .card li:last-child{border-bottom:0}
-  .compare .ours{background:var(--green);border-color:var(--green);color:var(--cream)}
-  .compare .ours h3{color:var(--gold)}
-  .compare .ours li{color:#d6dacf;border-color:rgba(255,255,255,.1)}
-
-  /* cta */
-  .cta{background:var(--green);color:var(--cream);text-align:center}
-  .cta h2{max-width:760px;margin:14px auto 18px}
-  .cta p{color:#cfd3c9;max-width:560px;margin:0 auto 34px;font-size:18px}
-
-  footer{background:var(--green-deep);color:#8f978c;padding:34px 0;font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-  @media (max-width:900px){
-    .nav ul{display:none}
-    .gap-grid,.svc,.compare{grid-template-columns:1fr}
-    .bridge{max-width:none}
-    .stages{grid-template-columns:repeat(2,1fr)}
-    section{padding:72px 0}
-    .hero{padding:80px 0 90px}
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
   }
-  @media (max-width:520px){
-    .stages{grid-template-columns:1fr}
-    .nav .btn{display:none}
+
+  h1, h2, h3, .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--page);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .logo-wordmark {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .logo-mark-alt { display: none; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--accent-mid); color: var(--white); }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--accent-deep);
+  }
+  .btn-gold:hover { background: #b8943f; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+  .btn-outline:hover { background: var(--accent-light); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+  .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--accent);
+    color: var(--white);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    max-width: 780px;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+  }
+
+  .hero-tagline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--gold);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ─── SIGNAL STRIP ─── */
+  .signal-strip {
+    background: var(--warm-black);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .signal-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .signal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .container-wide { max-width: 1140px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    max-width: 640px;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── SITUATION ─── */
+  .situation { background: var(--page); }
+
+  .situation-copy {
+    max-width: 640px;
+    margin-bottom: 4rem;
+  }
+
+  .situation-copy p {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .situation-copy strong { color: var(--ink); font-weight: 600; }
+
+  /* ─── MIDDLE BOX DIAGRAM ─── */
+  .diagram {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .diagram-col {
+    flex: 1;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.5rem;
+    background: var(--white);
+    text-align: center;
+  }
+
+  .diagram-col.center-col {
+    border-color: var(--accent);
+    border-width: 2px;
+    background: var(--accent-light);
+    position: relative;
+    z-index: 1;
+    flex: 1.15;
+  }
+
+  .diagram-col-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .center-col .diagram-col-label {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .diagram-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    color: var(--gold);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .diagram-items {
+    list-style: none;
+    text-align: left;
+  }
+
+  .diagram-items li {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .diagram-items li:last-child { border-bottom: none; }
+
+  .center-col .diagram-items li {
+    color: var(--accent);
+    font-weight: 500;
+    border-bottom-color: rgba(26,46,32,0.15);
+  }
+
+  .diagram-bottom-label {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--gold-light);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+  }
+
+  /* ─── ENGAGEMENTS ─── */
+  .engagements { background: var(--accent-light); }
+
+  .engagements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .engagement-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.75rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .engagement-card p:last-of-type { flex: 1; }
+
+  .engagement-card:hover { box-shadow: 0 6px 24px rgba(26,46,32,0.1); }
+
+  .engagement-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .engagement-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .trigger-phrase {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    border-left: 2px solid var(--gold);
+    padding-left: 0.75rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+
+  .engagement-card p {
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .outcome-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .proof-point {
+    font-size: 0.82rem !important;
+    color: var(--ink-light) !important;
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 0.75rem;
+    margin-top: 0.5rem;
+    line-height: 1.6 !important;
+  }
+
+  /* ─── SCALE STRIP ─── */
+  .scale-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding: 1.1rem 2rem;
+    background: var(--accent);
+    border-radius: var(--radius);
+  }
+
+  .scale-item {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+  }
+
+  .scale-divider {
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0.6;
+  }
+
+  /* ─── HEALTH CHECK CTA ─── */
+  .health-cta {
+    background: var(--accent);
+    color: var(--white);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .health-cta h2 {
+    color: var(--white);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 1rem;
+  }
+
+  .health-cta p {
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+  }
+
+  /* ─── HOW I WORK ─── */
+  .how-i-work { background: var(--page); }
+
+  .how-i-work-body {
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-mid);
+  }
+
+  .how-i-work-body p { margin-bottom: 1.25rem; }
+
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--gold-light);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
+  .pull-quote p {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--accent-deep);
+    margin-bottom: 0 !important;
+  }
+
+  /* ─── WHO THIS IS FOR ─── */
+  .who-for { background: var(--warm-black); color: var(--white); }
+
+  .who-for .section-title { color: var(--white); }
+
+  .who-for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 800px;
+  }
+
+  .who-for-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  .who-for-icon {
+    color: var(--gold);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ─── WHO FOR PERSONAS ─── */
+  .who-for-personas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 860px;
+  }
+
+  .who-for-persona {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .persona-role {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .persona-situation {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .who-for-personas { grid-template-columns: 1fr; }
+  }
+
+  /* ─── ASSESSMENT ─── */
+  .assessment { background: var(--page); }
+
+  .assessment-widget {
+    max-width: 740px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(26,46,32,0.08);
+  }
+
+  .assessment-header {
+    background: var(--accent);
+    color: var(--white);
+    padding: 2rem 2.5rem;
+  }
+
+  .assessment-header h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .assessment-header p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+  }
+
+  .assessment-progress {
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  .assessment-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+
+  .assessment-body { padding: 2.5rem; }
+
+  .q-counter {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .q-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .q-options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .q-option {
+    padding: 0.85rem 1.1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    background: var(--page);
+  }
+
+  .q-option:hover { border-color: var(--accent); background: var(--accent-light); }
+  .q-option.selected { border-color: var(--accent); background: var(--accent-light); font-weight: 500; color: var(--accent); }
+
+  .assessment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .q-nav-btn {
+    background: none;
+    border: 1.5px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-mid);
+    transition: all 0.15s;
+  }
+
+  .q-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .q-nav-btn:disabled { opacity: 0.35; cursor: default; }
+
+  /* Assessment Results */
+  .result-panel { text-align: center; padding: 3rem 2.5rem; }
+
+  .result-score-ring {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+  }
+
+  .result-score-ring svg { transform: rotate(-90deg); }
+
+  .result-score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+
+  .result-level {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-level.ready { color: var(--accent); }
+  .result-level.risk { color: #b35c00; }
+  .result-level.critical { color: #c0392b; }
+
+  .result-summary {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+  }
+
+  .result-recommendation {
+    background: var(--accent-light);
+    border: 1px solid rgba(26,46,32,0.15);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+
+  .result-recommendation strong { display: block; margin-bottom: 0.3rem; }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--page); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-bio p {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .credential-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .credential-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--ink-mid);
+    margin-bottom: 0.6rem;
+  }
+
+  .credential-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .about-quote-col {}
+
+  .about-quote {
+    background: var(--accent);
+    color: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+  }
+
+  .about-quote blockquote {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .about-quote cite {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--warm-black);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+
+  .contact h2 { color: var(--white); margin-bottom: 1rem; }
+  .contact p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 0.75rem; }
+
+  .contact-tagline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 2.5rem !important;
+  }
+
+  .contact-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--accent-deep);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .engagements-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .diagram { flex-direction: column; }
+    .diagram-arrow { transform: rotate(90deg); justify-content: center; }
+    .who-for-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.25rem; }
+    .signal-strip { gap: 1.25rem; }
+    footer { text-align: center; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Transformativa home">
-      <svg width="38" height="38" viewBox="0 0 96 96" aria-hidden="true"><rect x="1" y="1" width="94" height="94" rx="17" fill="#142318" stroke="#c9a84c" stroke-opacity=".5" stroke-width="2"/><line x1="24" y1="27" x2="72" y2="27" stroke="#c9a84c" stroke-width="5" stroke-linecap="round"/><line x1="48" y1="27" x2="48" y2="70" stroke="#c9a84c" stroke-width="5" stroke-linecap="round"/><circle cx="48" cy="76" r="3.5" fill="#c9a84c" opacity=".5"/></svg>
-      <span>Transformativa</span>
-    </a>
-    <ul>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#lifecycle">Lifecycle</a></li>
-      <li><a href="#services">Services</a></li>
-    </ul>
-    <a class="btn" href="#contact">Book a Health Check</a>
+<!-- ─── NAV ─── -->
+<nav>
+  <a class="nav-logo" href="#">
+    <!-- Logo Variant 1: Green + Gold (default) -->
+    <svg class="logo-mark" id="nav-logo-v1" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="8" fill="#1a2e20"/>
+      <text x="20" y="28" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#c9a84c" font-weight="400">T</text>
+    </svg>
+    <!-- Logo Variant 2: Warm Black + Gold Ring (hidden by default) -->
+    <svg class="logo-mark logo-mark-alt" id="nav-logo-v2" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="8" fill="#1a1a14"/>
+      <circle cx="20" cy="20" r="16" stroke="#c9a84c" stroke-width="1.2" stroke-opacity="0.4"/>
+      <text x="20" y="27" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="20" fill="#c9a84c" font-weight="400">T</text>
+    </svg>
+    <span class="logo-wordmark">Transformativa</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#situation">The Problem</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#how-i-work">How I Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#assessment" class="btn btn-primary" style="padding:0.45rem 1.1rem;">ERP Health Check</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <p class="hero-eyebrow">Business-Side ERP Readiness &amp; Recovery · Private Capital Backed Companies</p>
+  <h1>Your ERP isn't ready until your business is.</h1>
+  <p class="hero-tagline">Your system integrator gets the technology ready. Transformativa helps ensure your portfolio company can operate, close, and report from Day 1.</p>
+  <p class="hero-sub">Business-side ERP readiness, recovery, and stabilization for private capital backed companies.</p>
+  <div class="hero-ctas">
+    <a href="#assessment" class="btn btn-gold">Assess ERP Readiness</a>
+    <a href="#contact" class="btn btn-outline-white">Rescue an Implementation</a>
   </div>
-</header>
+</section>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow">ERP Recovery &amp; Business-Led Transformation</div>
-      <h1>Your ERP isn't ready until <em>your business is.</em></h1>
-      <p>Your system integrator gets the technology ready. Transformativa gets your people, processes and data ready for it, and puts stalled programs back on track.</p>
-      <div class="ctas">
-        <a class="btn" href="#contact">Book a 30-minute ERP Health Check</a>
-        <a class="btn ghost" href="#lifecycle">See how we work</a>
+<!-- ─── SIGNAL STRIP ─── -->
+<div class="signal-strip">
+  <div class="signal-item"><span class="signal-dot"></span>No large team assembled around me</div>
+  <div class="signal-item"><span class="signal-dot"></span>No layers between sponsor and accountable leader</div>
+  <div class="signal-item"><span class="signal-dot"></span>No traditional consulting-firm overhead</div>
+  <div class="signal-item"><span class="signal-dot"></span>Senior transformation leadership, directly engaged</div>
+</div>
+
+<!-- ─── SITUATION ─── -->
+<section class="situation" id="situation">
+  <div class="container">
+    <p class="section-label">The Problem</p>
+    <h2 class="section-title">Your ERP can go live.<br>Your business needs to go live with it.</h2>
+
+    <div class="situation-copy">
+      <p>For private capital backed companies, ERP is a critical operating and financial source of truth. Yet ERP implementations are often led primarily through the technology lens.</p>
+      <p>The system integrator configures and deploys the platform — but the <strong>business still has to be ready to operate through it.</strong> Processes need owners. Data needs to reconcile. Controls need to work. Users need to complete real transactions. Finance needs to close the books. Leadership needs reliable reporting. And the organization needs to know exactly what happens on day one.</p>
+      <p>When that business layer is missing, an ERP can be technically ready while the company is not. ERP disruption doesn't stop with the ERP. It can affect orders, purchasing, inventory, manufacturing, payroll, cash, financial close, reporting, and management visibility.</p>
+      <p><strong>Transformativa closes that gap.</strong></p>
+    </div>
+
+    <!-- Middle Box Diagram -->
+    <div class="diagram">
+      <div class="diagram-col">
+        <div class="diagram-col-label">System Integrator</div>
+        <ul class="diagram-items">
+          <li>Technology</li>
+          <li>Configuration</li>
+          <li>Integrations</li>
+          <li>Technical deployment</li>
+        </ul>
+      </div>
+      <div class="diagram-arrow">→</div>
+      <div class="diagram-col center-col">
+        <div class="diagram-col-label">Transformativa</div>
+        <ul class="diagram-items">
+          <li>Business readiness</li>
+          <li>Process ownership</li>
+          <li>Controls mapping</li>
+          <li>Data reconciliation</li>
+          <li>User acceptance testing</li>
+          <li>Cutover readiness</li>
+          <li>Executive governance</li>
+          <li>Operational stabilization</li>
+        </ul>
+        <span class="diagram-bottom-label">The middle box is the product</span>
+      </div>
+      <div class="diagram-arrow">→</div>
+      <div class="diagram-col">
+        <div class="diagram-col-label">Portfolio Company</div>
+        <ul class="diagram-items">
+          <li>Operate</li>
+          <li>Close</li>
+          <li>Report</li>
+          <li>Manage</li>
+          <li>Scale</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="approach">
-    <div class="wrap">
-      <div class="eyebrow">The gap</div>
-      <h2>Two workstreams. One missing link.</h2>
-      <p class="lead">Most transformations run a technology workstream and a business workstream side by side, and assume they'll meet at go-live. They rarely do.</p>
-      <div class="gap-grid">
-        <div class="card">
-          <h3>Technology</h3>
-          <p>Configuration, integrations, data migration and testing, owned by the system integrator and measured against the build plan.</p>
-        </div>
-        <div class="bridge">
-          <div class="eyebrow">Transformativa</div>
-          <h3>The connective tissue</h3>
-          <p>We trace every business requirement from design to adoption so nothing falls between the two.</p>
-        </div>
-        <div class="card">
-          <h3>Business</h3>
-          <p>Operating model, process ownership, readiness and adoption, often under-resourced and left until it's too late.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ─── ENGAGEMENTS ─── -->
+<section class="engagements" id="engagements">
+  <div class="container-wide">
+    <p class="section-label">How We Engage</p>
+    <h2 class="section-title">Three moments. One call.</h2>
+    <p class="section-intro">Whether you're approaching go-live, in the middle of one, or trying to recover from one — there's a way to engage.</p>
 
-  <section id="lifecycle" class="lifecycle">
-    <div class="wrap">
-      <div class="eyebrow">The lifecycle</div>
-      <h2>Eight stages, from understanding to sustained value.</h2>
-      <p class="lead">A business-led framework that runs alongside your implementation, or steps in to recover one that has drifted.</p>
-      <div class="stages">
-        <div class="stage"><div class="n">01</div><h3>Understand</h3><p>Baseline the business, the pain points and what success actually means.</p></div>
-        <div class="stage"><div class="n">02</div><h3>Design</h3><p>Shape future-state processes and the operating model around them.</p></div>
-        <div class="stage"><div class="n">03</div><h3>Define</h3><p>Turn design into traceable requirements the build can be held to.</p></div>
-        <div class="stage"><div class="n">04</div><h3>Validate</h3><p>Prove the solution works for the business, not just the test script.</p></div>
-        <div class="stage"><div class="n">05</div><h3>Enable</h3><p>Prepare people, roles, training and data ownership.</p></div>
-        <div class="stage"><div class="n">06</div><h3>Transition</h3><p>Run cutover and go-live with clear business readiness gates.</p></div>
-        <div class="stage"><div class="n">07</div><h3>Stabilize</h3><p>Resolve issues fast and protect day-to-day operations.</p></div>
-        <div class="stage"><div class="n">08</div><h3>Sustain</h3><p>Embed ownership so the investment keeps paying back.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="eyebrow">How we engage</div>
-      <h2>Senior help, sized to the moment.</h2>
-      <div class="svc">
-        <div class="card">
-          <h3>ERP Health Check</h3>
-          <p>A fast, independent read on where your program really stands, what's at risk, and the few moves that matter most.</p>
-        </div>
-        <div class="card">
-          <h3>Program Recovery</h3>
-          <p>Hands-on leadership to stabilize a stalled or over-budget implementation and get it back to a credible go-live.</p>
-        </div>
-        <div class="card">
-          <h3>Fractional Transformation Lead</h3>
-          <p>Ongoing executive oversight for portfolio companies that need senior transformation leadership without a full-time hire.</p>
-        </div>
+    <div class="engagements-grid">
+      <div class="engagement-card">
+        <div class="engagement-number">Before Go-Live</div>
+        <h3>ERP Readiness Assessment</h3>
+        <p class="trigger-phrase">"We go live in 90 days and I'm not sure the business is actually ready."</p>
+        <p>A structured review of business readiness across process ownership, data quality, controls, user acceptance testing completion, cutover planning, and reporting readiness — before you find out the hard way at go-live.</p>
+        <p class="proof-point">Private equity-backed industrial company approaching ERP go-live — rebuilt business readiness across finance, operations, data, user acceptance testing, and cutover to establish a credible day-one operating model.</p>
+        <span class="outcome-badge">Identify gaps early</span>
       </div>
 
-      <div class="compare">
-        <div class="card">
-          <h3>Technology-led implementation</h3>
-          <ul>
-            <li>Success measured by go-live date</li>
-            <li>Business readiness left to the end</li>
-            <li>Requirements lost between design and build</li>
-            <li>Value expected to appear on its own</li>
-          </ul>
-        </div>
-        <div class="card ours">
-          <h3>Business-led with Transformativa</h3>
-          <ul>
-            <li>Success measured by business outcomes</li>
-            <li>Readiness built in from stage one</li>
-            <li>Every requirement traced to adoption</li>
-            <li>Ownership embedded so value sustains</li>
-          </ul>
-        </div>
+      <div class="engagement-card">
+        <div class="engagement-number">At Go-Live</div>
+        <h3>ERP Rescue</h3>
+        <p class="trigger-phrase">"The system is live but the business can't operate. We need help now."</p>
+        <p>Senior business-side transformation leadership to stabilize a troubled implementation. Establish decision rights, reconnect technology to operations, rebuild confidence with the board, and create a credible path forward.</p>
+        <p class="proof-point">Global enterprise transformation — led recovery and orchestration across complex SAP, Oracle, and Dynamics environments supporting 1,500+ users across the US, Europe, and APAC.</p>
+        <span class="outcome-badge">Stabilize immediately</span>
+      </div>
+
+      <div class="engagement-card">
+        <div class="engagement-number">After Go-Live</div>
+        <h3>Post-Go-Live Stabilization</h3>
+        <p class="trigger-phrase">"We went live but the business isn't running on the system the way we expected."</p>
+        <p>Operational stabilization and adoption leadership after go-live — process adherence, data quality, reporting accuracy, and the sustained change needed to actually run the business on the new system.</p>
+        <p class="proof-point">Fortune 500 financial institution — led enterprise technology stability and operational-readiness governance across Finance, Treasury, Risk, Legal, and Human Resources.</p>
+        <span class="outcome-badge">Restore operational control</span>
       </div>
     </div>
-  </section>
 
-  <section id="contact" class="cta">
-    <div class="wrap">
-      <div class="eyebrow">Start here</div>
-      <h2>Thirty minutes to know where your program really stands.</h2>
-      <p>Book a complimentary ERP Health Check. You'll leave with an honest view of your risks and the next three moves to make.</p>
-      <a class="btn" href="mailto:hello@gettransformativa.com?subject=ERP%20Health%20Check">Book your Health Check</a>
+    <!-- Experience at Scale strip -->
+    <div class="scale-strip">
+      <div class="scale-item">1,500+ Global Users</div>
+      <div class="scale-divider">·</div>
+      <div class="scale-item">47 Systems</div>
+      <div class="scale-divider">·</div>
+      <div class="scale-item">$100M+ Technology Investment</div>
+      <div class="scale-divider">·</div>
+      <div class="scale-item">US &nbsp;•&nbsp; Europe &nbsp;•&nbsp; APAC</div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
+<!-- ─── HEALTH CHECK CTA ─── -->
+<div class="health-cta">
+  <div class="container" style="text-align:center;">
+    <h2>Not sure where you stand?</h2>
+    <p>Take the 10-question ERP Business Readiness Health Check. Get an immediate read on where your gaps are before they surface at go-live.</p>
+    <a href="#assessment" class="btn btn-gold">Take the Health Check →</a>
+  </div>
+</div>
+
+<!-- ─── HOW I WORK ─── -->
+<section class="how-i-work" id="how-i-work">
+  <div class="container">
+    <p class="section-label">How I Work</p>
+    <h2 class="section-title">You don't always need another consulting firm.</h2>
+
+    <div class="how-i-work-body">
+      <p>Sometimes you need the senior operator who would actually lead the work.</p>
+
+      <div class="pull-quote">
+        <p>"Your system integrator gets the system ready. We get the business ready to run on it."</p>
+      </div>
+
+      <p>When an ERP implementation is off track, I come in directly as an independent transformation leader to assess what is actually happening, stabilize the program, establish decision rights and accountability, reconnect the technology implementation to the business, and build a credible path to go live.</p>
+
+      <p>No large team assembled around me. No layers between the sponsor and the person accountable for the work. No traditional consulting-firm overhead.</p>
+
+      <p>Senior transformation leadership, directly engaged.</p>
+
+      <p>This also solves a question private equity operating partners often ask: <em>why wouldn't we just call the system integrator?</em> Because the system integrator is responsible for getting the system ready. Someone has to own the business side — process, people, controls, data, readiness, cutover, reporting, and stabilization. That's the gap Transformativa fills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHO THIS IS FOR ─── -->
+<section class="who-for" id="who-for">
+  <div class="container">
+    <p class="section-label" style="color:var(--gold);">Who This Is For</p>
+    <h2 class="section-title">You're accountable for what happens at go-live.<br>This is built for you.</h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:600px;margin-top:1rem;line-height:1.7;">If any of these sound familiar, you're in the right place.</p>
+
+    <div class="who-for-personas" style="margin-top:2.5rem;">
+
+      <div class="who-for-persona">
+        <div class="persona-role">The Private Equity Operating Partner</div>
+        <div class="persona-situation">You have a portfolio company going live on a new ERP in the next quarter. The system integrator says they're on track. But you're not sure the business is actually ready — and you've seen this go wrong before.</div>
+      </div>
+
+      <div class="who-for-persona">
+        <div class="persona-role">The Portfolio Company CFO or COO</div>
+        <div class="persona-situation">You're weeks from go-live and the project is being led by the technology team. Nobody owns the business side. Finance hasn't tested close. Users aren't trained. And you're the one who'll be on the call when it doesn't work.</div>
+      </div>
+
+      <div class="who-for-persona">
+        <div class="persona-role">The Board or Management Team Post-Go-Live</div>
+        <div class="persona-situation">You went live. The system is running. But the business isn't running on it the way you expected — orders are getting lost, close is taking weeks, leadership can't see what's happening. You need it fixed, not explained.</div>
+      </div>
+
+      <div class="who-for-persona">
+        <div class="persona-role">The Deal Team Facing a Carve-Out or Integration</div>
+        <div class="persona-situation">You have a transaction that depends on ERP readiness — a carve-out, a Day 1 standalone, an integration. The technology track is covered. The business readiness track isn't. That's the gap that derails timelines.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ASSESSMENT ─── -->
+<section class="assessment" id="assessment">
+  <div class="container">
+    <p class="section-label">ERP Business Readiness</p>
+    <h2 class="section-title" style="margin-bottom:0.75rem;">How ready is your business — not just your system?</h2>
+    <p class="section-intro">Ten questions. Immediate results. No email required.</p>
+
+    <div class="assessment-widget">
+      <div class="assessment-header">
+        <h3>ERP Business Readiness Health Check</h3>
+        <p>Answer honestly based on where things actually stand today — not where they're planned to be.</p>
+        <div class="assessment-progress">
+          <div class="assessment-progress-fill" id="progress-fill" style="width:10%"></div>
+        </div>
+      </div>
+
+      <div class="assessment-body" id="assessment-body">
+        <!-- Questions rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-bio">
+        <p class="section-label">About</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Natalie Dudina</h2>
+        <p>Natalie Dudina is a senior transformation executive with 20+ years of experience leading implementations, operational recoveries, and business readiness programs for large, complex organizations.</p>
+        <p>Her background spans technology, digital transformation, and enterprise operations — with a focus on the business side of major system changes: the process, people, controls, data, and organizational readiness that determines whether a company can actually run on its new platform.</p>
+        <p>Transformativa was built from the recognition that most ERP failures aren't technology failures. They're business readiness failures. And that the gap between "the system is ready" and "the company is ready" is exactly where PE-backed portfolio companies are most exposed.</p>
+        <ul class="credential-list">
+          <li>20+ years in enterprise technology and digital transformation</li>
+          <li>Experience spanning Fortune 500 and PE-backed portfolio companies</li>
+          <li>GE background — built for operational rigor, not theoretical frameworks</li>
+          <li>Senior-level engagement: no associates, no layers, no hand-offs</li>
+          <li>Track record across manufacturing, distribution, financial services, technology, legal, and banking</li>
+        </ul>
+      </div>
+
+      <div class="about-quote-col">
+        <div class="about-quote">
+          <blockquote>"Most ERP failures aren't technology failures. They're business readiness failures. The system goes live. The business doesn't."</blockquote>
+          <cite>— Natalie Dudina, Founder, Transformativa</cite>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Let's talk about your ERP situation.</h2>
+    <p>A 30-minute conversation is the fastest way to determine whether there's a fit and what the right engagement looks like.</p>
+    <p class="contact-tagline">No RFP required. No large team on the other end. Just a senior conversation about what's actually going on.</p>
+    <div class="contact-ctas">
+      <a href="#assessment" class="btn btn-gold">Take the Health Check First</a>
+      <a href="https://calendly.com/natalie-wbffpro/30min" target="_blank" class="btn btn-outline-white">Book a 30-Minute Call</a>
+      <a href="mailto:contact@gettransformativa.com" class="btn btn-outline-white">Email Us</a>
+      <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" class="btn btn-outline-white">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
 <footer>
-  <div class="wrap">
-    <span>&copy; <span id="yr">2026</span> Transformativa LLC</span>
-    <span>ERP Recovery &amp; Business-Led Transformation</span>
+  <div>© 2026 Transformativa LLC. All rights reserved.</div>
+  <div>
+    <a href="#assessment">ERP Health Check</a> ·
+    <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a> ·
+    <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank">LinkedIn</a>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<!-- ─── ASSESSMENT JS ─── -->
+<script>
+const questions = [
+  {
+    text: "Does each core business process — order management, purchasing, inventory, manufacturing, payroll, and financial close — have a named business owner who is accountable for it running in the new system?",
+    options: [
+      { label: "Yes, every process has a named, accountable owner", score: 10 },
+      { label: "Most do, but a few are still unclear", score: 6 },
+      { label: "We're still working on defining ownership", score: 3 },
+      { label: "No — process ownership hasn't been established", score: 0 }
+    ]
+  },
+  {
+    text: "How confident are you that your data in the new system is accurate, complete, and reconciled to your source systems?",
+    options: [
+      { label: "Fully validated — data has been reconciled and signed off", score: 10 },
+      { label: "Mostly validated, some open items remain", score: 6 },
+      { label: "Data migration is in progress, reconciliation not yet complete", score: 3 },
+      { label: "Data quality is a known concern", score: 0 }
+    ]
+  },
+  {
+    text: "Have your financial controls been mapped to the new system, tested, and confirmed to be operational?",
+    options: [
+      { label: "Yes — controls are mapped, tested, and documented", score: 10 },
+      { label: "Controls are mapped but not fully tested", score: 6 },
+      { label: "Controls mapping is underway", score: 3 },
+      { label: "Controls in the new system haven't been addressed yet", score: 0 }
+    ]
+  },
+  {
+    text: "Has user acceptance testing been completed by the actual business users who will run transactions in the new system — not just information technology or the system integrator?",
+    options: [
+      { label: "Yes — user acceptance testing completed by real business users, issues resolved", score: 10 },
+      { label: "User acceptance testing is underway with business users", score: 6 },
+      { label: "User acceptance testing has been conducted primarily by the information technology or system integrator team", score: 3 },
+      { label: "User acceptance testing hasn't been completed", score: 0 }
+    ]
+  },
+  {
+    text: "Do you have a detailed, tested cutover plan that includes go/no-go decision criteria, rollback procedures, and clear ownership of every step?",
+    options: [
+      { label: "Yes — a complete, tested cutover plan exists with clear ownership", score: 10 },
+      { label: "A cutover plan exists but hasn't been fully tested", score: 6 },
+      { label: "A cutover plan is in progress", score: 3 },
+      { label: "No formal cutover plan exists", score: 0 }
+    ]
+  },
+  {
+    text: "Can your finance team close the books and produce management reporting in the new system?",
+    options: [
+      { label: "Yes — close has been tested and finance is confident", score: 10 },
+      { label: "Close has been tested but some issues remain", score: 6 },
+      { label: "Close testing is planned but hasn't happened yet", score: 3 },
+      { label: "Finance close in the new system hasn't been tested", score: 0 }
+    ]
+  },
+  {
+    text: "Has leadership reporting — the dashboards, key performance indicators, and management reports the board and leadership team rely on — been defined and tested in the new system?",
+    options: [
+      { label: "Yes — reporting is defined, tested, and leadership has seen it", score: 10 },
+      { label: "Reporting has been defined but not fully validated", score: 6 },
+      { label: "Reporting requirements are still being finalized", score: 3 },
+      { label: "Leadership reporting in the new system hasn't been addressed", score: 0 }
+    ]
+  },
+  {
+    text: "Have business users completed hands-on, transaction-level training in the actual live environment — not just classroom or demo-system training?",
+    options: [
+      { label: "Yes — users are trained in the live system and have practiced real transactions", score: 10 },
+      { label: "Training is complete but in a sandbox environment", score: 6 },
+      { label: "Training is planned but not yet completed", score: 3 },
+      { label: "Formal training hasn't been completed", score: 0 }
+    ]
+  },
+  {
+    text: "Is there a single, accountable business-side leader — separate from the system integrator project manager — who owns the business readiness and go-live outcome?",
+    options: [
+      { label: "Yes — a dedicated business-side leader is in place and accountable", score: 10 },
+      { label: "Someone is partially in this role but it's not a primary responsibility", score: 6 },
+      { label: "Business readiness is managed by the system integrator project team", score: 3 },
+      { label: "No single business-side owner has been designated", score: 0 }
+    ]
+  },
+  {
+    text: "If you went live tomorrow, how confident are you that the business could operate — take orders, fulfill them, pay employees, close the month, and report to leadership?",
+    options: [
+      { label: "Very confident — we've tested and the business is ready", score: 10 },
+      { label: "Somewhat confident — a few gaps remain but nothing critical", score: 6 },
+      { label: "Not very confident — meaningful gaps exist", score: 3 },
+      { label: "Not confident at all — we are not ready to operate", score: 0 }
+    ]
+  }
+];
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const q = questions[current];
+  const pct = Math.round(((current + 1) / questions.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  const body = document.getElementById('assessment-body');
+  body.innerHTML = `
+    <div class="q-counter">Question ${current + 1} of ${questions.length}</div>
+    <div class="q-text">${q.text}</div>
+    <div class="q-options">
+      ${q.options.map((o, i) => `
+        <div class="q-option ${answers[current] === i ? 'selected' : ''}"
+             onclick="selectOption(${i})">${o.label}</div>
+      `).join('')}
+    </div>
+    <div class="assessment-footer">
+      <button class="q-nav-btn" onclick="prevQ()" ${current === 0 ? 'disabled' : ''}>← Back</button>
+      <span style="font-size:0.8rem;color:var(--ink-light);">${current + 1} / ${questions.length}</span>
+      ${current < questions.length - 1
+        ? `<button class="q-nav-btn btn btn-primary" onclick="nextQ()" ${answers[current] === null ? 'disabled' : ''} style="background:#1a2e20;color:#c9a84c;border:none;">Next →</button>`
+        : `<button class="q-nav-btn btn btn-gold" onclick="showResults()" ${answers[current] === null ? 'disabled' : ''}>See Results →</button>`
+      }
+    </div>
+  `;
+}
+
+function selectOption(i) {
+  answers[current] = i;
+  renderQuestion();
+}
+
+function nextQ() {
+  if (answers[current] === null) return;
+  current = Math.min(current + 1, questions.length - 1);
+  renderQuestion();
+}
+
+function prevQ() {
+  current = Math.max(current - 1, 0);
+  renderQuestion();
+}
+
+function showResults() {
+  const total = answers.reduce((sum, a, qi) => {
+    if (a === null) return sum;
+    return sum + questions[qi].options[a].score;
+  }, 0);
+  const max = questions.length * 10;
+  const pct = Math.round((total / max) * 100);
+
+  let level, levelClass, summary, recommendation;
+
+  if (pct >= 75) {
+    level = 'Business Ready';
+    levelClass = 'ready';
+    summary = 'Your responses suggest the business side of your ERP implementation is in good shape. Key readiness elements — process ownership, data, controls, user acceptance testing, and cutover planning — appear to be in place.';
+    recommendation = '<strong>Recommended Next Step:</strong> Validate your readiness through a structured ERP Business Readiness Review to confirm there are no hidden gaps before go-live.';
+  } else if (pct >= 45) {
+    level = 'At Risk';
+    levelClass = 'risk';
+    summary = 'Your responses indicate meaningful business readiness gaps that could create real operational disruption at or after go-live. These aren\'t IT issues — they\'re the gaps that show up as missed orders, failed closes, and leadership visibility breakdowns.';
+    recommendation = '<strong>Recommended Engagement:</strong> ERP Readiness Assessment — a structured review to identify and close business-side gaps before they become go-live crises.';
+  } else {
+    level = 'Critical Gaps';
+    levelClass = 'critical';
+    summary = 'Your responses indicate significant business readiness gaps. If you go live in this state, the business is likely to experience operational disruption — across orders, close, reporting, and leadership visibility. The earlier you address these, the more options you have.';
+    recommendation = '<strong>Immediate Action Recommended:</strong> Contact Transformativa to discuss a business readiness assessment or implementation rescue, depending on your timeline.';
+  }
+
+  const circumference = 2 * Math.PI * 50;
+  const offset = circumference * (1 - pct / 100);
+
+  document.getElementById('progress-fill').style.width = '100%';
+  document.getElementById('assessment-body').innerHTML = `
+    <div class="result-panel">
+      <div class="result-score-ring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#e8f0eb" stroke-width="10"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#c9a84c" stroke-width="10"
+            stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"
+            stroke-linecap="round"/>
+        </svg>
+        <div class="result-score-text">${pct}%</div>
+      </div>
+      <div class="result-level ${levelClass}">${level}</div>
+      <p class="result-summary">${summary}</p>
+      <div class="result-recommendation">${recommendation}</div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn-primary">Talk to Transformativa</a>
+        <button class="btn btn-outline" onclick="restartAssessment()">Retake Assessment</button>
+      </div>
+    </div>
+  `;
+}
+
+function restartAssessment() {
+  current = 0;
+  answers = new Array(questions.length).fill(null);
+  renderQuestion();
+}
+
+// Init
+renderQuestion();
+</script>
 </body>
 </html>
