@@ -78,6 +78,26 @@
   section.alt .svc{background:var(--page)}
   .svc h3{font-size:1.4rem;color:var(--accent);margin:8px 0 10px}
   .svc p{font-size:.96rem;color:var(--ink-mid)}
+  .cases{display:grid;gap:28px;margin-top:48px}
+  .case{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--rl);padding:34px 36px}
+  .case header{margin-bottom:22px}
+  .case header .n{font-family:'Inter',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent-mid);width:auto;display:block;margin-bottom:6px}
+  .case h3{font-size:1.75rem;color:var(--accent);margin-bottom:6px}
+  .case .ind{display:inline-block;background:var(--gold-light);color:#6b5518;font-size:.8rem;font-weight:600;padding:3px 12px;border-radius:99px}
+  .case .cols{display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
+  .case h4{font-family:'Inter',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-mid);margin-bottom:10px;font-weight:600}
+  .case p{color:var(--ink-mid);font-size:.97rem;margin-bottom:10px}
+  .case ul:not(.dimtags){list-style:none}
+  .case li{color:var(--ink-mid);font-size:.95rem;padding:5px 0 5px 20px;position:relative;line-height:1.55}
+  .case ul:not(.dimtags) li:before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+  .case .changed{margin-top:24px;background:var(--accent-light);border-radius:var(--r);padding:20px 24px}
+  .case .changed p{color:var(--accent);margin-bottom:6px}
+  .dimtags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:20px}
+  .dimtags li{padding:4px 14px;border:1px solid var(--border);border-radius:99px;font-size:.82rem;color:var(--ink-mid)}
+  .thread{list-style:none;margin:10px 0 0;max-width:46rem}
+  .thread li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#d9e3dc}
+  .thread b{color:var(--gold);font-weight:600;display:block}
+  .close{margin-top:36px;font-family:'DM Serif Display',serif;font-size:1.7rem;max-width:30rem;line-height:1.3;border-left:4px solid var(--gold);padding-left:24px}
   .cta{background:var(--accent);color:#fff;text-align:center;padding:96px 0}
   .cta h2{color:#fff;margin:0 auto 20px;max-width:20ch}
   .cta p{color:#d9e3dc;max-width:40rem;margin:0 auto 18px;font-weight:300;font-size:1.08rem}
@@ -86,7 +106,7 @@
   footer{background:var(--accent-deep);color:#9fb3a6;font-size:.88rem;padding:30px 0}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   footer a{text-decoration:none}footer a:hover{color:#fff}
-  @media(max-width:900px){.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
+  @media(max-width:900px){.case{padding:26px 22px}.case .cols{grid-template-columns:1fr;gap:22px}.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
 </style>
 </head>
 <body>
@@ -97,6 +117,7 @@
     <li><a href="#framework">Framework</a></li>
     <li><a href="#delivery">Delivery Model</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="../">ERP Recovery</a></li>
     <li><a class="btn btn-dark" style="padding:.45rem 1.1rem" href="#contact">Let&rsquo;s Talk</a></li>
   </ul>
@@ -171,6 +192,47 @@
   <div class="svcs"><article class="svc"><span class="n">01</span><h3>Enterprise Transformation Architecture</h3><p>Define the transformation ambition, future-state operating model, portfolio of initiatives, governance, capabilities, and value roadmap.</p></article><article class="svc"><span class="n">02</span><h3>Transformation Office &amp; Execution Leadership</h3><p>Establish decision-making discipline, mobilize cross-functional teams, resolve dependencies, and maintain accountability for outcomes.</p></article><article class="svc"><span class="n">03</span><h3>Organizational Change &amp; Adoption</h3><p>Align leaders, redesign ways of working, build readiness, develop capabilities, and make new behaviors sustainable.</p></article><article class="svc"><span class="n">04</span><h3>Digital, Data &amp; AI-Enabled Transformation</h3><p>Connect technology investment to process redesign, adoption, information quality, and business value rather than technology deployment alone.</p></article><article class="svc"><span class="n">05</span><h3>Performance Improvement &amp; Transformation Recovery</h3><p>Diagnose stalled initiatives, stabilize execution, improve operating performance, and restore confidence in delivery.</p></article>
     <article class="svc" style="background:var(--accent);border-color:var(--accent);border-top-color:var(--gold)"><span class="n">&rarr;</span><h3 style="color:#fff">Recovering an ERP program?</h3><p style="color:#d9e3dc">Our business-side ERP readiness and recovery practice has its own page.</p><p><a href="../" style="color:var(--gold);font-weight:500">See ERP Recovery &rarr;</a></p></article>
   </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="eyebrow dk">Selected transformation experience</div>
+  <h2>Real challenges. Integrated solutions. Meaningful change.</h2>
+  <p class="intro">Transformation requires more than delivering projects. It requires connecting strategy, technology, processes, people, and execution to fundamentally improve how organizations operate.</p>
+  <p class="intro">Our experience spans global financial services, enterprise technology, and professional services organizations, with a focus on designing and leading complex transformations.</p>
+  <div class="cases"><article class="case">
+    <header><span class="n">Case study 01</span><h3>Enterprise Operating Model &amp; Process Transformation</h3><span class="ind">Industry: Global Financial Services</span></header>
+    <div class="cols">
+      <div><h4>The challenge</h4><p>A global financial institution faced the complexity of coordinating enterprise initiatives across business functions, technology, operations, and risk management.</p><p>The organization needed greater consistency in execution, stronger governance, and a more integrated approach to improving processes and operational performance.</p></div>
+      <div><h4>Our approach</h4><ul><li>Established enterprise-level program management and governance disciplines to improve visibility, accountability, and decision-making.</li><li>Applied business process engineering and automation principles to identify opportunities for operational improvement.</li><li>Connected business objectives with technology initiatives and operational execution.</li><li>Coordinated cross-functional stakeholders to align priorities, resolve dependencies, and support implementation.</li><li>Focused on embedding process improvements into day-to-day operations rather than treating individual initiatives as isolated projects.</li></ul></div>
+    </div>
+    <div class="changed"><h4>What changed</h4><p>Created a more structured approach to enterprise execution, connecting strategic priorities with process improvement, governance, and operational accountability.</p></div>
+    <ul class="dimtags"><li>Operating Model</li><li>Process Optimization</li><li>Governance</li><li>Technology Enablement</li><li>Organizational Alignment</li></ul>
+  </article><article class="case">
+    <header><span class="n">Case study 02</span><h3>Digital Product &amp; Enterprise Operating Model Transformation</h3><span class="ind">Industry: Global Legal Services &amp; Technology</span></header>
+    <div class="cols">
+      <div><h4>The challenge</h4><p>A global legal services organization sought to connect fragmented service delivery, business processes, and information across multiple legal disciplines.</p><p>Traditional service delivery models made it difficult to provide enterprise-wide visibility, translate operational data into meaningful business insights, and deliver a consistent client experience.</p><p>The transformation required more than introducing technology. It demanded a new approach to integrating business operations, legal expertise, digital capabilities, and client engagement.</p></div>
+      <div><h4>Our approach</h4><ul><li>Helped architect and advance an enterprise digital platform connecting legal services, business processes, data, and client-facing capabilities.</li><li>Worked across legal, business, technology, and operational functions to translate strategic objectives into product and transformation priorities.</li><li>Supported the evolution of service delivery models and the integration of digital capabilities into operational workflows.</li><li>Established cross-functional coordination and executive alignment around transformation priorities.</li><li>Connected product development with organizational readiness and evolving client needs.</li></ul></div>
+    </div>
+    <div class="changed"><h4>What changed</h4><p>Advanced an integrated digital service delivery model designed to improve the connection between legal operations, business information, and client-facing insights.</p><p>The initiative established a foundation for more connected service delivery and the continued evolution of digital legal services.</p></div>
+    <ul class="dimtags"><li>Digital Product Strategy</li><li>Operating Model</li><li>Data &amp; Insights</li><li>Cross-Functional Integration</li><li>Service Delivery Transformation</li></ul>
+  </article><article class="case">
+    <header><span class="n">Case study 03</span><h3>Enterprise Technology &amp; Business Process Transformation</h3><span class="ind">Industry: Global Industrial &amp; Technology Enterprise</span></header>
+    <div class="cols">
+      <div><h4>The challenge</h4><p>A global enterprise needed to modernize how it managed intellectual property and related business processes across a complex organizational environment.</p><p>Legacy systems, fragmented workflows, and multiple technology dependencies created challenges for standardization, operational efficiency, and enterprise visibility.</p><p>The transformation required coordinated changes across technology platforms, processes, stakeholders, and ways of working.</p></div>
+      <div><h4>Our approach</h4><ul><li>Led and coordinated elements of a technology-enabled business transformation involving the modernization of enterprise intellectual property capabilities.</li><li>Supported the transition toward a more integrated, SaaS-enabled technology environment.</li><li>Connected technology implementation with business process redesign and operational requirements.</li><li>Coordinated stakeholders across business functions, technology teams, and external solution providers.</li><li>Established execution structures to manage dependencies, implementation priorities, and organizational readiness.</li><li>Focused on aligning technology capabilities with sustainable operational improvements.</li></ul></div>
+    </div>
+    <div class="changed"><h4>What changed</h4><p>Supported the modernization of enterprise intellectual property operations and the transition toward a more integrated technology-enabled service model.</p><p>The transformation connected platform modernization with process improvement and cross-functional execution.</p></div>
+    <ul class="dimtags"><li>Technology Modernization</li><li>SaaS Transformation</li><li>Process Redesign</li><li>Enterprise Integration</li><li>Change Enablement</li></ul>
+  </article></div>
+</div></section>
+
+<section class="dark" id="thread"><div class="wrap">
+  <div class="eyebrow">The common thread</div>
+  <h2>Different industries. Different challenges. One transformation principle.</h2>
+  <p class="intro">Successful transformation is not defined by the implementation of technology, the completion of a project, or the introduction of a new organizational structure. It is defined by an organization&rsquo;s ability to operate differently and sustain the value of that change.</p>
+  <p class="intro" style="margin-top:22px">Across these engagements, the approach consistently emphasized:</p>
+  <ul class="thread"><li><b>Connecting strategy to execution.</b> Translating business ambitions into actionable priorities, clear ownership, and disciplined delivery.</li><li><b>Integrating business and technology.</b> Ensuring technology investments support operational needs and future-state capabilities.</li><li><b>Designing for organizational change.</b> Recognizing that new processes, systems, and operating models require people to adopt new ways of working.</li><li><b>Orchestrating specialized capabilities.</b> Bringing together business, technology, process, and functional expertise to address interconnected transformation challenges.</li><li><b>Building for sustainability.</b> Establishing governance, accountability, and operational foundations that support continued improvement.</li></ul>
+  <p class="close">Transformation isn&rsquo;t simply about delivering something new. It&rsquo;s about making a different way of operating possible.</p>
 </div></section>
 
 <section class="cta" id="contact"><div class="wrap">
