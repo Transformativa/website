@@ -19,7 +19,7 @@
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--accent)}
   .brand .mark{width:34px;height:34px;border-radius:8px;background:var(--accent);color:var(--gold);display:grid;place-items:center;font-style:italic;font-size:1.2rem}
-  nav ul{display:flex;gap:26px;list-style:none;font-size:.92rem;align-items:center}
+  nav ul{display:flex;gap:18px;list-style:none;font-size:.88rem;align-items:center;white-space:nowrap}
   nav ul a{text-decoration:none;color:var(--ink-mid)}nav ul a:hover{color:var(--accent)}
   .btn{display:inline-block;padding:.8rem 1.5rem;border-radius:var(--r);font-weight:500;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;transition:.15s}
   .btn-gold{background:var(--gold);color:var(--accent-deep)}.btn-gold:hover{background:#d6b65c}
@@ -106,17 +106,46 @@
   footer{background:var(--accent-deep);color:#9fb3a6;font-size:.88rem;padding:30px 0}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   footer a{text-decoration:none}footer a:hover{color:#fff}
-  @media(max-width:900px){.case{padding:26px 22px}.case .cols{grid-template-columns:1fr;gap:22px}.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
+  .dims .out{color:var(--accent-mid);font-weight:500;margin-top:6px}
+  .lead-grid{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;margin-top:40px}
+  .portrait{width:240px;height:240px;border-radius:50%;background:var(--accent);border:3px solid var(--gold);display:grid;place-items:center;font-family:'DM Serif Display',serif;font-style:italic;font-size:4.2rem;color:var(--gold);overflow:hidden}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .lead-grid h3{font-size:1.9rem;color:var(--accent);margin-bottom:2px}
+  .lead-grid .role{color:var(--accent-mid);font-weight:500;font-size:.95rem;margin-bottom:18px}
+  .lead-grid p{color:var(--ink-mid);margin-bottom:14px}
+  .bio{list-style:none;margin:18px 0 0}
+  .bio li{position:relative;padding:5px 0 5px 22px;color:var(--ink-mid);font-size:.97rem}
+  .bio li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+  .diag{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .diag div{background:var(--accent-deep);border:1px solid rgba(201,168,76,.35);border-radius:var(--rl);padding:22px 24px}
+  .diag .n{display:block;width:auto;margin-bottom:4px}
+  .diag h3{font-size:1.2rem;color:#fff;margin-bottom:4px}
+  .diag p{font-size:.93rem;color:#d9e3dc;line-height:1.5}
+  .deliv{margin-top:34px;padding:22px 26px;background:rgba(201,168,76,.12);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;color:#fff;max-width:46rem}
+  .deliv b{color:var(--gold)}
+  .aud{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+  .aud a{display:block;text-decoration:none;background:var(--page);border:1px solid var(--border);border-radius:var(--rl);padding:24px 22px;transition:.15s}
+  .aud a:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .aud h3{font-size:1.25rem;color:var(--accent);margin-bottom:8px}
+  .aud p{font-size:.93rem;color:var(--ink-mid);line-height:1.5;margin-bottom:12px}
+  .aud span{font-size:.88rem;font-weight:600;color:var(--accent-mid)}
+  .eng{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .eng .svc h3{margin-top:0}
+  .eng .fee{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent-mid)}
+  .cta .ask{font-family:'DM Serif Display',serif;font-size:1.35rem;color:#fff;max-width:36rem;margin:0 auto 18px;line-height:1.35}
+  @media(max-width:900px){.lead-grid{grid-template-columns:1fr;gap:28px}.portrait{width:180px;height:180px;font-size:3.2rem}.diag,.aud,.eng{grid-template-columns:1fr}.case{padding:26px 22px}.case .cols{grid-template-columns:1fr;gap:22px}.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="./"><span class="mark">T</span>Transformativa</a>
   <ul>
-    <li><a href="#challenge">The Challenge</a></li>
+    <li><a href="#challenge">Challenge</a></li>
     <li><a href="#framework">Framework</a></li>
-    <li><a href="#delivery">Delivery Model</a></li>
+    <li><a href="#delivery">Delivery</a></li>
+    <li><a href="#leadership">Leadership</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#diagnostic">Diagnostic</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="../">ERP Recovery</a></li>
     <li><a class="btn btn-dark" style="padding:.45rem 1.1rem" href="#contact">Let&rsquo;s Talk</a></li>
@@ -129,7 +158,7 @@
   <p class="lead">We architect and lead complex enterprise transformations, aligning strategy, operating models, technology, talent, and execution to deliver measurable business impact.</p>
   <div class="actions">
     <a class="btn btn-gold" href="#framework">Explore our approach</a>
-    <a class="btn btn-ghost" href="#contact">Discuss your transformation</a>
+    <a class="btn btn-ghost" href="#diagnostic">Request a diagnostic</a>
   </div>
 </div></header>
 
@@ -147,7 +176,7 @@
   <h2>Six dimensions. One integrated transformation.</h2>
   <p class="intro">The dimensions of sustainable change are connected, not sequential project phases. A change in one often creates dependencies across all the others.</p>
   <div class="split">
-    <ul class="dims"><li><span class="n">01</span><div><h3>Strategic clarity</h3><p>A compelling case for change, measurable outcomes, and aligned leadership.</p></div></li><li><span class="n">02</span><div><h3>Operating model</h3><p>Decision rights, accountability, processes, governance, and ways of working.</p></div></li><li><span class="n">03</span><div><h3>Technology &amp; data</h3><p>Enabling platforms, trustworthy information, automation, and practical AI.</p></div></li><li><span class="n">04</span><div><h3>People &amp; adoption</h3><p>Skills, incentives, communications, leadership behaviors, and readiness.</p></div></li><li><span class="n">05</span><div><h3>Execution discipline</h3><p>Prioritized initiatives, interdependencies, resources, risks, and decisions.</p></div></li><li><span class="n">06</span><div><h3>Value realization</h3><p>Benefits ownership, performance indicators, and sustained financial and operational impact.</p></div></li></ul>
+    <ul class="dims"><li><span class="n">01</span><div><h3>Strategic clarity</h3><p>A compelling case for change, measurable outcomes, and aligned leadership.</p><p class="out">Business outcome: Faster, better-aligned executive decisions.</p></div></li><li><span class="n">02</span><div><h3>Operating model</h3><p>Decision rights, accountability, processes, governance, and ways of working.</p><p class="out">Business outcome: Consistent execution and clear accountability across functions.</p></div></li><li><span class="n">03</span><div><h3>Technology &amp; data</h3><p>Enabling platforms, trustworthy information, automation, and practical AI.</p><p class="out">Business outcome: Technology investment that turns into usable capability and trusted data.</p></div></li><li><span class="n">04</span><div><h3>People &amp; adoption</h3><p>Skills, incentives, communications, leadership behaviors, and readiness.</p><p class="out">Business outcome: Higher adoption and fewer reversions to old ways of working.</p></div></li><li><span class="n">05</span><div><h3>Execution discipline</h3><p>Prioritized initiatives, interdependencies, resources, risks, and decisions.</p><p class="out">Business outcome: Predictable delivery, with dependencies and risks managed early.</p></div></li><li><span class="n">06</span><div><h3>Value realization</h3><p>Benefits ownership, performance indicators, and sustained financial and operational impact.</p><p class="out">Business outcome: Benefits that are owned, tracked, and sustained after go-live.</p></div></li></ul>
     <div><svg class="diagram" viewBox="0 0 520 520" role="img" aria-label="Six dimensions of transformation, each connected to all the others">
 <g class="web" stroke="#c9a84c" stroke-width="1.4" opacity=".55"><line x1="260" y1="90" x2="407" y2="175"/><line x1="260" y1="90" x2="407" y2="345"/><line x1="260" y1="90" x2="260" y2="430"/><line x1="260" y1="90" x2="113" y2="345"/><line x1="260" y1="90" x2="113" y2="175"/><line x1="407" y1="175" x2="407" y2="345"/><line x1="407" y1="175" x2="260" y2="430"/><line x1="407" y1="175" x2="113" y2="345"/><line x1="407" y1="175" x2="113" y2="175"/><line x1="407" y1="345" x2="260" y2="430"/><line x1="407" y1="345" x2="113" y2="345"/><line x1="407" y1="345" x2="113" y2="175"/><line x1="260" y1="430" x2="113" y2="345"/><line x1="260" y1="430" x2="113" y2="175"/><line x1="113" y1="345" x2="113" y2="175"/></g>
 <circle cx="260" cy="260" r="62" fill="#f7f5f0" stroke="#c9a84c" stroke-width="2"/>
@@ -186,12 +215,54 @@
   </div>
 </div></section>
 
+<section class="alt" id="model"><div class="wrap">
+  <div class="eyebrow dk">How the partnership works</div>
+  <h2>Architect. Mobilize. Deliver.</h2>
+  <p class="intro">A simple, accountable model that makes the delivery approach tangible.</p>
+  <div class="steps">
+    <div class="step"><div class="k">Stage one</div><h3>Architect</h3><p>We evaluate the business challenge, define the transformation approach, and identify the capabilities required.</p></div>
+    <div class="step"><div class="k">Stage two</div><h3>Mobilize</h3><p>We assemble the right combination of client resources, independent specialists, and delivery partners.</p></div>
+    <div class="step"><div class="k">Stage three</div><h3>Deliver</h3><p>We coordinate execution, manage interdependencies, and stay accountable for business outcomes.</p></div>
+  </div>
+</div></section>
+
+<section id="leadership"><div class="wrap">
+  <div class="eyebrow dk">Transformation leadership</div>
+  <h2>Built on executive experience. Designed for complex change.</h2>
+  <div class="lead-grid">
+    <div class="portrait" role="img" aria-label="Natalie Dudina"><!-- To use a photo: replace ND with <img src="natalie.jpg" alt="Natalie Dudina"> and add natalie.jpg to this folder -->ND</div>
+    <div>
+      <h3>Natalie Dudina</h3>
+      <div class="role">Founder, Transformativa</div>
+      <p>Transformation demands someone who can see beyond individual workstreams, understand the interdependencies, challenge assumptions, and bring together the capabilities required to deliver.</p>
+      <p>Transformativa combines senior-level transformation leadership with hands-on execution experience across global enterprises, technology modernization, operating-model redesign, and performance improvement. The goal isn&rsquo;t to add another layer of management. It&rsquo;s to provide the leadership, architecture, and execution discipline that make transformation possible.</p>
+      <ul class="bio"><li>20+ years in enterprise technology and digital transformation</li><li>Experience spanning Fortune 500 and PE-backed organizations</li><li>GE background: built for operational rigor, not theoretical frameworks</li></ul>
+    </div>
+  </div>
+</div></section>
+
 <section class="alt" id="services"><div class="wrap">
   <div class="eyebrow dk">Section 04 · Advisory &amp; execution services</div>
   <h2>From transformation architecture to measurable results.</h2>
   <div class="svcs"><article class="svc"><span class="n">01</span><h3>Enterprise Transformation Architecture</h3><p>Define the transformation ambition, future-state operating model, portfolio of initiatives, governance, capabilities, and value roadmap.</p></article><article class="svc"><span class="n">02</span><h3>Transformation Office &amp; Execution Leadership</h3><p>Establish decision-making discipline, mobilize cross-functional teams, resolve dependencies, and maintain accountability for outcomes.</p></article><article class="svc"><span class="n">03</span><h3>Organizational Change &amp; Adoption</h3><p>Align leaders, redesign ways of working, build readiness, develop capabilities, and make new behaviors sustainable.</p></article><article class="svc"><span class="n">04</span><h3>Digital, Data &amp; AI-Enabled Transformation</h3><p>Connect technology investment to process redesign, adoption, information quality, and business value rather than technology deployment alone.</p></article><article class="svc"><span class="n">05</span><h3>Performance Improvement &amp; Transformation Recovery</h3><p>Diagnose stalled initiatives, stabilize execution, improve operating performance, and restore confidence in delivery.</p></article>
     <article class="svc" style="background:var(--accent);border-color:var(--accent);border-top-color:var(--gold)"><span class="n">&rarr;</span><h3 style="color:#fff">Recovering an ERP program?</h3><p style="color:#d9e3dc">Our business-side ERP readiness and recovery practice has its own page.</p><p><a href="../" style="color:var(--gold);font-weight:500">See ERP Recovery &rarr;</a></p></article>
   </div>
+</div></section>
+
+<section class="dark" id="diagnostic"><div class="wrap">
+  <div class="eyebrow">Transformation Health Diagnostic</div>
+  <h2>Is your transformation positioned to deliver lasting value?</h2>
+  <p class="intro">Before committing to a large engagement, start with a focused diagnostic. We assess your transformation across the six dimensions of sustainable change and show you where it is strong, where it is exposed, and what to do next.</p>
+  <div class="diag">
+    <div><span class="n">01</span><h3>Strategic alignment &amp; sponsorship</h3><p>Is leadership aligned on the case for change and the outcomes expected?</p></div>
+    <div><span class="n">02</span><h3>Operating-model readiness</h3><p>Are decision rights, governance, and processes ready for the future state?</p></div>
+    <div><span class="n">03</span><h3>Technology &amp; data dependencies</h3><p>Are platform and data dependencies understood and under control?</p></div>
+    <div><span class="n">04</span><h3>Change &amp; adoption</h3><p>Are people equipped and ready to work differently?</p></div>
+    <div><span class="n">05</span><h3>Execution &amp; governance maturity</h3><p>Are priorities, interdependencies, risks, and decisions managed with discipline?</p></div>
+    <div><span class="n">06</span><h3>Benefits realization &amp; sustainability</h3><p>Is someone accountable for the value, and will it last after go-live?</p></div>
+  </div>
+  <p class="deliv"><b>What you receive:</b> an executive assessment identifying risks, capability gaps, and recommended interventions.</p>
+  <div class="actions" style="margin-top:30px"><a class="btn btn-gold" href="mailto:contact@gettransformativa.com?subject=Transformation%20Health%20Diagnostic">Request a diagnostic</a></div>
 </div></section>
 
 <section id="experience"><div class="wrap">
@@ -235,13 +306,36 @@
   <p class="close">Transformation isn&rsquo;t simply about delivering something new. It&rsquo;s about making a different way of operating possible.</p>
 </div></section>
 
+<section class="alt" id="audience"><div class="wrap">
+  <div class="eyebrow dk">Who this is for</div>
+  <h2>Where leaders start the conversation.</h2>
+  <div class="aud">
+    <a href="mailto:contact@gettransformativa.com?subject=CEO%20transformation%20conversation"><h3>CEOs</h3><p>Aligning leadership and the organization behind a change that has to stick.</p><span>Talk to us &rarr;</span></a>
+    <a href="mailto:contact@gettransformativa.com?subject=CFO%20transformation%20conversation"><h3>CFOs</h3><p>Connecting transformation spend to owned, measurable value realization.</p><span>Talk to us &rarr;</span></a>
+    <a href="mailto:contact@gettransformativa.com?subject=Private%20equity%20transformation%20conversation"><h3>PE operating partners</h3><p>Senior leadership for portfolio-company transformations without a large consulting team.</p><span>Talk to us &rarr;</span></a>
+    <a href="mailto:contact@gettransformativa.com?subject=Transformation%20executive%20conversation"><h3>Transformation executives</h3><p>An experienced counterpart to architect, mobilize, and keep complex programs on track.</p><span>Talk to us &rarr;</span></a>
+  </div>
+</div></section>
+
+<section id="engage"><div class="wrap">
+  <div class="eyebrow dk">Ways to work together</div>
+  <h2>Engage at the level you need.</h2>
+  <div class="eng">
+    <article class="svc"><div class="fee">Fixed fee</div><h3>Defined Engagement</h3><p>For a clear problem and a clear timeline, such as a diagnostic or a transformation architecture.</p></article>
+    <article class="svc"><div class="fee">Monthly retainer</div><h3>Embedded Leadership</h3><p>Senior transformation leadership embedded with your team for sustained execution and accountability.</p></article>
+    <article class="svc"><div class="fee">Hourly or day rate</div><h3>Targeted Advisory</h3><p>Executive counsel and decision support at the moments that matter most.</p></article>
+  </div>
+</div></section>
+
 <section class="cta" id="contact"><div class="wrap">
   <h2>Your transformation deserves more than a project plan.</h2>
+  <p class="ask">Not sure your transformation has the right capabilities, governance, or organizational readiness to succeed?</p>
   <p>Whether you&rsquo;re launching a strategic initiative, redesigning your operating model, navigating a technology-enabled transformation, or recovering a program that has lost momentum, Transformativa can help architect the path forward and mobilize the capabilities to deliver it.</p>
   <div class="big">Let&rsquo;s build change that lasts.</div>
   <div class="actions">
-    <a class="btn btn-gold" href="mailto:contact@gettransformativa.com">Email us</a>
-    <a class="btn btn-ghost" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+    <a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Schedule a Transformation Strategy Conversation</a>
+    <a class="btn btn-ghost" href="#diagnostic">Request a diagnostic</a>
+    <a class="btn btn-ghost" href="mailto:contact@gettransformativa.com">Email us</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </div></section>
