@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformation Advisory | Transformativa</title>
+<meta name="description" content="Transformativa architects and leads complex enterprise transformations, aligning strategy, operating model, technology, talent and execution to deliver measurable business impact.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#f7f5f0;--ink:#1a1a18;--ink-mid:#4a4a44;--ink-light:#7a7a72;--accent:#1a2e20;--accent-mid:#2d5c42;--accent-deep:#142318;--accent-light:#e8f0eb;--gold:#c9a84c;--gold-light:#f0e4c2;--white:#fff;--border:#d8d4cc;--r:4px;--rl:10px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--page);color:var(--ink);line-height:1.65;font-size:17px}
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.15}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:10;background:rgba(247,245,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--accent)}
+  .brand .mark{width:34px;height:34px;border-radius:8px;background:var(--accent);color:var(--gold);display:grid;place-items:center;font-style:italic;font-size:1.2rem}
+  nav ul{display:flex;gap:26px;list-style:none;font-size:.92rem;align-items:center}
+  nav ul a{text-decoration:none;color:var(--ink-mid)}nav ul a:hover{color:var(--accent)}
+  .btn{display:inline-block;padding:.8rem 1.5rem;border-radius:var(--r);font-weight:500;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;transition:.15s}
+  .btn-gold{background:var(--gold);color:var(--accent-deep)}.btn-gold:hover{background:#d6b65c}
+  .btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-dark{background:var(--accent);color:#fff}.btn-dark:hover{background:var(--accent-mid)}
+  .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+  .eyebrow.dk{color:var(--accent-mid)}
+  .hero{background:var(--accent);color:#fff;padding:104px 0 96px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;border:1.5px solid rgba(201,168,76,.35);box-shadow:0 0 0 70px rgba(201,168,76,.05),0 0 0 140px rgba(201,168,76,.04)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);max-width:13ch;margin-bottom:26px}
+  .hero h1 em{color:var(--gold);font-style:italic}
+  .hero p.lead{font-size:1.2rem;max-width:42rem;color:#d9e3dc;font-weight:300;margin-bottom:38px}
+  .actions{display:flex;gap:14px;flex-wrap:wrap}
+  section{padding:88px 0}
+  section.alt{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  section.dark{background:var(--accent);color:#fff}
+  h2{font-size:clamp(1.9rem,3.8vw,2.7rem);color:var(--accent);margin-bottom:20px;max-width:24ch}
+  section.dark h2{color:#fff}
+  .intro{max-width:46rem;color:var(--ink-mid);font-size:1.08rem}
+  .intro+.intro{margin-top:16px}
+  section.dark .intro{color:#d9e3dc}
+  .pull{margin-top:36px;padding:6px 0 6px 24px;border-left:4px solid var(--gold);font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--accent);max-width:34rem;line-height:1.3}
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-top:44px}
+  .dims{list-style:none;display:grid;gap:14px}
+  .dims li{display:flex;gap:18px;background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:18px 22px}
+  .n{font-family:'DM Serif Display',serif;color:var(--gold);font-size:1.5rem;line-height:1.2;flex:none;width:2rem}
+  .dims h3{font-size:1.25rem;color:var(--accent);margin-bottom:2px}
+  .dims p{font-size:.95rem;color:var(--ink-mid);line-height:1.5}
+  .diagram{width:100%;height:auto;display:block}
+  .diagram .nodes circle{fill:var(--accent);stroke:var(--gold);stroke-width:2}
+  .diagram .nodes text{fill:var(--gold);font-family:'DM Serif Display',serif;font-size:22px;text-anchor:middle}
+  .diagram .hub{fill:var(--accent);font-family:'DM Serif Display',serif;font-size:17px;text-anchor:middle}
+  .caption{font-size:.88rem;color:var(--ink-light);margin-top:12px;text-align:center}
+  section.dark .caption{color:#9fb3a6}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px}
+  .step{padding:34px 30px;background:var(--white);border:1px solid var(--border);position:relative}
+  .step:nth-child(1){border-radius:var(--rl) 0 0 var(--rl)}.step:nth-child(3){border-radius:0 var(--rl) var(--rl) 0;background:var(--accent);color:#fff;border-color:var(--accent)}
+  .step:nth-child(2){background:var(--gold-light)}
+  .step .k{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent-mid);margin-bottom:8px}
+  .step:nth-child(3) .k{color:var(--gold)}
+  .step h3{font-size:1.9rem;margin-bottom:6px;color:var(--accent)}.step:nth-child(3) h3{color:#fff}
+  .step p{color:var(--ink-mid);font-size:.98rem}.step:nth-child(3) p{color:#d9e3dc}
+  .step:not(:last-child):after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--accent-deep);display:grid;place-items:center;font-size:.95rem}
+  .tagline{margin-top:28px;font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--accent)}
+  .eco .pills rect{fill:var(--accent);stroke:var(--gold);stroke-width:1.5}
+  .eco .pills text{fill:#fff;font-family:'Inter',sans-serif;font-size:17px;text-anchor:middle;font-weight:500}
+  .eco .hub2{fill:var(--accent-deep);font-family:'DM Serif Display',serif;font-size:22px;text-anchor:middle}
+  .eco .hub3{fill:var(--accent-deep);font-family:'Inter',sans-serif;font-size:14px;text-anchor:middle;font-weight:500}
+  section.dark .eco .pills rect{fill:var(--accent-deep)}
+  .chips{display:none;list-style:none;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chips li{border:1px solid var(--gold);border-radius:99px;padding:6px 14px;font-size:.9rem;color:#fff;background:var(--accent-deep)}
+  .accountable{margin-top:26px;padding:20px 24px;background:rgba(201,168,76,.12);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;color:#fff;font-size:1rem}
+  .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .svc{background:var(--white);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--rl);padding:28px 26px}
+  section.alt .svc{background:var(--page)}
+  .svc h3{font-size:1.4rem;color:var(--accent);margin:8px 0 10px}
+  .svc p{font-size:.96rem;color:var(--ink-mid)}
+  .cta{background:var(--accent);color:#fff;text-align:center;padding:96px 0}
+  .cta h2{color:#fff;margin:0 auto 20px;max-width:20ch}
+  .cta p{color:#d9e3dc;max-width:40rem;margin:0 auto 18px;font-weight:300;font-size:1.08rem}
+  .cta .big{font-family:'DM Serif Display',serif;color:var(--gold);font-size:1.7rem;margin:26px 0 30px;font-weight:400}
+  .cta .actions{justify-content:center}
+  footer{background:var(--accent-deep);color:#9fb3a6;font-size:.88rem;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{text-decoration:none}footer a:hover{color:#fff}
+  @media(max-width:900px){.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="./"><span class="mark">T</span>Transformativa</a>
+  <ul>
+    <li><a href="#challenge">The Challenge</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#delivery">Delivery Model</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="../">ERP Recovery</a></li>
+    <li><a class="btn btn-dark" style="padding:.45rem 1.1rem" href="#contact">Let&rsquo;s Talk</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Transformation Advisory · From ambition to lasting change</div>
+  <h1>Change isn&rsquo;t the initiative. <em>It&rsquo;s the outcome.</em></h1>
+  <p class="lead">We architect and lead complex enterprise transformations, aligning strategy, operating models, technology, talent, and execution to deliver measurable business impact.</p>
+  <div class="actions">
+    <a class="btn btn-gold" href="#framework">Explore our approach</a>
+    <a class="btn btn-ghost" href="#contact">Discuss your transformation</a>
+  </div>
+</div></header>
+
+<section id="challenge"><div class="wrap">
+  <div class="eyebrow dk">Section 01 · The challenge</div>
+  <h2>Why transformation fails</h2>
+  <p class="intro">Organizations don&rsquo;t struggle with change because they lack initiatives.</p>
+  <p class="intro">They struggle because initiatives compete for resources, leadership decisions stall, functions operate in silos, and employees are expected to adopt new ways of working without the capabilities, clarity, or support to succeed.</p>
+  <p class="intro">A new system can go live. A new operating model can be approved. A cost-reduction program can achieve its initial targets. But unless the organization changes how it makes decisions, executes work, serves customers, and measures performance, the transformation remains incomplete.</p>
+  <p class="pull">We focus on what changes after the initiative ends.</p>
+</div></section>
+
+<section class="alt" id="framework"><div class="wrap">
+  <div class="eyebrow dk">Section 02 · Our transformation framework</div>
+  <h2>Six dimensions. One integrated transformation.</h2>
+  <p class="intro">The dimensions of sustainable change are connected, not sequential project phases. A change in one often creates dependencies across all the others.</p>
+  <div class="split">
+    <ul class="dims"><li><span class="n">01</span><div><h3>Strategic clarity</h3><p>A compelling case for change, measurable outcomes, and aligned leadership.</p></div></li><li><span class="n">02</span><div><h3>Operating model</h3><p>Decision rights, accountability, processes, governance, and ways of working.</p></div></li><li><span class="n">03</span><div><h3>Technology &amp; data</h3><p>Enabling platforms, trustworthy information, automation, and practical AI.</p></div></li><li><span class="n">04</span><div><h3>People &amp; adoption</h3><p>Skills, incentives, communications, leadership behaviors, and readiness.</p></div></li><li><span class="n">05</span><div><h3>Execution discipline</h3><p>Prioritized initiatives, interdependencies, resources, risks, and decisions.</p></div></li><li><span class="n">06</span><div><h3>Value realization</h3><p>Benefits ownership, performance indicators, and sustained financial and operational impact.</p></div></li></ul>
+    <div><svg class="diagram" viewBox="0 0 520 520" role="img" aria-label="Six dimensions of transformation, each connected to all the others">
+<g class="web" stroke="#c9a84c" stroke-width="1.4" opacity=".55"><line x1="260" y1="90" x2="407" y2="175"/><line x1="260" y1="90" x2="407" y2="345"/><line x1="260" y1="90" x2="260" y2="430"/><line x1="260" y1="90" x2="113" y2="345"/><line x1="260" y1="90" x2="113" y2="175"/><line x1="407" y1="175" x2="407" y2="345"/><line x1="407" y1="175" x2="260" y2="430"/><line x1="407" y1="175" x2="113" y2="345"/><line x1="407" y1="175" x2="113" y2="175"/><line x1="407" y1="345" x2="260" y2="430"/><line x1="407" y1="345" x2="113" y2="345"/><line x1="407" y1="345" x2="113" y2="175"/><line x1="260" y1="430" x2="113" y2="345"/><line x1="260" y1="430" x2="113" y2="175"/><line x1="113" y1="345" x2="113" y2="175"/></g>
+<circle cx="260" cy="260" r="62" fill="#f7f5f0" stroke="#c9a84c" stroke-width="2"/>
+<text class="hub" x="260" y="256">One</text><text class="hub" x="260" y="280">transformation</text>
+<g class="nodes"><g><circle cx="260" cy="90" r="30"/><text x="260" y="98">01</text></g><g><circle cx="407" cy="175" r="30"/><text x="407" y="183">02</text></g><g><circle cx="407" cy="345" r="30"/><text x="407" y="353">03</text></g><g><circle cx="260" cy="430" r="30"/><text x="260" y="438">04</text></g><g><circle cx="113" cy="345" r="30"/><text x="113" y="353">05</text></g><g><circle cx="113" cy="175" r="30"/><text x="113" y="183">06</text></g></g></svg><p class="caption">Every dimension depends on, and affects, every other.</p></div>
+  </div>
+</div></section>
+
+<section id="outcome"><div class="wrap">
+  <div class="eyebrow dk">The measure of success</div>
+  <h2>Organizational change is how we measure success.</h2>
+  <div class="steps">
+    <div class="step"><div class="k">Step one</div><h3>Delivered</h3><p>The initiative is completed.</p></div>
+    <div class="step"><div class="k">Step two</div><h3>Adopted</h3><p>People work differently.</p></div>
+    <div class="step"><div class="k">Step three</div><h3>Sustained</h3><p>Business value continues.</p></div>
+  </div>
+  <p class="tagline">Delivery is a milestone. Sustained value is success.</p>
+</div></section>
+
+<section class="dark" id="delivery"><div class="wrap">
+  <div class="eyebrow">Section 03 · Our delivery model</div>
+  <h2>One transformation vision. The right capabilities to deliver it.</h2>
+  <div class="split">
+    <div>
+      <p class="intro">Complex transformations rarely succeed through the efforts of a single senior transformation leader.</p>
+      <p class="intro">They require an orchestrated combination of strategy, execution, technology, process expertise, organizational change, data, and specialized capabilities. The precise mix depends on the organization&rsquo;s ambition, maturity, and challenges.</p>
+      <p class="intro">Transformativa provides senior transformation leadership and architecture, complemented by a flexible ecosystem of independent specialists and delivery partners. This allows us to assemble the capabilities the transformation actually requires without imposing a large, permanent consulting team.</p>
+      <p class="accountable">Transformativa remains accountable for integrated leadership, direction, and execution governance, while specialized partners contribute defined capabilities.</p>
+    </div>
+    <div><svg class="diagram eco" viewBox="0 0 720 580" role="img" aria-label="Illustrative capability ecosystem around Transformativa's integrated leadership">
+<g stroke="#c9a84c" stroke-width="1.6" stroke-dasharray="4 5" opacity=".7"><line x1="360" y1="290" x2="360" y2="88"/><line x1="360" y1="290" x2="526" y2="147"/><line x1="360" y1="290" x2="595" y2="290"/><line x1="360" y1="290" x2="526" y2="433"/><line x1="360" y1="290" x2="360" y2="492"/><line x1="360" y1="290" x2="194" y2="433"/><line x1="360" y1="290" x2="125" y2="290"/><line x1="360" y1="290" x2="194" y2="147"/></g>
+<circle cx="360" cy="290" r="84" fill="#c9a84c"/>
+<text class="hub2" x="360" y="284">Transformativa</text><text class="hub3" x="360" y="307">integrated leadership</text>
+<g class="pills"><g><rect x="220" y="66" width="280" height="44" rx="22"/><text x="360" y="94">Transformation leadership</text></g><g><rect x="372" y="125" width="309" height="44" rx="22"/><text x="526" y="153">Program &amp; project management</text></g><g><rect x="505" y="268" width="180" height="44" rx="22"/><text x="595" y="296">People &amp; talent</text></g><g><rect x="416" y="411" width="220" height="44" rx="22"/><text x="526" y="439">Organization design</text></g><g><rect x="270" y="470" width="180" height="44" rx="22"/><text x="360" y="498">Data &amp; insights</text></g><g><rect x="79" y="411" width="230" height="44" rx="22"/><text x="194" y="439">Digital &amp; technology</text></g><g><rect x="10" y="268" width="230" height="44" rx="22"/><text x="125" y="296">Process optimization</text></g><g><rect x="94" y="125" width="200" height="44" rx="22"/><text x="194" y="153">Change management</text></g></g></svg>
+<ul class="chips"><li>Transformation leadership</li><li>Program &amp; project management</li><li>People &amp; talent</li><li>Organization design</li><li>Data &amp; insights</li><li>Digital &amp; technology</li><li>Process optimization</li><li>Change management</li></ul><p class="caption">Illustrative capability ecosystem. Specialists are mobilized according to client needs.</p></div>
+  </div>
+</div></section>
+
+<section class="alt" id="services"><div class="wrap">
+  <div class="eyebrow dk">Section 04 · Advisory &amp; execution services</div>
+  <h2>From transformation architecture to measurable results.</h2>
+  <div class="svcs"><article class="svc"><span class="n">01</span><h3>Enterprise Transformation Architecture</h3><p>Define the transformation ambition, future-state operating model, portfolio of initiatives, governance, capabilities, and value roadmap.</p></article><article class="svc"><span class="n">02</span><h3>Transformation Office &amp; Execution Leadership</h3><p>Establish decision-making discipline, mobilize cross-functional teams, resolve dependencies, and maintain accountability for outcomes.</p></article><article class="svc"><span class="n">03</span><h3>Organizational Change &amp; Adoption</h3><p>Align leaders, redesign ways of working, build readiness, develop capabilities, and make new behaviors sustainable.</p></article><article class="svc"><span class="n">04</span><h3>Digital, Data &amp; AI-Enabled Transformation</h3><p>Connect technology investment to process redesign, adoption, information quality, and business value rather than technology deployment alone.</p></article><article class="svc"><span class="n">05</span><h3>Performance Improvement &amp; Transformation Recovery</h3><p>Diagnose stalled initiatives, stabilize execution, improve operating performance, and restore confidence in delivery.</p></article>
+    <article class="svc" style="background:var(--accent);border-color:var(--accent);border-top-color:var(--gold)"><span class="n">&rarr;</span><h3 style="color:#fff">Recovering an ERP program?</h3><p style="color:#d9e3dc">Our business-side ERP readiness and recovery practice has its own page.</p><p><a href="../" style="color:var(--gold);font-weight:500">See ERP Recovery &rarr;</a></p></article>
+  </div>
+</div></section>
+
+<section class="cta" id="contact"><div class="wrap">
+  <h2>Your transformation deserves more than a project plan.</h2>
+  <p>Whether you&rsquo;re launching a strategic initiative, redesigning your operating model, navigating a technology-enabled transformation, or recovering a program that has lost momentum, Transformativa can help architect the path forward and mobilize the capabilities to deliver it.</p>
+  <div class="big">Let&rsquo;s build change that lasts.</div>
+  <div class="actions">
+    <a class="btn btn-gold" href="mailto:contact@gettransformativa.com">Email us</a>
+    <a class="btn btn-ghost" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>&copy; 2026 Transformativa LLC</div>
+  <div><a href="../">ERP Recovery</a> &middot; <a href="../about-transformativa-llc/">About Transformativa LLC</a> &middot; <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a></div>
+</div></footer>
+</body>
+</html>
