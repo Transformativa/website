@@ -494,8 +494,8 @@ function reportHTML(){
 }
 </script>
 <script>
-/* Privacy-friendly event hooks: no cookies, no personal data. Sends only if an analytics script (Plausible or GoatCounter) is added to the page. */
-window.track=function(n){try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+/* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
+window.track=function(n){try{fetch('https://zocypfuzifymtqyrzzvt.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_8uO3u--OIRwSukiAXkZ47Q_kG0wJmBW'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
