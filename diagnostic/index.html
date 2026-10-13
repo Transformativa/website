@@ -150,7 +150,7 @@
       <div class="actions" style="margin-top:0"><button class="btn btn-gold" id="begin-quick">Start the quick version</button><button class="btn btn-line" id="begin" style="border-color:rgba(255,255,255,.5);color:#fff">Take the full assessment</button></div>
     </div>
     <div class="six" id="sixgrid"></div>
-    <p class="note">Your answers stay in your browser. Nothing is sent or stored, and your results appear immediately with no email required.</p>
+    <p class="note">Your answers stay in your browser and are never sent or stored. We record only anonymous usage: that a diagnostic was started or completed, and the overall score. No email required.</p>
   </section>
 
   <!-- QUESTIONS (context + 30) -->
@@ -299,7 +299,7 @@ function renderStep(){
   $('q-hint').textContent=(!isCtx)?'Choose the statement that best describes today.':'';
 }
 $('prev').onclick=()=>{if(step>0){step--;renderStep();window.scrollTo(0,0)}else{show('s-intro')}};
-$('next').onclick=()=>{if(step<TOTAL_()-1){step++;renderStep();window.scrollTo(0,0)}else{if(window.track)window.track(quick?'diagnostic_complete_quick':'diagnostic_complete_full');compute();show('s-results');window.scrollTo(0,0)}};
+$('next').onclick=()=>{if(step<TOTAL_()-1){step++;renderStep();window.scrollTo(0,0)}else{compute();if(window.track)window.track(quick?'diagnostic_complete_quick':'diagnostic_complete_full',{score:window._dxScore,mode:quick?'quick':'full'});show('s-results');window.scrollTo(0,0)}};
 
 /* ---------- SCORING ---------- */
 let R=null;
@@ -314,7 +314,7 @@ function compute(){
   const live=dims.filter(d=>d.avg!==null);
   const wsum=live.reduce((a,d)=>a+d.w,0);
   const tes=live.length?live.reduce((a,d)=>a+d.avg*d.w,0)/wsum:null;
-  const idx100=tes===null?null:Math.round((tes-1)/4*100);
+  const idx100=tes===null?null:Math.round((tes-1)/4*100);window._dxScore=idx100;
   const by=k=>dims.find(d=>d.k===k);
   const mean=a=>{const v=a.filter(x=>x!==null);return v.length?v.reduce((x,y)=>x+y,0)/v.length:null};
   const gap={
@@ -459,7 +459,7 @@ function renderResults(){
     <p>This assessment provides an initial perspective on your organization&rsquo;s transformation capabilities. Understanding the underlying causes, organizational dependencies, and actions required to achieve lasting change requires a deeper examination.</p>
     <p style="margin-top:10px"><b style="color:var(--gold)">Let&rsquo;s discuss what your results mean for your organization.</b></p>
     <div class="actions"><a class="btn btn-gold" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Book a 30-minute call</a><a class="btn btn-line" style="border-color:rgba(255,255,255,.5);color:#fff" href="${mailto()}">Email your results to Transformativa</a></div>
-    <p class="ctx-line">Nothing is sent unless you choose to email us. Your answers are calculated in your browser and are not stored.</p></div></div>
+    <p class="ctx-line">Nothing is sent unless you choose to email us. Your answers are calculated in your browser and are not stored; only an anonymous completion count and overall score are recorded.</p></div></div>
   <p class="disc">${DISC}</p>
   <div class="actions"><button class="btn btn-line" id="retake">Retake the assessment</button></div>`;
   if($('goFull'))$('goFull').onclick=()=>{buildPlan(false);const done=plan.findIndex(x=>x.t==='q'&&ans[x.i]===null);step=done<0?0:done;show('s-q');renderStep();window.scrollTo(0,0)};
@@ -503,7 +503,18 @@ function reportHTML(){
 </script>
 <script>
 /* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
-window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+window.track=function(n,x){x=x||{};try{var v=window._vid||'';fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_event',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname,p_visitor:v,p_referrer:x.ref||null,p_secs:x.secs==null?null:x.secs,p_scroll:x.scroll==null?null:x.scroll,p_score:x.score==null?null:x.score,p_mode:x.mode||null})}).catch(function(){});}catch(e){}};
+(function(){if(/^(localhost|127\.)/.test(location.hostname))window.track=function(){};
+try{var k='tx_vid',v=localStorage.getItem(k);if(!v){v=(self.crypto&&crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()).replace(/-/g,'').slice(0,24);localStorage.setItem(k,v)}window._vid=v}catch(e){window._vid=''}
+var ref='';try{if(document.referrer){var u=new URL(document.referrer);if(u.hostname!==location.hostname)ref=u.hostname}}catch(e){}
+window.track('pageview',{ref:ref});
+var act=0,last=Date.now(),vis=!document.hidden,maxs=0,sent=false;
+function tick(){if(vis){act+=Date.now()-last}last=Date.now()}
+function sc(){var d=document.documentElement,h=d.scrollHeight-innerHeight;var p=h>0?Math.round((scrollY||d.scrollTop)/h*100):100;if(p>maxs)maxs=p}
+addEventListener('scroll',sc,{passive:true});sc();
+function send(){tick();if(sent||act<3000)return;sent=true;window.track('page_engaged',{secs:Math.round(act/1000),scroll:Math.min(maxs,100)})}
+document.addEventListener('visibilitychange',function(){if(document.hidden){send()}else{vis=true;last=Date.now();sent=false;act=0}tick();vis=!document.hidden});
+addEventListener('pagehide',send);})();
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>

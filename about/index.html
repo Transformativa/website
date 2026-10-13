@@ -227,7 +227,18 @@
 </div></footer>
 <script>
 /* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
-window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+window.track=function(n,x){x=x||{};try{var v=window._vid||'';fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_event',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname,p_visitor:v,p_referrer:x.ref||null,p_secs:x.secs==null?null:x.secs,p_scroll:x.scroll==null?null:x.scroll,p_score:x.score==null?null:x.score,p_mode:x.mode||null})}).catch(function(){});}catch(e){}};
+(function(){if(/^(localhost|127\.)/.test(location.hostname))window.track=function(){};
+try{var k='tx_vid',v=localStorage.getItem(k);if(!v){v=(self.crypto&&crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()).replace(/-/g,'').slice(0,24);localStorage.setItem(k,v)}window._vid=v}catch(e){window._vid=''}
+var ref='';try{if(document.referrer){var u=new URL(document.referrer);if(u.hostname!==location.hostname)ref=u.hostname}}catch(e){}
+window.track('pageview',{ref:ref});
+var act=0,last=Date.now(),vis=!document.hidden,maxs=0,sent=false;
+function tick(){if(vis){act+=Date.now()-last}last=Date.now()}
+function sc(){var d=document.documentElement,h=d.scrollHeight-innerHeight;var p=h>0?Math.round((scrollY||d.scrollTop)/h*100):100;if(p>maxs)maxs=p}
+addEventListener('scroll',sc,{passive:true});sc();
+function send(){tick();if(sent||act<3000)return;sent=true;window.track('page_engaged',{secs:Math.round(act/1000),scroll:Math.min(maxs,100)})}
+document.addEventListener('visibilitychange',function(){if(document.hidden){send()}else{vis=true;last=Date.now();sent=false;act=0}tick();vis=!document.hidden});
+addEventListener('pagehide',send);})();
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 <script>
