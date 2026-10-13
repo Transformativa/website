@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformation Effectiveness Diagnostic | Transformativa</title>
+<meta name="description" content="Is your organization managing transformation, or actually achieving it? A 30-question diagnostic with an instant executive report.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#f7f5f0;--ink:#1a1a18;--ink-mid:#4a4a44;--ink-light:#7a7a72;--accent:#1a2e20;--accent-mid:#2d5c42;--accent-deep:#142318;--accent-light:#e8f0eb;--gold:#c9a84c;--gold-light:#f0e4c2;--white:#fff;--border:#d8d4cc;--risk:#a4452c;--r:4px;--rl:10px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--page);color:var(--ink);line-height:1.6;font-size:17px;min-height:100vh;display:flex;flex-direction:column}
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.15;color:var(--accent)}
+  a{color:inherit}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px;width:100%}
+  .wide{max-width:1000px}
+  .topbar{background:var(--page);border-bottom:1px solid var(--border)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1000px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--accent)}
+  .brand .mark{width:32px;height:32px;border-radius:8px;background:var(--accent);color:var(--gold);display:grid;place-items:center;font-style:italic}
+  .topbar a.back{font-size:.88rem;color:var(--ink-mid);text-decoration:none}
+  main{flex:1;padding:44px 0 72px}
+  .screen{display:none}.screen.on{display:block}
+  .btn{display:inline-block;padding:.85rem 1.7rem;border-radius:var(--r);font:500 .95rem 'Inter',sans-serif;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:.15s}
+  .btn-gold{background:var(--gold);color:var(--accent-deep)}.btn-gold:hover{background:#d6b65c}
+  .btn-dark{background:var(--accent);color:#fff}.btn-dark:hover{background:var(--accent-mid)}
+  .btn-line{background:transparent;border-color:var(--accent);color:var(--accent)}.btn-line:hover{background:var(--accent-light)}
+  .btn[disabled]{opacity:.4;cursor:not-allowed}
+  .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-mid);font-weight:600;margin-bottom:14px}
+  /* intro */
+  .intro-card{background:var(--accent);color:#fff;border-radius:var(--rl);padding:56px 48px;position:relative;overflow:hidden}
+  .intro-card:after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;border:1.5px solid rgba(201,168,76,.35);box-shadow:0 0 0 46px rgba(201,168,76,.05),0 0 0 92px rgba(201,168,76,.04)}
+  .intro-card>*{position:relative;z-index:1}
+  .intro-card .eyebrow{color:var(--gold)}
+  .intro-card h1{color:#fff;font-size:clamp(2rem,5vw,3rem);max-width:18ch;margin-bottom:20px}
+  .intro-card p{color:#d9e3dc;font-weight:300;max-width:38rem;margin-bottom:14px}
+  .meta{display:flex;gap:10px 22px;flex-wrap:wrap;margin:26px 0 30px;font-size:.9rem;color:var(--gold);font-weight:500}
+  .six{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+  .six div{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;font-size:.92rem;color:var(--ink-mid)}
+  .six b{display:block;font-family:'DM Serif Display',serif;font-weight:400;color:var(--accent);font-size:1.1rem;margin-bottom:2px}
+  .note{font-size:.84rem;color:var(--ink-light);margin-top:18px}
+  /* question screens */
+  .progress{margin-bottom:30px}
+  .secs{display:flex;gap:6px;margin-bottom:10px}
+  .secs span{flex:1;height:5px;border-radius:3px;background:var(--border);overflow:hidden;position:relative}
+  .secs span i{position:absolute;left:0;top:0;bottom:0;background:var(--gold);width:0}
+  .plabel{display:flex;justify-content:space-between;gap:12px;font-size:.84rem;color:var(--ink-mid)}
+  .plabel b{color:var(--accent);font-weight:600}
+  .qcard h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin-bottom:8px}
+  .purpose{color:var(--ink-light);font-size:.92rem;margin-bottom:24px}
+  .opts{display:grid;gap:10px}
+  .opt{display:flex;gap:14px;align-items:flex-start;text-align:left;width:100%;background:#fff;border:1.5px solid var(--border);border-radius:var(--rl);padding:15px 18px;font:400 .98rem/1.45 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:.12s}
+  .opt:hover{border-color:var(--gold)}
+  .opt .dot{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);margin-top:1px;display:grid;place-items:center;font-size:.72rem;font-weight:600;color:var(--ink-light)}
+  .opt.sel{border-color:var(--accent);background:var(--accent-light)}
+  .opt.sel .dot{background:var(--accent);border-color:var(--accent);color:var(--gold)}
+  .opt.ns{border-style:dashed;color:var(--ink-mid);font-size:.92rem}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px}
+  .nav .hint{font-size:.82rem;color:var(--ink-light)}
+  /* results */
+  .res-hero{background:var(--accent);color:#fff;border-radius:var(--rl);padding:40px 44px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+  .scorebox{text-align:center;border-right:1px solid rgba(255,255,255,.2);padding-right:40px}
+  .scorebox .big{font-family:'DM Serif Display',serif;font-size:4.6rem;line-height:1;color:var(--gold)}
+  .scorebox .of{color:#9fb3a6;font-size:.9rem}
+  .scorebox .cls{margin-top:12px;display:inline-block;background:var(--gold);color:var(--accent-deep);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 14px;border-radius:99px}
+  .res-hero h2{color:#fff;font-size:1.8rem;margin-bottom:10px}
+  .res-hero p{color:#d9e3dc;font-weight:300}
+  .ctx-line{margin-top:12px;font-size:.9rem;color:#b9c9be}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:30px 32px;margin-top:22px}
+  .card h3{font-size:1.5rem;margin-bottom:6px}
+  .card .sub{color:var(--ink-light);font-size:.9rem;margin-bottom:18px}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+  .radar{width:100%;height:auto;display:block}
+  .dimtab{width:100%;border-collapse:collapse;font-size:.92rem}
+  .dimtab td,.dimtab th{padding:9px 6px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  .dimtab th{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);font-weight:600}
+  .dimtab .sc{font-weight:600;color:var(--accent);white-space:nowrap}
+  .pill{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 10px;border-radius:99px;white-space:nowrap}
+  .pill.high{background:#f4dcd4;color:var(--risk)}.pill.mod{background:var(--gold-light);color:#6b5518}.pill.low{background:var(--accent-light);color:var(--accent-mid)}
+  .risk{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}.risk:last-child{border:0;padding-bottom:0}
+  .risk .num{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--gold);flex:none;width:1.6rem;line-height:1.1}
+  .risk h4{font-size:1rem;font-weight:600;color:var(--accent);margin-bottom:2px}.risk p{font-size:.93rem;color:var(--ink-mid)}
+  .bars{display:grid;gap:16px;margin-top:6px}
+  .bar .lab{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:5px}.bar .lab b{color:var(--accent)}
+  .bar .track{height:14px;background:var(--accent-light);border-radius:7px;overflow:hidden}.bar .fill{height:100%;background:var(--accent);border-radius:7px}
+  .bar.weak .fill{background:var(--gold)}
+  .callout{margin-top:18px;padding:16px 20px;background:var(--gold-light);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;font-size:.95rem;color:#4d3d0f}
+  .rec{display:grid;grid-template-columns:38px 1fr 110px;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);font-size:.95rem;align-items:start}
+  .rec:last-child{border:0}.rec .n{font-family:'DM Serif Display',serif;color:var(--gold);font-size:1.4rem;line-height:1.1}.rec .t{color:var(--accent-mid);font-weight:600;font-size:.84rem;text-align:right}
+  .lvls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .lvl{border:1px solid var(--border);border-radius:var(--rl);padding:20px 20px;background:var(--page)}
+  .lvl.cur{background:var(--accent);color:#fff;border-color:var(--accent)}.lvl.cur h4,.lvl.cur .k{color:var(--gold)}.lvl.cur p{color:#d9e3dc}
+  .lvl .k{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent-mid);margin-bottom:6px}
+  .lvl h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.2rem;color:var(--accent);margin-bottom:6px}.lvl p{font-size:.88rem;color:var(--ink-mid);line-height:1.5}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .disc{font-size:.8rem;color:var(--ink-light);margin-top:22px;line-height:1.55}
+  footer{background:var(--accent-deep);color:#9fb3a6;font-size:.84rem;padding:22px 0}
+  footer .wrap{max-width:1000px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer a{text-decoration:none}
+  /* print report */
+  #report{display:none}
+  @media(max-width:760px){.intro-card{padding:38px 26px}.six{grid-template-columns:1fr}.res-hero{grid-template-columns:1fr;padding:30px 26px;gap:22px}.scorebox{border:0;padding:0 0 18px;border-bottom:1px solid rgba(255,255,255,.2)}.twocol{grid-template-columns:1fr}.lvls{grid-template-columns:1fr}.card{padding:24px 20px}.rec{grid-template-columns:30px 1fr}.rec .t{grid-column:2;text-align:left}}
+  @page{size:Letter;margin:.55in}
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff;font-size:11pt;display:block}
+    .topbar,main,footer{display:none!important}
+    #report{display:block}
+    .pg{page-break-after:always;break-after:page;min-height:9.6in;position:relative;padding-bottom:.4in}
+    .pg:last-child{page-break-after:auto;break-after:auto}
+    .pg .rh{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:8px;margin-bottom:22px;font-size:9pt;color:var(--ink-light);letter-spacing:.08em;text-transform:uppercase}
+    .pg .rh b{font-family:'DM Serif Display',serif;font-weight:400;font-size:14pt;color:var(--accent);letter-spacing:0;text-transform:none}
+    .pg h2{font-size:22pt;margin-bottom:12px}.pg h3{font-size:14pt;margin:18px 0 6px}
+    .pg p{font-size:10.5pt;color:var(--ink-mid);margin-bottom:8px}
+    .pg .radar{max-width:4.4in;margin:0 auto 6px}
+    .pg .dimtab td,.pg .dimtab th{padding:5px 6px;font-size:9.5pt}
+    .pg .res-hero{padding:26px 30px}.pg .card{padding:16px 20px;margin-top:14px;break-inside:avoid}
+    .pg .foot{position:absolute;bottom:0;left:0;right:0;font-size:8pt;color:var(--ink-light);border-top:1px solid var(--border);padding-top:6px}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="../"><span class="mark">T</span>Transformativa</a>
+  <a class="back" href="../transformations/">&larr; Transformation Advisory</a>
+</div></div>
+
+<main><div class="wrap" id="app">
+
+  <!-- INTRO -->
+  <section class="screen on" id="s-intro">
+    <div class="intro-card">
+      <div class="eyebrow">Transformation Effectiveness Diagnostic</div>
+      <h1>Is your transformation designed to succeed?</h1>
+      <p>Most organizations know what they want to change. Fewer have the integrated leadership, capabilities, governance, and organizational readiness to make that change sustainable.</p>
+      <p>Evaluate your organization&rsquo;s transformation effectiveness across six critical dimensions.</p>
+      <div class="meta"><span>30 questions</span><span>&middot;</span><span>Approximately 10 minutes</span><span>&middot;</span><span>Personalized executive report</span></div>
+      <button class="btn btn-gold" id="begin">Begin assessment</button>
+    </div>
+    <div class="six" id="sixgrid"></div>
+    <p class="note">Your answers stay in your browser. Nothing is sent or stored, and your results appear immediately with no email required.</p>
+  </section>
+
+  <!-- QUESTIONS (context + 30) -->
+  <section class="screen" id="s-q">
+    <div class="progress">
+      <div class="secs" id="secs"></div>
+      <div class="plabel"><span id="plabel-l"></span><span id="plabel-r"></span></div>
+    </div>
+    <div class="qcard">
+      <div class="eyebrow" id="q-eyebrow"></div>
+      <h2 id="q-text"></h2>
+      <p class="purpose" id="q-purpose"></p>
+      <div class="opts" id="q-opts"></div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-line" id="prev">Back</button>
+      <span class="hint" id="q-hint"></span>
+      <button class="btn btn-dark" id="next" disabled>Continue</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen" id="s-results"><div id="results"></div></section>
+
+</div></main>
+
+<div id="report"></div>
+
+<footer><div class="wrap">
+  <div>&copy; 2026 Transformativa LLC</div>
+  <div><a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a></div>
+</div></footer>
+
+<script>
+/* ---------- DATA ---------- */
+const DIMS=[
+ {k:'strategy',name:'Strategy & Leadership Alignment',short:'Strategy & Leadership',w:15,purpose:'Does the organization have a coherent transformation ambition and a leadership structure capable of delivering it?',risk:'Strategic Alignment Risk',riskd:'The transformation may lack coherent direction, sponsorship, or the capabilities its ambition requires.',recs:['Align executive sponsors on a single transformation case with measurable outcomes, clear decision rights, and a defined capability plan','Re-baseline transformation priorities and capability needs against the strategic ambition']},
+ {k:'opmodel',name:'Operating Model & Process Change',short:'Operating Model',w:20,purpose:'Is the transformation changing how the business actually operates?',risk:'Operating Model Risk',riskd:'The transformation may deliver new tools and structures without changing how work is performed.',recs:['Validate the future-state operating model, roles, and cross-functional accountability','Redesign priority end-to-end processes and embed them into daily operations']},
+ {k:'tech',name:'Technology, Data & Enablement',short:'Technology & Data',w:10,purpose:'Do technology investments support the transformation rather than becoming the transformation itself?',risk:'Technology Enablement Risk',riskd:'Technology and data dependencies may constrain the outcomes the business expects.',recs:['Link each technology investment to a business case and redesign processes alongside implementation','Establish data ownership and readiness checks ahead of major releases']},
+ {k:'people',name:'People, Change & Adoption',short:'People & Adoption',w:20,purpose:'Can the organization adopt and sustain the transformation?',risk:'Adoption Risk',riskd:'The organization may be implementing change faster than people and leaders can adopt it.',recs:['Establish an integrated organizational change and adoption plan with leader-led reinforcement','Define adoption metrics and feedback loops and review them in executive governance']},
+ {k:'exec',name:'Execution & Transformation Governance',short:'Execution & Governance',w:15,purpose:'Can the organization orchestrate complex transformation across functions and initiatives?',risk:'Execution Risk',riskd:'Delivery may be fragmented, with unmanaged dependencies and slow decisions.',recs:['Integrate transformation plans under one governance cadence with clear owners, risks, and dependencies','Shift executive reporting from activity status to decisions and outcomes']},
+ {k:'value',name:'Value Realization & Sustainability',short:'Value Realization',w:20,purpose:'Are transformation benefits actually achieved and sustained?',risk:'Value Leakage Risk',riskd:'Business outcomes may not be consistently measured or sustained after project completion.',recs:['Assign business ownership and measurable KPIs to transformation benefits','Extend benefits tracking beyond go-live and transfer accountability to business operations']}
+];
+const Q=[
+ ['strategy','How clearly is the transformation vision connected to measurable business objectives?',['Vision is unclear or primarily initiative-driven','Objectives exist for some initiatives but are not linked to enterprise outcomes','Business objectives are defined and communicated','Objectives are tied to enterprise outcomes and regularly reviewed by leadership','Transformation priorities continuously align with strategic outcomes']],
+ ['strategy','How consistently do executive leaders sponsor and reinforce the transformation?',['Sponsorship is inconsistent','Sponsors are named, but their involvement varies','Executive sponsors have defined responsibilities','Sponsors engage consistently and are visible across the organization','Leaders actively remove barriers and reinforce transformation priorities']],
+ ['strategy','How effectively are transformation priorities aligned across functions?',['Functions pursue competing priorities','Priorities are shared informally, with frequent conflicts','Priorities are coordinated through governance','Priorities are aligned across functions and conflicts are resolved routinely','Enterprise priorities drive integrated resource and investment decisions']],
+ ['strategy','How effectively are transformation decisions made and escalated?',['Decisions are delayed or ownership is unclear','Some decision paths exist, but escalation is slow or inconsistent','Decision rights and escalation paths are defined','Decisions are made on time and tracked to closure','Decisions are timely, evidence-based, and continuously monitored']],
+ ['strategy','How well are transformation capabilities and resources aligned to the ambition?',['Capability gaps are largely unknown','Some capability gaps are recognized but not addressed','Required capabilities are identified and partially staffed','Required capabilities are staffed and gaps are actively managed','Capabilities are proactively mobilized and adjusted as needs evolve']],
+ ['opmodel','How clearly is the future-state operating model defined?',['No consistent future-state design','Future-state design exists for parts of the business','Future-state roles, processes, and structures are documented','The operating model is approved and being implemented across functions','The operating model is implemented, measured, and continuously refined']],
+ ['opmodel','How effectively are end-to-end business processes redesigned?',['Changes are isolated within functions','A few processes are redesigned across functions','Priority processes are redesigned across functions','Most priority processes are redesigned end to end and monitored','End-to-end processes are optimized against business outcomes']],
+ ['opmodel','How clearly are future-state roles and decision rights established?',['Responsibilities are unclear','Roles are defined for some areas; decision rights are ambiguous','Roles and decision rights are documented','Roles and decision rights are understood and applied in practice','Accountability is embedded and reinforced through performance management']],
+ ['opmodel','How effectively are cross-functional dependencies addressed?',['Dependencies create recurring delays','Dependencies are recognized but handled case by case','Dependencies are identified and managed','Dependencies are managed through regular cross-functional forums','Dependencies are proactively resolved through integrated operating mechanisms']],
+ ['opmodel','How well are new processes embedded into everyday operations?',['Teams revert to legacy practices','New processes are used inconsistently','New processes are implemented with some adoption monitoring','New processes are the norm, and deviations are tracked and addressed','New ways of working are sustained and continuously improved']],
+ ['tech','How effectively is technology investment linked to business outcomes?',['Technology initiatives are largely disconnected from outcomes','Business cases exist but are rarely revisited','Business cases link technology to operational improvements','Technology benefits are tracked against the original business case','Technology investment is continuously evaluated against realized business value']],
+ ['tech','How well are business processes redesigned alongside technology implementation?',['Technology is implemented without meaningful process change','Process changes are considered late in implementation','Process redesign accompanies major implementations','Process and technology design are planned together from the start','Technology and operating-model changes are designed and optimized together']],
+ ['tech','How effectively are data quality and information readiness addressed?',['Data issues are discovered late','Data issues are addressed reactively as they arise','Data readiness and ownership are defined','Data readiness is verified before major milestones','Data quality is continuously governed and supports reliable decisions']],
+ ['tech','How well are integration and technology dependencies managed?',['Dependencies are poorly understood','Some dependencies are documented but not actively managed','Dependencies are documented and managed','Dependencies are managed across programs with clear owners','Technology dependencies are proactively optimized across the enterprise']],
+ ['tech','How effectively do employees use new technology capabilities?',['Tools are available but adoption is limited','Training is provided but usage varies widely','Training and adoption monitoring are established','Adoption is tracked and gaps trigger targeted support','Technology usage demonstrably improves productivity and business outcomes']],
+ ['people','How systematically are stakeholders and change impacts assessed?',['Change impacts are not consistently evaluated','Impacts are assessed for some initiatives only','Stakeholder and change-impact assessments are performed','Impact assessments are updated and used to plan interventions','Change impacts inform decisions and interventions throughout the transformation']],
+ ['people','How effectively do leaders communicate and reinforce change?',['Communication is irregular and primarily informational','Communication is planned but driven mostly by the project team','Leaders follow a structured communication approach','Leaders communicate regularly and connect change to business purpose','Leaders consistently model and reinforce desired behaviors']],
+ ['people','How well are employees prepared for new ways of working?',['Training is limited or occurs late','Training exists but is generic or not tied to roles','Role-based readiness and training plans exist','Readiness is assessed before go-live and gaps are closed','Readiness is validated through demonstrated capability and performance']],
+ ['people','How effectively is resistance to change identified and addressed?',['Resistance is handled reactively','Resistance is recognized, with limited structured response','Feedback and resistance-management mechanisms exist','Feedback is collected regularly and acted upon','Employee feedback drives targeted interventions and continuous improvement']],
+ ['people','How effectively is adoption measured after implementation?',['Adoption is not measured','Adoption is measured informally or for some initiatives','Adoption metrics are defined and periodically reviewed','Adoption metrics are reviewed regularly and drive follow-up actions','Adoption and proficiency are linked to operational performance and sustained outcomes']],
+ ['exec','How effectively are transformation initiatives coordinated?',['Initiatives operate independently','Initiatives share some planning but are largely managed separately','Integrated plans and governance are established','Integrated plans are actively managed, with regular reprioritization','Initiatives are continuously coordinated and reprioritized against enterprise outcomes']],
+ ['exec','How clearly are transformation outcomes and deliverables owned?',['Accountability is fragmented','Owners are named for some outcomes','Accountable owners are assigned','Owners are accountable and report progress at the executive level','Ownership is reinforced through performance and decision-making mechanisms']],
+ ['exec','How effectively are risks, dependencies, and constraints managed?',['Issues are escalated after they become critical','Risks are tracked, but mostly within individual projects','Risks and dependencies are actively tracked','Risks are reviewed across initiatives with mitigation owners','Risks are anticipated and resolved through proactive interventions']],
+ ['exec','How effectively does leadership receive actionable transformation insights?',['Reporting focuses on activity and status','Reporting covers progress and issues but offers limited insight','Dashboards provide integrated delivery visibility','Reporting highlights risks and outcomes and informs leadership discussions','Reporting drives timely decisions and measurable corrective actions']],
+ ['exec','How effectively are resources and specialized capabilities mobilized?',['Resource gaps frequently delay progress','Resource gaps are addressed after they cause delays','Resource and capability plans are maintained','Resource and capability plans are reviewed regularly and gaps closed promptly','Internal and external capabilities are dynamically deployed based on transformation priorities']],
+ ['value','How clearly are transformation benefits defined and quantified?',['Benefits are vague or not measured','Benefits are described but lack baselines or owners','Benefits have baselines, targets, and owners','Benefits are tracked against targets and linked to business plans','Benefits are actively optimized against enterprise objectives']],
+ ['value','How effectively are benefits tracked beyond implementation?',['Tracking ends at project completion','Some benefits are checked shortly after go-live','Benefits are periodically measured after implementation','Benefits are measured on a set schedule and reported to leadership','Benefits are continuously monitored and validated against business performance']],
+ ['value','How clearly is accountability transferred to business operations?',['Ownership ends when the project closes','Handover happens informally','Operational owners formally accept accountability','Operational owners manage benefits within their regular reviews','Benefits ownership is embedded in business performance management']],
+ ['value','How effectively are transformation outcomes sustained?',['Improvements frequently deteriorate','Some improvements hold, but erosion is common','Sustainability plans and controls are established','Controls are monitored and erosion is corrected quickly','Sustained outcomes are verified and continuously improved']],
+ ['value','How effectively does the organization adapt based on realized results?',['Lessons rarely influence future decisions','Lessons are captured but seldom applied','Performance reviews inform corrective actions','Results regularly shape priorities and resourcing','Continuous learning systematically shapes investment and operating decisions']]
+];
+const CTX=[
+ {id:'obj',label:'Primary objective',q:'What is the primary transformation objective?',o:['Cost reduction','Growth','Digital modernization','Operating-model redesign','M&A integration','Enterprise turnaround','Other']},
+ {id:'stage',label:'Stage',q:'What stage is the transformation in?',o:['Planning','Mobilization','Execution','Implementation','Stabilization']},
+ {id:'scope',label:'Scope',q:'What is the approximate scope?',o:['Single function','Multiple functions','Enterprise-wide','Multiple businesses']},
+ {id:'chal',label:'Biggest challenge',q:'What is the biggest current challenge?',o:['Leadership alignment','Execution','Capabilities','Technology','Adoption','Value realization']},
+ {id:'who',label:'Role',q:'Who is completing the assessment?',o:['CEO','CFO','COO','CTO','Transformation leader','PMO/TMO leader','Other']},
+ {id:'tmo',label:'Transformation office',q:'Are you evaluating an existing transformation office, or readiness to establish one?',o:['An existing transformation office','Readiness to establish one','We do not have a formal transformation office']}
+];
+const BANDS=[[1.0,1.8,'Fragmented','Transformation lacks essential foundations.'],[1.8,2.6,'Emerging','Capabilities exist but are inconsistent.'],[2.6,3.4,'Defined','Foundational capabilities are established.'],[3.4,4.2,'Integrated','Transformation capabilities operate across the enterprise.'],[4.2,5.01,'Optimized','Transformation is embedded and continuously improved.']];
+const CHAL_MAP={'Leadership alignment':['strategy'],'Execution':['exec'],'Capabilities':['strategy','exec'],'Technology':['tech'],'Adoption':['people'],'Value realization':['value']};
+const RISK_T=2.6, GAP_T=1.0;
+
+/* ---------- STATE ---------- */
+const ctx={}; const ans=Array(Q.length).fill(null);
+let step=0; // 0..5 context, 6..35 questions
+const TOTAL=CTX.length+Q.length;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const band=v=>BANDS.find(b=>v>=b[0]&&v<b[1])||BANDS[0];
+
+/* ---------- INTRO ---------- */
+$('sixgrid').innerHTML=DIMS.map(d=>`<div><b>${esc(d.short)}</b>${esc(d.purpose.replace(/\?$/,'').replace(/^(Does|Is|Do|Can|Are) /,''))}?</div>`.replace(/\?\?/,'?')).join('');
+$('sixgrid').innerHTML=DIMS.map(d=>`<div><b>${esc(d.short)}</b>${esc(d.purpose)}</div>`).join('');
+$('begin').onclick=()=>{show('s-q');step=0;renderStep();window.scrollTo(0,0)};
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id))}
+
+/* ---------- QUESTION FLOW ---------- */
+function renderStep(){
+  const isCtx=step<CTX.length;
+  const qi=step-CTX.length;
+  // progress segments: 1 for context + 6 dimensions
+  const segs=[{label:'Your context',from:0,to:CTX.length}].concat(DIMS.map((d,i)=>({label:d.short,from:CTX.length+i*5,to:CTX.length+i*5+5})));
+  $('secs').innerHTML=segs.map(s=>{const p=Math.max(0,Math.min(1,(step-s.from)/(s.to-s.from)));return `<span><i style="width:${p*100}%"></i></span>`}).join('');
+  const cur=segs.find(s=>step>=s.from&&step<s.to);
+  $('plabel-l').innerHTML=`<b>${esc(cur.label)}</b>`;
+  $('plabel-r').textContent=isCtx?`Context ${step+1} of ${CTX.length}`:`Question ${qi+1} of ${Q.length}`;
+  let opts,sel,txt,eye,purpose='';
+  if(isCtx){const c=CTX[step];txt=c.q;eye='A little context';purpose='This tailors your report. It does not change your score.';opts=c.o.map((o,i)=>({t:o,v:o}));sel=ctx[c.id];}
+  else{const q=Q[qi];const d=DIMS.find(x=>x.k===q[0]);txt=q[1];eye=`${d.name}`;purpose=d.purpose;opts=q[2].map((t,i)=>({t,v:i+1}));opts.push({t:'Not sure / insufficient visibility',v:0,ns:true});sel=ans[qi];}
+  $('q-eyebrow').textContent=eye;$('q-text').textContent=txt;$('q-purpose').textContent=purpose;
+  $('q-opts').innerHTML=opts.map((o,i)=>`<button class="opt${o.ns?' ns':''}${sel===o.v&&sel!==null&&sel!==undefined?' sel':''}" data-i="${i}"><span class="dot">${o.ns?'?':(isCtx?'':o.v)}</span><span>${esc(o.t)}</span></button>`).join('');
+  document.querySelectorAll('#q-opts .opt').forEach(b=>b.onclick=()=>{
+    const o=opts[+b.dataset.i];
+    if(isCtx)ctx[CTX[step].id]=o.v;else ans[qi]=o.v;
+    renderStep();
+  });
+  $('next').disabled=!(sel!==null&&sel!==undefined);
+  $('next').textContent=step===TOTAL-1?'See my results':'Continue';
+  $('prev').style.visibility=step===0?'hidden':'visible';
+  $('q-hint').textContent=(!isCtx)?'Choose the statement that best describes today.':'';
+}
+$('prev').onclick=()=>{if(step>0){step--;renderStep();window.scrollTo(0,0)}else{show('s-intro')}};
+$('next').onclick=()=>{if(step<TOTAL-1){step++;renderStep();window.scrollTo(0,0)}else{compute();show('s-results');window.scrollTo(0,0)}};
+
+/* ---------- SCORING ---------- */
+let R=null;
+function compute(){
+  const dims=DIMS.map(d=>{
+    const idx=Q.map((q,i)=>q[0]===d.k?i:-1).filter(i=>i>=0);
+    const vals=idx.map(i=>ans[i]).filter(v=>v>0);
+    const ns=idx.length-vals.length;
+    const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
+    return Object.assign({},d,{idx,avg,ns,n:idx.length,thin:vals.length<=2});
+  });
+  const live=dims.filter(d=>d.avg!==null);
+  const wsum=live.reduce((a,d)=>a+d.w,0);
+  const tes=live.length?live.reduce((a,d)=>a+d.avg*d.w,0)/wsum:null;
+  const idx100=tes===null?null:Math.round((tes-1)/4*100);
+  const by=k=>dims.find(d=>d.k===k);
+  const mean=a=>{const v=a.filter(x=>x!==null);return v.length?v.reduce((x,y)=>x+y,0)/v.length:null};
+  const gap={
+    ambition:by('strategy').avg,
+    delivery:mean([by('opmodel').avg,by('tech').avg,by('exec').avg]),
+    sustain:mean([by('people').avg,by('value').avg])
+  };
+  const ranked=live.slice().sort((a,b)=>a.avg-b.avg);
+  const risks=ranked.slice(0,3).map(d=>({d,sev:d.avg<RISK_T?'High':d.avg<3.4?'Moderate':'Lower'}));
+  const flags=live.filter(d=>d.avg<RISK_T);
+  const ex=by('exec').avg,pe=by('people').avg;
+  const disc=(ex!==null&&pe!==null)?{exec:ex,people:pe,gap:ex-pe,flag:(ex-pe)>=GAP_T}:null;
+  const nsTotal=ans.filter(v=>v===0).length;
+  R={dims,live,tes,idx100,cls:tes===null?null:band(tes),gap,ranked,risks,flags,disc,nsTotal};
+  renderResults();
+}
+const f1=v=>v===null?'n/a':v.toFixed(1);
+
+/* ---------- TEXT ---------- */
+function interpretation(){
+  if(R.tes===null)return 'There were not enough answered questions to calculate a score. Retake the assessment and answer where you have visibility.';
+  const hi=R.ranked.slice(-2).reverse().map(d=>d.short), lo=R.ranked.slice(0,2).map(d=>d.short);
+  let s=`Your strongest results are in ${hi.join(' and ')}. The most exposed areas are ${lo.join(' and ')}.`;
+  const g=R.gap;
+  if(g.delivery!==null&&g.sustain!==null){
+    if(g.delivery-g.sustain>=0.5)s+=' Your organization appears better equipped to deliver initiatives than to sustain the change they create, so completed work may not consistently turn into lasting operational change.';
+    else if(g.sustain-g.delivery>=0.5)s+=' Your organization appears stronger at embedding and sustaining change than at coordinating delivery, so execution discipline may be the constraint.';
+    else s+=' Your delivery capability and your ability to sustain change are broadly in step, which is a healthy foundation to build on.';
+  }
+  return s;
+}
+function ctxLine(){
+  const p=[];
+  if(ctx.stage||ctx.obj||ctx.scope){p.push(`You described a ${(ctx.stage||'').toLowerCase()||'current'} transformation${ctx.obj?` focused on ${ctx.obj.toLowerCase()}`:''}${ctx.scope?` (${ctx.scope.toLowerCase()})`:''}.`);}
+  if(ctx.chal){
+    const m=CHAL_MAP[ctx.chal]||[];const low=R.ranked.slice(0,3).map(d=>d.k);
+    if(m.some(k=>low.includes(k)))p.push(`You named ${ctx.chal.toLowerCase()} as your biggest challenge, and the assessment supports that.`);
+    else if(R.ranked.length)p.push(`You named ${ctx.chal.toLowerCase()} as your biggest challenge. The assessment points to ${R.ranked[0].short.toLowerCase()} as a larger exposure.`);
+  }
+  return p.join(' ');
+}
+function recs(){
+  const rk=R.ranked;if(!rk.length)return[];
+  const out=[];
+  if(rk[0])out.push({a:rk[0].recs[0],t:'0–30 days'});
+  if(rk[1])out.push({a:rk[1].recs[0],t:'0–30 days'});
+  if(rk[2])out.push({a:rk[2].recs[0],t:'30–60 days'});
+  if(rk[0])out.push({a:rk[0].recs[1],t:'30–60 days'});
+  out.push({a:'Conduct a transformation sustainability review',t:'60–90 days'});
+  return out;
+}
+function mailto(){
+  const body=`Hello,\n\nI completed the Transformation Effectiveness Diagnostic and would like to talk.\n\nOverall score: ${R.idx100===null?'n/a':R.idx100+'/100'} (${R.cls?R.cls[2]:'n/a'})\n${R.dims.map(d=>`- ${d.short}: ${f1(d.avg)}`).join('\n')}\n\nName:\nOrganization:\n`;
+  return 'mailto:contact@gettransformativa.com?subject='+encodeURIComponent('Transformation Effectiveness Diagnostic follow-up')+'&body='+encodeURIComponent(body);
+}
+
+/* ---------- SVG ---------- */
+function radar(){
+  const cx=210,cy=205,r=135,n=6;
+  const pt=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/n;const rr=r*((v-1)/4);return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)]};
+  let g='';
+  for(let l=1;l<=5;l++){g+=`<polygon points="${DIMS.map((_,i)=>pt(i,l).join(',')).join(' ')}" fill="${l%2?'#f7f5f0':'#fff'}" stroke="#d8d4cc" stroke-width="1"/>`}
+  DIMS.forEach((d,i)=>{const [x,y]=pt(i,5);g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#d8d4cc"/>`;
+    const a=-Math.PI/2+i*2*Math.PI/n;const lx=cx+(r+34)*Math.cos(a),ly=cy+(r+30)*Math.sin(a);
+    const anchor=Math.abs(Math.cos(a))<.2?'middle':(Math.cos(a)>0?'start':'end');
+    const parts=d.short.split(' & ');g+=`<text x="${lx}" y="${ly-(parts.length>1?6:0)}" text-anchor="${anchor}" font-size="12" font-weight="600" fill="#1a2e20">${esc(parts[0])}${parts.length>1?' &amp;':''}</text>`+(parts.length>1?`<text x="${lx}" y="${ly+9}" text-anchor="${anchor}" font-size="12" font-weight="600" fill="#1a2e20">${esc(parts[1])}</text>`:'')});
+  const poly=R.dims.map((d,i)=>pt(i,d.avg===null?1:d.avg).join(',')).join(' ');
+  g+=`<polygon points="${poly}" fill="rgba(201,168,76,.35)" stroke="#c9a84c" stroke-width="2.5"/>`;
+  R.dims.forEach((d,i)=>{const [x,y]=pt(i,d.avg===null?1:d.avg);g+=`<circle cx="${x}" cy="${y}" r="5" fill="#1a2e20" stroke="#c9a84c" stroke-width="2"/>`});
+  return `<svg class="radar" viewBox="-60 0 540 410" role="img" aria-label="Radar chart of six transformation dimensions">${g}</svg>`;
+}
+function bars(){
+  const items=[['Strategic ambition and alignment',R.gap.ambition],['Delivery capability',R.gap.delivery],['Adoption and sustainability',R.gap.sustain]];
+  const min=Math.min(...items.map(i=>i[1]===null?9:i[1]));
+  return `<div class="bars">`+items.map(([l,v])=>`<div class="bar${v!==null&&v===min&&items.filter(i=>i[1]===min).length===1?' weak':''}"><div class="lab"><span>${l}</span><b>${f1(v)}</b></div><div class="track"><div class="fill" style="width:${v===null?0:((v-1)/4*100)}%"></div></div></div>`).join('')+`</div>`;
+}
+function gapText(){
+  const g=R.gap;if(g.ambition===null||g.delivery===null||g.sustain===null)return 'Some areas had too little evidence to compare ambition, delivery capability, and sustainability.';
+  const m=Math.min(g.ambition,g.delivery,g.sustain);
+  if(Math.max(g.ambition,g.delivery,g.sustain)-m<0.5)return 'Ambition, delivery capability, and the ability to sustain change are closely matched.';
+  if(m===g.sustain)return 'Strategic ambition and delivery capability are more advanced than the ability to embed and sustain change.';
+  if(m===g.delivery)return 'Strategic ambition is ahead of the capability to deliver it. Closing the delivery gap is the priority.';
+  return 'Delivery and sustainability capabilities are ahead of strategic clarity. Sharpening direction and alignment is the priority.';
+}
+function discText(){
+  if(!R.disc)return 'There was not enough data to compare execution capability with adoption.';
+  const d=R.disc;
+  return `Execution maturity ${f1(d.exec)} vs. people and adoption maturity ${f1(d.people)}: a gap of ${d.gap.toFixed(1)} points. `+(d.flag?'That indicates a significant imbalance between the organization’s ability to deliver initiatives and its ability to embed change. It does not prove the transformation will fail, but it is the clearest area to investigate.':'There is no significant imbalance between delivery capability and adoption.');
+}
+const sevPill=s=>`<span class="pill ${s==='High'?'high':s==='Moderate'?'mod':'low'}">${s}</span>`;
+const DISC='This assessment is based on respondent-provided information and is an indicative diagnostic, not an independently verified audit. Maturity bands and risk thresholds are Transformativa diagnostic proposals, not externally validated industry benchmarks. Questions marked “not sure” are excluded from averages rather than scored as low.';
+const LEVELS=[['Level 1','Transformation Effectiveness Diagnostic','Complimentary self-assessment with immediate maturity scoring, risk identification, and this executive report.',true],['Level 2','Transformation Effectiveness Review','Fixed-fee advisory engagement: stakeholder interviews, evidence review, capability validation, risk analysis, and an executive recommendations workshop.',false],['Level 3','Transformation Architecture & Mobilization','Scoped engagement: future-state transformation architecture, transformation office design, governance, capability planning, change enablement, and benefits-realization mechanisms.',false]];
+
+/* ---------- RESULTS (screen) ---------- */
+function erpCard(){
+  const t=R.dims.find(d=>d.k==='tech');
+  const hit=(t&&t.avg!==null&&t.avg<RISK_T)||ctx.stage==='Stabilization'&&t&&t.avg!==null&&t.avg<3.4;
+  if(!hit)return '';
+  return `<div class="card" style="background:var(--accent);border-color:var(--accent)"><h3 style="color:#fff">Technology implementation under strain?</h3><p style="color:#d9e3dc;margin:8px 0 18px">Your technology and data results suggest dependencies that could constrain outcomes. If a critical system implementation needs business-side readiness, recovery, or stabilization, our ERP Recovery practice is built for that moment.</p><a class="btn btn-gold" href="../">See ERP Recovery &rarr;</a></div>`;
+}
+function dimTable(){
+  return `<table class="dimtab"><thead><tr><th>Dimension</th><th>Score</th><th>Level</th><th>Weight</th></tr></thead><tbody>`+R.dims.map(d=>`<tr><td>${esc(d.name)}${d.ns?`<div style="font-size:.78rem;color:var(--ink-light)">${d.ns} of ${d.n} marked not sure${d.thin?' · insufficient evidence':''}</div>`:''}</td><td class="sc">${f1(d.avg)}</td><td>${d.avg===null?'—':band(d.avg)[2]}</td><td>${d.w}%</td></tr>`).join('')+`</tbody></table>`;
+}
+function renderResults(){
+  const c=ctxLine();
+  $('results').innerHTML=`
+  <div class="eyebrow">Your Transformation Effectiveness Report</div>
+  <div class="res-hero">
+    <div class="scorebox"><div class="big">${R.idx100===null?'—':R.idx100}</div><div class="of">out of 100</div>${R.cls?`<div class="cls">${R.cls[2]}</div>`:''}</div>
+    <div><h2>${R.cls?esc(R.cls[3]):'Not enough data'}</h2><p>${esc(interpretation())}</p>${c?`<p class="ctx-line">${esc(c)}</p>`:''}</div>
+  </div>
+  <div class="card"><h3>Transformation capability profile</h3><div class="sub">Average maturity from 1 (Fragmented) to 5 (Optimized)</div>
+    <div class="twocol">${radar()}<div>${dimTable()}</div></div>
+    ${R.nsTotal?`<p class="disc" style="margin-top:14px">${R.nsTotal} of ${Q.length} answers were marked not sure. They are excluded from the averages, and dimensions with little evidence are flagged.</p>`:''}
+  </div>
+  <div class="card"><h3>Three priority transformation risks</h3><div class="sub">Your three lowest-scoring dimensions. “High” means the score is below ${RISK_T.toFixed(1)}.</div>
+    ${R.risks.map((r,i)=>`<div class="risk"><div class="num">${i+1}</div><div><h4>${esc(r.d.risk)} ${sevPill(r.sev)}</h4><p>${esc(r.d.riskd)}</p></div></div>`).join('')}
+  </div>
+  <div class="card"><h3>The reality gap</h3><div class="sub">What you intend to achieve, what you can deliver, and what you can sustain</div>
+    ${bars()}
+    <div class="callout">${esc(gapText())}</div>
+    <p style="margin-top:18px;font-size:.95rem;color:var(--ink-mid)"><b style="color:var(--accent)">Transformation Disconnect Indicator.</b> ${esc(discText())}</p>
+  </div>
+  <div class="card"><h3>Recommended interventions</h3><div class="sub">Your three highest-priority actions, generated from your responses</div>
+    ${recs().slice(0,3).map((r,i)=>`<div class="rec"><div class="n">${i+1}</div><div>${esc(r.a)}</div><div class="t">${r.t}</div></div>`).join('')}
+    <p class="note" style="margin-top:12px">The downloadable report includes the full 30/60/90-day plan.</p>
+  </div>
+  ${erpCard()}
+  <div class="card"><h3>Your executive report</h3><div class="sub">Branded, six pages, generated in your browser. No email required.</div>
+    <div class="actions" style="margin-top:0"><button class="btn btn-dark" id="pdf">Download executive PDF</button></div>
+    <p class="note">In the print dialog, choose &ldquo;Save as PDF&rdquo;.</p>
+  </div>
+  <div class="card"><h3>Where to go from here</h3><div class="sub">A natural progression from self-assessment to advisory to delivery</div>
+    <div class="lvls">${LEVELS.map(l=>`<div class="lvl${l[3]?' cur':''}"><div class="k">${l[0]}${l[3]?' · you are here':''}</div><h4>${l[1]}</h4><p>${l[2]}</p></div>`).join('')}</div>
+  </div>
+  <div class="res-hero" style="margin-top:22px;grid-template-columns:1fr"><div><h2>Your transformation is unique. Your roadmap should be too.</h2>
+    <p>This assessment provides an initial perspective on your organization&rsquo;s transformation capabilities. Understanding the underlying causes, organizational dependencies, and actions required to achieve lasting change requires a deeper examination.</p>
+    <p style="margin-top:10px"><b style="color:var(--gold)">Let&rsquo;s discuss what your results mean for your organization.</b></p>
+    <div class="actions"><a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Schedule a Transformation Strategy Conversation</a><a class="btn btn-line" style="border-color:rgba(255,255,255,.5);color:#fff" href="${mailto()}">Email your results to Transformativa</a></div>
+    <p class="ctx-line">Nothing is sent unless you choose to email us. Your answers are calculated in your browser and are not stored.</p></div></div>
+  <p class="disc">${DISC}</p>
+  <div class="actions"><button class="btn btn-line" id="retake">Retake the assessment</button></div>`;
+  $('retake').onclick=()=>{for(const k in ctx)delete ctx[k];ans.fill(null);step=0;show('s-intro');window.scrollTo(0,0)};
+  $('pdf').onclick=()=>{$('report').innerHTML=reportHTML();const t=document.title;document.title='Transformation Effectiveness Report | Transformativa';window.print();document.title=t};
+}
+
+/* ---------- PRINT REPORT (6 pages) ---------- */
+function reportHTML(){
+  const hd=(n,t)=>`<div class="rh"><b>Transformativa</b><span>Transformation Effectiveness Diagnostic &middot; ${t}</span></div>`;
+  const ft=n=>`<div class="foot">Page ${n} of 6 &middot; Indicative diagnostic based on respondent-provided information &middot; gettransformativa.com</div>`;
+  const dimDetail=k=>{const d=R.dims.find(x=>x.k===k);return `<h3>${esc(d.name)} &mdash; ${f1(d.avg)}</h3><table class="dimtab"><tbody>`+d.idx.map(i=>`<tr><td>${esc(Q[i][1])}</td><td class="sc">${ans[i]>0?ans[i]+' / 5':'Not sure'}</td></tr>`).join('')+`</tbody></table>`};
+  const c=ctxLine();
+  return `
+  <div class="pg">${hd(1,'Executive summary')}
+    <h2>Your Transformation Effectiveness Score</h2>
+    <div class="res-hero"><div class="scorebox"><div class="big">${R.idx100===null?'—':R.idx100}</div><div class="of">out of 100</div>${R.cls?`<div class="cls">${R.cls[2]}</div>`:''}</div><div><h2>${R.cls?esc(R.cls[3]):''}</h2><p style="color:#d9e3dc">${esc(interpretation())}</p></div></div>
+    ${c?`<p style="margin-top:14px">${esc(c)}</p>`:''}
+    <h3>How to read this report</h3><p>Each of 30 questions is scored from 1 (Fragmented) to 5 (Optimized) using observable organizational behavior. Dimension averages are weighted to produce an overall index from 0 to 100. Weights: ${DIMS.map(d=>d.short+' '+d.w+'%').join(', ')}.</p>${ft(1)}</div>
+  <div class="pg">${hd(2,'Capability profile')}
+    <h2>Transformation capability profile</h2>${radar()}${dimTable()}${ft(2)}</div>
+  <div class="pg">${hd(3,'Risks and gaps')}
+    <h2>Key transformation risks</h2>
+    ${R.risks.map((r,i)=>`<div class="risk"><div class="num">${i+1}</div><div><h4>${esc(r.d.risk)} ${sevPill(r.sev)}</h4><p>${esc(r.d.riskd)}</p></div></div>`).join('')}
+    <h3>The reality gap</h3>${bars()}<div class="callout">${esc(gapText())}</div>
+    <h3>Transformation Disconnect Indicator</h3><p>${esc(discText())}</p>${ft(3)}</div>
+  <div class="pg">${hd(4,'Change and value')}
+    <h2>Organizational change and value realization</h2>
+    <p>These two dimensions determine whether completed initiatives become lasting business change.</p>
+    ${dimDetail('people')}${dimDetail('value')}${ft(4)}</div>
+  <div class="pg">${hd(5,'Recommendations')}
+    <h2>Prioritized 30/60/90-day recommendations</h2>
+    <div class="card">${recs().map((r,i)=>`<div class="rec"><div class="n">${i+1}</div><div>${esc(r.a)}</div><div class="t">${r.t}</div></div>`).join('')}</div>
+    <p style="margin-top:14px">Recommendations are generated from the dimensions where your responses indicate the greatest exposure.</p>${ft(5)}</div>
+  <div class="pg">${hd(6,'Next steps')}
+    <h2>Engagement options and next steps</h2>
+    <div class="lvls" style="grid-template-columns:1fr">${LEVELS.map(l=>`<div class="lvl${l[3]?' cur':''}"><div class="k">${l[0]}${l[3]?' · completed':''}</div><h4>${l[1]}</h4><p>${l[2]}</p></div>`).join('')}</div>
+    <h3>Your transformation is unique. Your roadmap should be too.</h3><p>This assessment provides an initial perspective on your organization&rsquo;s transformation capabilities. Understanding the underlying causes, dependencies, and actions required to achieve lasting change requires a deeper examination. Let&rsquo;s discuss what your results mean for your organization.</p><p><b>contact@gettransformativa.com &middot; gettransformativa.com</b></p>
+    <p class="disc" style="margin-top:20px">${DISC}</p>${ft(6)}</div>`;
+}
+</script>
+</body>
+</html>
