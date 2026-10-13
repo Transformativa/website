@@ -961,22 +961,14 @@
 
   .contact-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--accent-deep);
-    color: rgba(255,255,255,0.55);
-    text-align: center;
-    padding: 1.5rem 2rem;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
+  /* shared footer */
+  footer{background:#142318;color:#9fb3a6;font-size:.88rem;line-height:1.6;padding:30px 0;text-align:left;display:block}
+  footer .ft-inner{max-width:var(--ft-w,1080px);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px 40px;flex-wrap:wrap}
+  footer .ft-note{display:block;margin-top:4px;font-size:.8rem;opacity:.85}
+  footer .ft-links{display:flex;flex-wrap:wrap;gap:8px 24px}
+  footer a{color:#9fb3a6;text-decoration:none}footer a:hover{color:#fff;text-decoration:none}
+  @media(max-width:700px){footer .ft-inner{flex-direction:column;gap:16px}}
 
-  footer a { color: var(--gold); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
@@ -1024,7 +1016,6 @@
     /* How We Work Together: ensure container doesn't add extra indent */
     .how-we-work .container { padding: 0; }
 
-    footer { text-align: center; justify-content: center; }
   }
 </style>
 </head>
@@ -1342,14 +1333,17 @@
 </section>
 
 <!-- ─── FOOTER ─── -->
-<footer>
-  <div>© 2024 Transformativa LLC. All rights reserved.</div>
-  <div>
-    <a href="#assessment">ERP Health Check</a> ·
-    <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a> ·
-    <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank">LinkedIn</a>
+<footer><div class="ft-inner">
+  <div>&copy; 2024 Transformativa LLC. All rights reserved.</div>
+  <div class="ft-links">
+    <a href="transformations/">Transformation Advisory</a>
+    <a href="./">ERP Recovery</a>
+    <a href="diagnostic/">Diagnostic</a>
+    <a href="about-transformativa-llc/">About Transformativa LLC</a>
+    <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a>
+    <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
-</footer>
+</div></footer>
 
 <!-- ─── ASSESSMENT JS ─── -->
 <script>

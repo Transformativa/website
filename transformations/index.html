@@ -103,9 +103,13 @@
   .cta p{color:#d9e3dc;max-width:40rem;margin:0 auto 18px;font-weight:300;font-size:1.08rem}
   .cta .big{font-family:'DM Serif Display',serif;color:var(--gold);font-size:1.7rem;margin:26px 0 30px;font-weight:400}
   .cta .actions{justify-content:center}
-  footer{background:var(--accent-deep);color:#9fb3a6;font-size:.88rem;padding:30px 0}
-  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  footer a{text-decoration:none}footer a:hover{color:#fff}
+  /* shared footer */
+  footer{background:#142318;color:#9fb3a6;font-size:.88rem;line-height:1.6;padding:30px 0;text-align:left;display:block}
+  footer .ft-inner{max-width:var(--ft-w,1080px);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px 40px;flex-wrap:wrap}
+  footer .ft-note{display:block;margin-top:4px;font-size:.8rem;opacity:.85}
+  footer .ft-links{display:flex;flex-wrap:wrap;gap:8px 24px}
+  footer a{color:#9fb3a6;text-decoration:none}footer a:hover{color:#fff;text-decoration:none}
+  @media(max-width:700px){footer .ft-inner{flex-direction:column;gap:16px}}
   .dims .out{color:var(--accent-mid);font-weight:500;margin-top:6px}
   .lead-grid{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;margin-top:40px}
   .portrait{width:240px;height:240px;border-radius:50%;background:var(--accent);border:3px solid var(--gold);display:grid;place-items:center;font-family:'DM Serif Display',serif;font-style:italic;font-size:4.2rem;color:var(--gold);overflow:hidden}
@@ -340,9 +344,16 @@
   </div>
 </div></section>
 
-<footer><div class="wrap">
-  <div>&copy; 2024 Transformativa LLC</div>
-  <div><a href="../">ERP Recovery</a> &middot; <a href="../about-transformativa-llc/">About Transformativa LLC</a> &middot; <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a></div>
+<footer><div class="ft-inner">
+  <div>&copy; 2024 Transformativa LLC. All rights reserved.</div>
+  <div class="ft-links">
+    <a href="./">Transformation Advisory</a>
+    <a href="../">ERP Recovery</a>
+    <a href="../diagnostic/">Diagnostic</a>
+    <a href="../about-transformativa-llc/">About Transformativa LLC</a>
+    <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a>
+    <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
 </div></footer>
 </body>
 </html>
