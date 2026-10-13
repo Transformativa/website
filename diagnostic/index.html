@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transformation Effectiveness Diagnostic | Transformativa</title>
 <meta name="description" content="Is your organization managing transformation, or actually achieving it? A 30-question diagnostic with an instant executive report.">
+<link rel="canonical" href="https://gettransformativa.com/diagnostic/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Transformativa">
+<meta property="og:title" content="Transformation Effectiveness Diagnostic | Transformativa">
+<meta property="og:description" content="Is your organization managing transformation, or actually achieving it? A 30-question diagnostic with an instant executive report.">
+<meta property="og:url" content="https://gettransformativa.com/diagnostic/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -127,8 +133,8 @@
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <a class="brand" href="../"><span class="mark">T</span>Transformativa</a>
-  <a class="back" href="../transformations/">&larr; Transformation Advisory</a>
+  <a class="brand" href="/"><span class="mark">T</span>Transformativa</a>
+  <a class="back" href="/advisory/">&larr; Advisory</a>
 </div></div>
 
 <main><div class="wrap" id="app">
@@ -174,12 +180,14 @@
 <div id="report"></div>
 
 <footer><div class="ft-inner">
-  <div>&copy; 2024 Transformativa LLC. All rights reserved.</div>
+  <div>&copy; 2024 Transformativa LLC. All rights reserved.<br>contact@gettransformativa.com</div>
   <div class="ft-links">
-    <a href="../transformations/">Transformation Advisory</a>
-    <a href="../">ERP Recovery</a>
-    <a href="./">Diagnostic</a>
-    <a href="mailto:contact@gettransformativa.com">contact@gettransformativa.com</a>
+    <a href="/">Home</a>
+    <a href="/advisory/">Advisory</a>
+    <a href="/erp/">ERP Recovery</a>
+    <a href="/about/">About</a>
+    <a href="/diagnostic/">Diagnostic</a>
+    <a href="mailto:contact@gettransformativa.com">Contact</a>
     <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </div></footer>
@@ -409,7 +417,7 @@ function erpCard(){
   const t=R.dims.find(d=>d.k==='tech');
   const hit=(t&&t.avg!==null&&t.avg<RISK_T)||ctx.stage==='Stabilization'&&t&&t.avg!==null&&t.avg<3.4;
   if(!hit)return '';
-  return `<div class="card" style="background:var(--accent);border-color:var(--accent)"><h3 style="color:#fff">Technology implementation under strain?</h3><p style="color:#d9e3dc;margin:8px 0 18px">Your technology and data results suggest dependencies that could constrain outcomes. If a critical system implementation needs business-side readiness, recovery, or stabilization, our ERP Recovery practice is built for that moment.</p><a class="btn btn-gold" href="../">See ERP Recovery &rarr;</a></div>`;
+  return `<div class="card" style="background:var(--accent);border-color:var(--accent)"><h3 style="color:#fff">Technology implementation under strain?</h3><p style="color:#d9e3dc;margin:8px 0 18px">Your technology and data results suggest dependencies that could constrain outcomes. If a critical system implementation needs business-side readiness, recovery, or stabilization, our ERP Recovery practice is built for that moment.</p><a class="btn btn-gold" href="/erp/">See ERP Recovery &rarr;</a></div>`;
 }
 function dimTable(){
   return `<table class="dimtab"><thead><tr><th>Dimension</th><th>Score</th><th>Level</th><th>Weight</th></tr></thead><tbody>`+R.dims.map(d=>`<tr><td>${esc(d.name)}${d.ns?`<div style="font-size:.78rem;color:var(--ink-light)">${d.ns} of ${d.n} marked not sure${d.thin?' · insufficient evidence':''}</div>`:''}</td><td class="sc">${f1(d.avg)}</td><td>${d.avg===null?'—':band(d.avg)[2]}</td><td>${d.w}%</td></tr>`).join('')+`</tbody></table>`;
