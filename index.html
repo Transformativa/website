@@ -3,13 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moved to ERP Recovery | Transformativa</title>
-<link rel="canonical" href="https://gettransformativa.com/erp/">
-<meta http-equiv="refresh" content="0; url=/erp/">
-<script>location.replace('/erp/'+location.search+location.hash);</script>
-<style>body{font-family:Inter,Arial,sans-serif;background:#f7f5f0;color:#1a1a18;display:grid;place-items:center;min-height:100vh;margin:0}a{color:#1a2e20}</style>
+<title>Transformativa | Enterprise Transformation &amp; Executive Advisory</title>
+<meta name="description" content="Transformativa provides enterprise transformation advisory, interim executive leadership, ERP recovery, and tailored transformation teams for complex business challenges.">
+<link rel="canonical" href="https://gettransformativa.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Transformativa">
+<meta property="og:title" content="Transformativa | Enterprise Transformation &amp; Executive Advisory">
+<meta property="og:description" content="Transformativa provides enterprise transformation advisory, interim executive leadership, ERP recovery, and tailored transformation teams for complex business challenges.">
+<meta property="og:url" content="https://gettransformativa.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Transformativa | Enterprise Transformation &amp; Executive Advisory">
+<meta name="twitter:description" content="Transformativa provides enterprise transformation advisory, interim executive leadership, ERP recovery, and tailored transformation teams for complex business challenges.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231a2e20'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23c9a84c'%3ET%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#f7f5f0;--ink:#1a1a18;--ink-mid:#4a4a44;--ink-light:#6b6b63;--accent:#1a2e20;--accent-mid:#2d5c42;--accent-deep:#142318;--accent-light:#e8f0eb;--gold:#c9a84c;--gold-light:#f0e4c2;--white:#fff;--border:#d8d4cc;--r:4px;--rl:10px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--page);color:var(--ink);line-height:1.65;font-size:17px}
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.15}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  /* ─── SHARED HEADER (identical on ERP Recovery and Advisory) ─── */
+  .site-nav{position:sticky;top:0;z-index:100;background:var(--page);border-bottom:1px solid var(--border);height:64px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+  .site-nav .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .site-nav .logo-mark{width:36px;height:36px;flex-shrink:0}
+  .site-nav .logo-wordmark{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:1.15rem;color:var(--accent);letter-spacing:.01em}
+  .site-nav .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;margin:0;padding:0}
+  .site-nav .nav-links a{color:var(--accent-mid);text-decoration:none;font-size:.9rem;font-weight:500;padding:.5rem 0;border-bottom:2px solid transparent;transition:color .2s}
+  .site-nav .nav-links a:hover{color:var(--accent)}
+  .site-nav .nav-links a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--gold)}
+  .site-nav .nav-links a.nav-cta{background:var(--accent);color:#fff;padding:.5rem 1.1rem;border-radius:4px;border-bottom:0}
+  .site-nav .nav-links a.nav-cta:hover{background:var(--accent-mid)}
+  .nav-toggle{display:none;width:44px;height:44px;padding:0;background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--accent);transition:.2s}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .site-nav a:focus-visible,.nav-toggle:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  @media (max-width:768px){
+    .site-nav{padding:0 1rem}
+    .nav-toggle{display:inline-flex}
+    .site-nav .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--page);border-bottom:1px solid var(--border);padding:.25rem 1rem 1rem;box-shadow:0 12px 24px rgba(26,46,32,.08)}
+    .site-nav .nav-links.open{display:flex}
+    .site-nav .nav-links li{display:block}
+    .site-nav .nav-links a{display:flex;align-items:center;min-height:48px;font-size:1rem;border-bottom:1px solid var(--border)}
+    .site-nav .nav-links a[aria-current="page"]{border-bottom-color:var(--gold)}
+    .site-nav .nav-links a.nav-cta{margin-top:.75rem;justify-content:center;border-radius:4px}
+  }
+  .btn{display:inline-block;padding:.85rem 1.6rem;border-radius:var(--r);font-weight:500;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;transition:.15s}
+  .btn-gold{background:var(--gold);color:var(--accent-deep)}.btn-gold:hover{background:#d6b65c}
+  .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+  .eyebrow.dk{color:var(--accent-mid)}
+  .hero{background:var(--accent);color:#fff;padding:104px 0 96px}
+  .hero h1{font-size:clamp(2.5rem,5.8vw,4.4rem);max-width:17ch;margin-bottom:28px}
+  .hero p{font-size:1.15rem;max-width:44rem;color:#d9e3dc;font-weight:300}
+  .hero p+p{margin-top:14px}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+  section{padding:84px 0}
+  section.alt{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  h2{font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--accent);margin-bottom:18px;max-width:26ch}
+  .intro{max-width:46rem;color:var(--ink-mid);font-size:1.08rem}
+  .intro+.intro{margin-top:14px}
+  .ic{width:40px;height:40px;color:var(--accent-mid);flex:none}
+  .ic.sm{width:30px;height:30px}
+  .svc{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:42px}
+  .svc article{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--rl);padding:36px 34px}
+  .svc .ic{width:46px;height:46px;margin-bottom:18px}
+  .svc h3{font-size:1.85rem;color:var(--accent);margin-bottom:12px}
+  .svc p{color:var(--ink-mid);margin-bottom:24px}
+  .link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:2px solid var(--gold)}
+  .link:hover{color:var(--accent-mid)}
+  .eng{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .eng article{background:var(--page);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:var(--rl);padding:26px 24px}
+  .eng h3{font-size:1.3rem;color:var(--accent);margin-bottom:8px}
+  .eng p{font-size:.95rem;color:var(--ink-mid);line-height:1.6}
+  .inds{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+  .inds li{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:20px 22px;font-weight:500;color:var(--accent);line-height:1.35}
+  .lead{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;margin-top:34px}
+  .portrait{width:300px;height:300px;border-radius:50%;border:3px solid var(--gold);overflow:hidden;background:var(--accent)}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .lead h3{font-size:2rem;color:var(--accent)}
+  .lead .role{color:var(--accent-mid);font-weight:500;margin-bottom:16px}
+  .lead p{color:var(--ink-mid);margin-bottom:12px;font-size:1rem}
+  .creds{list-style:none;margin:16px 0 8px}
+  .creds li{position:relative;padding:5px 0 5px 22px;font-weight:500;color:var(--accent);font-size:.98rem}
+  .creds li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+  .cta{background:var(--accent);color:#fff;text-align:center;padding:92px 0}
+  .cta h2{color:#fff;margin:0 auto 18px;max-width:20ch}
+  .cta p{color:#d9e3dc;max-width:38rem;margin:0 auto 30px;font-weight:300;font-size:1.1rem}
+  /* shared footer */
+  footer{background:#142318;color:#9fb3a6;font-size:.88rem;line-height:1.6;padding:30px 0;text-align:left;display:block}
+  footer .ft-inner{max-width:var(--ft-w,1080px);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px 40px;flex-wrap:wrap}
+  footer .ft-links{display:flex;flex-wrap:wrap;gap:8px 24px}
+  footer a{color:#9fb3a6;text-decoration:none}footer a:hover{color:#fff}
+  @media(max-width:900px){.svc{grid-template-columns:1fr}.eng{grid-template-columns:1fr}.inds{grid-template-columns:repeat(2,1fr)}.lead{grid-template-columns:1fr;gap:28px}.portrait{width:200px;height:200px}.hero{padding:64px 0}section{padding:56px 0}}
+  @media(max-width:700px){footer .ft-inner{flex-direction:column;gap:16px}.hero .btn,.cta .btn{width:100%;text-align:center}.svc article{padding:28px 24px}.inds li{padding:16px 14px;gap:12px;font-size:.92rem}.ic.sm{width:26px;height:26px}}
+</style>
 </head>
 <body>
-<p>This page has moved to <a href="/erp/">gettransformativa.com/erp/</a>.</p>
+<!-- ─── SHARED HEADER ─── -->
+<nav class="site-nav" aria-label="Primary">
+  <a class="nav-logo" href="/">
+    <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="40" height="40" rx="8" fill="#1a2e20"/>
+      <text x="20" y="28" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#c9a84c" font-weight="400">T</text>
+    </svg>
+    <span class="logo-wordmark">Transformativa</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="site-menu">
+    <li><a href="/" aria-current="page">Home</a></li>
+    <li><a href="/advisory/">Advisory</a></li>
+    <li><a href="/erp/">ERP Recovery</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a class="nav-cta" href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Enterprise Transformation &amp; Advisory</div>
+  <h1>Complex challenges. Clear direction. Lasting results.</h1>
+  <p>Transformativa is an independent advisory firm helping organizations navigate complex transformations, recover critical initiatives, and deliver lasting operational change.</p>
+  <p>We provide strategic advisory, interim executive leadership, and tailored transformation teams through a flexible network of specialized partners.</p>
+  <div class="actions">
+    <a class="btn btn-gold" href="#what-we-do" data-track="home_explore_services">Explore Our Services</a>
+    <a class="btn btn-ghost" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Start a Conversation</a>
+  </div>
+</div></header>
+
+<section id="what-we-do"><div class="wrap">
+  <div class="eyebrow dk">What We Do</div>
+  <h2>The right leadership for your most complex business challenges.</h2>
+  <p class="intro">We work with executive teams, private equity-backed businesses, and global enterprises to connect strategy with execution, address operational complexity, and turn transformation ambitions into measurable outcomes.</p>
+  <div class="svc">
+    <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg><h3>Enterprise Advisory</h3><p>Transformation architecture, operating-model redesign, organizational change, performance improvement, and executive execution leadership.</p><a class="link" href="/advisory/" data-track="home_card_advisory">Explore Advisory &rarr;</a></article>
+    <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><h3>ERP Recovery &amp; Stabilization</h3><p>Hands-on leadership to stabilize challenged ERP implementations, restore delivery confidence, address operational risks, and support business readiness.</p><a class="link" href="/erp/" data-track="home_card_erp">Explore ERP Recovery &rarr;</a></article>
+  </div>
+</div></section>
+
+<section class="alt" id="how-we-engage"><div class="wrap">
+  <div class="eyebrow dk">How We Engage</div>
+  <h2>The right expertise. The right model. Built around your needs.</h2>
+  <p class="intro">Not every business challenge requires a large consulting team. Some require experienced executive guidance. Others need hands-on leadership or a coordinated team of specialists.</p>
+  <p class="intro">Transformativa offers flexible engagement models, combining direct senior leadership with a network of independent specialists and delivery partners to match the scope and complexity of each engagement.</p>
+  <div class="eng"><article><h3>Strategic Advisory</h3><p>Executive-level guidance to assess complex challenges, shape transformation strategy, establish priorities, and support critical business decisions.</p></article><article><h3>Interim &amp; Embedded Leadership</h3><p>Hands-on executive and transformation leadership to mobilize initiatives, stabilize execution, manage interdependencies, and drive accountability.</p></article><article><h3>Assembled Transformation Teams</h3><p>Through our network of independent specialists and delivery partners, Transformativa can assemble and lead cross-functional teams with the expertise required for complex transformation initiatives.</p></article></div>
+</div></section>
+
+<section id="industries"><div class="wrap">
+  <div class="eyebrow dk">Industries We Serve</div>
+  <h2>Cross-industry experience. Enterprise perspective.</h2>
+  <p class="intro">Our experience spans complex, highly regulated, technology-intensive, and operationally demanding environments. We bring lessons learned across industries while adapting our approach to each organization&rsquo;s unique challenges.</p>
+  <ul class="inds"><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M9.5 21V10M14.5 21V10M19 21V10M2 10l10-6 10 6z"/></svg><span>Financial Services &amp; Banking</span></li><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 21V10l6 4v-4l6 4V4h4v17z"/><path d="M2 21h20"/></svg><span>Industrial &amp; Manufacturing</span></li><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span>Technology &amp; SaaS</span></li><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg><span>Legal &amp; Professional Services</span></li><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span>Private Equity &amp; Portfolio Companies</span></li><li><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Business Services &amp; Operations</span></li></ul>
+</div></section>
+
+<section class="alt" id="leadership"><div class="wrap">
+  <div class="eyebrow dk">Transformation Leadership</div>
+  <h2>Built on executive experience. Designed for complex change.</h2>
+  <div class="lead">
+    <div class="portrait"><img src="/natalie.jpg" alt="Natalie Dudina, Founder of Transformativa" width="300" height="300" loading="lazy" decoding="async"></div>
+    <div>
+      <h3>Natalie Dudina</h3>
+      <div class="role">Founder, Transformativa</div>
+      <p>Transformation demands someone who can see beyond individual workstreams, understand interdependencies, challenge assumptions, and bring together the capabilities required to deliver.</p>
+      <p>Natalie brings more than 20 years of experience across enterprise technology and digital transformation, operating-model redesign, and performance improvement.</p>
+      <p>Her background spans Fortune 500 and private equity-backed organizations, combining the operational rigor developed at GE with hands-on leadership across complex global transformation initiatives.</p>
+      <p>Transformativa was founded on a simple principle: organizations need more than project execution. They need experienced leadership that connects strategy, people, processes, and technology to achieve lasting business outcomes.</p>
+      <ul class="creds"><li>20+ years of enterprise transformation experience</li><li>Fortune 500 and private equity-backed organizations</li><li>Global technology, operations, and business transformation</li></ul>
+      <a class="link" href="/about/" data-track="home_about">Learn More About Transformativa &rarr;</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="cta" id="contact"><div class="wrap">
+  <h2>Let&rsquo;s solve what matters.</h2>
+  <p>Whether you&rsquo;re navigating a complex transformation, recovering a critical initiative, or evaluating what comes next, let&rsquo;s discuss how Transformativa can help.</p>
+  <a class="btn btn-gold" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Start a Conversation</a>
+</div></section>
+
+<footer><div class="ft-inner">
+  <div>&copy; 2024 Transformativa LLC. All rights reserved.<br>contact@gettransformativa.com</div>
+  <div class="ft-links">
+    <a href="/">Home</a>
+    <a href="/advisory/">Advisory</a>
+    <a href="/erp/">ERP Recovery</a>
+    <a href="/about/">About</a>
+    <a href="/diagnostic/">Diagnostic</a>
+    <a href="mailto:contact@gettransformativa.com">Contact</a>
+    <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></footer>
+<script>
+/* Shared header: hamburger menu */
+(function(){var b=document.querySelector('.nav-toggle'),m=document.getElementById('site-menu');if(!b||!m)return;function set(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');}b.addEventListener('click',function(){set(!m.classList.contains('open'));});m.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))set(false);});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open')){set(false);b.focus();}});})();
+</script>
+<script>
+/* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
+window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+</script>
 </body>
 </html>
