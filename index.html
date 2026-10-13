@@ -1054,7 +1054,7 @@
   <p class="hero-tagline">Your system integrator gets the technology ready. Transformativa helps ensure your portfolio company can operate, close, and report from Day 1.</p>
   <p class="hero-sub">Business-side ERP readiness, recovery, and stabilization for private capital backed companies.</p>
   <div class="hero-ctas">
-    <a href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener" class="btn btn-gold">Book a 30-minute call</a>
+    <a href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener" class="btn btn-gold">Book a 30-minute call</a>
     <a href="#assessment" class="btn btn-outline-white">Take the Health Check</a>
   </div>
 </section>
@@ -1324,7 +1324,7 @@
     <p>A 30-minute conversation is the fastest way to determine whether there's a fit and what the right engagement looks like.</p>
     <p class="contact-tagline">No RFP required. No large team on the other end. Just a senior conversation about what's actually going on.</p>
     <div class="contact-ctas">
-      <a href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener" class="btn btn-gold">Book a 30-minute call</a>
+      <a href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener" class="btn btn-gold">Book a 30-minute call</a>
       <a href="#assessment" class="btn btn-outline-white">Take the Health Check</a>
       <a href="mailto:contact@gettransformativa.com" class="btn btn-outline-white">Email us</a>
     </div>
@@ -1573,7 +1573,7 @@ function showResults() {
       ${signalsHTML}
       <div class="result-recommendation">${recommendation}</div>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
-        <a href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener" class="btn btn-primary" data-track="healthcheck_book_call">Discuss Your Readiness →</a>
+        <a href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener" class="btn btn-primary" data-track="healthcheck_book_call">Discuss Your Readiness →</a>
         <button class="btn btn-outline" onclick="restartAssessment()">Retake Assessment</button>
       </div>
       <div class="result-email-opt">
@@ -1627,7 +1627,7 @@ renderQuestion();
 <script>
 /* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
 window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
 </html>

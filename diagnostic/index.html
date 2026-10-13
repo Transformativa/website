@@ -420,7 +420,7 @@ function renderResults(){
   <div class="eyebrow">Your Transformation Effectiveness Report</div>
   <div class="res-hero">
     <div class="scorebox"><div class="big">${R.idx100===null?'—':R.idx100}</div><div class="of">out of 100</div>${R.cls?`<div class="cls">${R.cls[2]}</div>`:''}</div>
-    <div><h2>${R.cls?esc(R.cls[3]):'Not enough data'}</h2><p>${esc(interpretation())}</p>${c?`<p class="ctx-line">${esc(c)}</p>`:''}<div class="actions" style="margin-top:18px"><a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a></div></div>
+    <div><h2>${R.cls?esc(R.cls[3]):'Not enough data'}</h2><p>${esc(interpretation())}</p>${c?`<p class="ctx-line">${esc(c)}</p>`:''}<div class="actions" style="margin-top:18px"><a class="btn btn-gold" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Book a 30-minute call</a></div></div>
   </div>
   <div class="card"><h3>Transformation capability profile</h3><div class="sub">Average maturity from 1 (Fragmented) to 5 (Optimized)</div>
     <div class="twocol">${radar()}<div>${dimTable()}</div></div>
@@ -450,7 +450,7 @@ function renderResults(){
   <div class="res-hero" style="margin-top:22px;grid-template-columns:1fr"><div><h2>Your transformation is unique. Your roadmap should be too.</h2>
     <p>This assessment provides an initial perspective on your organization&rsquo;s transformation capabilities. Understanding the underlying causes, organizational dependencies, and actions required to achieve lasting change requires a deeper examination.</p>
     <p style="margin-top:10px"><b style="color:var(--gold)">Let&rsquo;s discuss what your results mean for your organization.</b></p>
-    <div class="actions"><a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a><a class="btn btn-line" style="border-color:rgba(255,255,255,.5);color:#fff" href="${mailto()}">Email your results to Transformativa</a></div>
+    <div class="actions"><a class="btn btn-gold" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Book a 30-minute call</a><a class="btn btn-line" style="border-color:rgba(255,255,255,.5);color:#fff" href="${mailto()}">Email your results to Transformativa</a></div>
     <p class="ctx-line">Nothing is sent unless you choose to email us. Your answers are calculated in your browser and are not stored.</p></div></div>
   <p class="disc">${DISC}</p>
   <div class="actions"><button class="btn btn-line" id="retake">Retake the assessment</button></div>`;
@@ -496,7 +496,7 @@ function reportHTML(){
 <script>
 /* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
 window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
 </html>

@@ -353,7 +353,7 @@
   <p>Whether you&rsquo;re launching a strategic initiative, redesigning your operating model, navigating a technology-enabled transformation, or recovering a program that has lost momentum, Transformativa can help architect the path forward and mobilize the capabilities to deliver it.</p>
   <div class="big">Let&rsquo;s build change that lasts.</div>
   <div class="actions">
-    <a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+    <a class="btn btn-gold" href="https://cal.com/natalie-dudina-9yh061/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
     <a class="btn btn-ghost" href="../diagnostic/">Take the diagnostic</a>
     <a class="btn btn-ghost" href="mailto:contact@gettransformativa.com">Email us</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
@@ -373,7 +373,7 @@
 <script>
 /* Privacy-friendly event hooks: no cookies, no personal data. Records anonymous event counts (event name and page only) in the site's own database; also forwards to Plausible/GoatCounter if added. */
 window.track=function(n){try{fetch('https://wfycaivacjejoliyrzsz.supabase.co/rest/v1/rpc/tx_track',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_VGaGwFmj1dOWuM7ns3Bn0Q_eQXnnX4g'},body:JSON.stringify({p_event:n,p_page:location.pathname})}).catch(function(){});}catch(e){}try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href&&(a.href.indexOf('calendly.com')>-1||a.href.indexOf('cal.com')>-1))t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
 </html>
