@@ -138,19 +138,27 @@
   .eng .fee{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent-mid)}
   .cta .ask{font-family:'DM Serif Display',serif;font-size:1.35rem;color:#fff;max-width:36rem;margin:0 auto 18px;line-height:1.35}
   @media(max-width:900px){.lead-grid{grid-template-columns:1fr;gap:28px}.portrait{width:180px;height:180px;font-size:3.2rem}.diag,.aud,.eng{grid-template-columns:1fr}.case{padding:26px 22px}.case .cols{grid-template-columns:1fr;gap:22px}.split{grid-template-columns:1fr;gap:36px}.svcs{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:18px}.step,.step:nth-child(1),.step:nth-child(3){border-radius:var(--rl)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}nav ul li:not(:last-child){display:none}.hero{padding:68px 0}section{padding:62px 0}.hero:after{display:none}.eco{display:none}.chips{display:flex}}
+  .dstrip{background:var(--accent-deep);border-bottom:3px solid var(--gold)}
+  .dstrip .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 32px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap}
+  .dstrip b{display:block;color:#fff;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.3rem}
+  .dstrip span{color:#d9e3dc;font-size:.95rem}
+  details.more{margin:22px 0 4px}
+  details.more summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--accent-mid);list-style:none;display:inline-flex;gap:8px;align-items:center}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary:after{content:"+";font-size:1.2rem;color:var(--gold)}
+  details.more[open] summary:after{content:"\2212"}
+  details.more .cols{margin-top:20px}
+  .case .changed{margin-top:0}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="./"><span class="mark">T</span>Transformativa</a>
   <ul>
-    <li><a href="#challenge">Challenge</a></li>
     <li><a href="#framework">Framework</a></li>
-    <li><a href="#delivery">Delivery</a></li>
+    <li><a href="#model">Model</a></li>
     <li><a href="#leadership">Leadership</a></li>
-    <li><a href="#services">Services</a></li>
     <li><a href="#diagnostic">Diagnostic</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="../">ERP Recovery</a></li>
     <li><a class="btn btn-dark" style="padding:.45rem 1.1rem" href="#contact">Book a Call</a></li>
   </ul>
@@ -162,9 +170,14 @@
   <p class="lead">We architect and lead complex enterprise transformations, aligning strategy, operating models, technology, talent, and execution to deliver measurable business impact.</p>
   <div class="actions">
     <a class="btn btn-gold" href="#framework">Explore our approach</a>
-    <a class="btn btn-ghost" href="../diagnostic/">Take the diagnostic</a>
+    <a class="btn btn-ghost" href="../diagnostic/" data-track="advisory_hero_diagnostic">Take the diagnostic</a>
   </div>
 </div></header>
+
+<div class="dstrip"><div class="wrap">
+  <div><b>Is your transformation positioned to deliver lasting value?</b><span>Free diagnostic. Quick version takes 3 minutes, full version 10. Instant results, no email required.</span></div>
+  <a class="btn btn-gold" href="../diagnostic/" data-track="advisory_strip_diagnostic">Take the diagnostic</a>
+</div></div>
 
 <section id="challenge"><div class="wrap">
   <div class="eyebrow dk">Section 01 · The challenge</div>
@@ -230,6 +243,22 @@
   </div>
 </div></section>
 
+<section class="dark" id="diagnostic"><div class="wrap">
+  <div class="eyebrow">Transformation Health Diagnostic</div>
+  <h2>Is your transformation positioned to deliver lasting value?</h2>
+  <p class="intro">Before committing to a large engagement, start with a focused diagnostic. Take the 3-minute quick version or the full 30-question assessment (about 10 minutes) and see where your transformation is strong, where it is exposed, and what to do next. Results appear instantly, with no email required.</p>
+  <div class="diag">
+    <div><span class="n">01</span><h3>Strategic alignment &amp; sponsorship</h3><p>Is leadership aligned on the case for change and the outcomes expected?</p></div>
+    <div><span class="n">02</span><h3>Operating-model readiness</h3><p>Are decision rights, governance, and processes ready for the future state?</p></div>
+    <div><span class="n">03</span><h3>Technology &amp; data dependencies</h3><p>Are platform and data dependencies understood and under control?</p></div>
+    <div><span class="n">04</span><h3>Change &amp; adoption</h3><p>Are people equipped and ready to work differently?</p></div>
+    <div><span class="n">05</span><h3>Execution &amp; governance maturity</h3><p>Are priorities, interdependencies, risks, and decisions managed with discipline?</p></div>
+    <div><span class="n">06</span><h3>Benefits realization &amp; sustainability</h3><p>Is someone accountable for the value, and will it last after go-live?</p></div>
+  </div>
+  <p class="deliv"><b>What you receive:</b> a transformation effectiveness score, a six-dimension profile, your top risks, and a prioritized 30/60/90-day plan, with a downloadable executive report.</p>
+  <div class="actions" style="margin-top:30px"><a class="btn btn-gold" href="../diagnostic/">Take the diagnostic</a></div>
+</div></section>
+
 <section id="leadership"><div class="wrap">
   <div class="eyebrow dk">Transformation leadership</div>
   <h2>Built on executive experience. Designed for complex change.</h2>
@@ -253,22 +282,6 @@
   </div>
 </div></section>
 
-<section class="dark" id="diagnostic"><div class="wrap">
-  <div class="eyebrow">Transformation Health Diagnostic</div>
-  <h2>Is your transformation positioned to deliver lasting value?</h2>
-  <p class="intro">Before committing to a large engagement, start with a focused diagnostic. Answer 30 questions in about 10 minutes and see where your transformation is strong, where it is exposed, and what to do next. Results appear instantly, with no email required.</p>
-  <div class="diag">
-    <div><span class="n">01</span><h3>Strategic alignment &amp; sponsorship</h3><p>Is leadership aligned on the case for change and the outcomes expected?</p></div>
-    <div><span class="n">02</span><h3>Operating-model readiness</h3><p>Are decision rights, governance, and processes ready for the future state?</p></div>
-    <div><span class="n">03</span><h3>Technology &amp; data dependencies</h3><p>Are platform and data dependencies understood and under control?</p></div>
-    <div><span class="n">04</span><h3>Change &amp; adoption</h3><p>Are people equipped and ready to work differently?</p></div>
-    <div><span class="n">05</span><h3>Execution &amp; governance maturity</h3><p>Are priorities, interdependencies, risks, and decisions managed with discipline?</p></div>
-    <div><span class="n">06</span><h3>Benefits realization &amp; sustainability</h3><p>Is someone accountable for the value, and will it last after go-live?</p></div>
-  </div>
-  <p class="deliv"><b>What you receive:</b> a transformation effectiveness score, a six-dimension profile, your top risks, and a prioritized 30/60/90-day plan, with a downloadable executive report.</p>
-  <div class="actions" style="margin-top:30px"><a class="btn btn-gold" href="../diagnostic/">Take the diagnostic</a></div>
-</div></section>
-
 <section id="experience"><div class="wrap">
   <div class="eyebrow dk">Selected transformation experience</div>
   <h2>Real challenges. Integrated solutions. Meaningful change.</h2>
@@ -276,28 +289,31 @@
   <p class="intro">Our experience spans global financial services, enterprise technology, and professional services organizations, with a focus on designing and leading complex transformations.</p>
   <div class="cases"><article class="case">
     <header><span class="n">Case study 01</span><h3>Enterprise Operating Model &amp; Process Transformation</h3><span class="ind">Industry: Global Financial Services</span></header>
-    <div class="cols">
+    <div class="changed"><h4>What changed</h4><p>Created a more structured approach to enterprise execution, connecting strategic priorities with process improvement, governance, and operational accountability.</p></div>
+
+    <details class="more"><summary>Challenge and approach</summary>    <div class="cols">
       <div><h4>The challenge</h4><p>A global financial institution faced the complexity of coordinating enterprise initiatives across business functions, technology, operations, and risk management.</p><p>The organization needed greater consistency in execution, stronger governance, and a more integrated approach to improving processes and operational performance.</p></div>
       <div><h4>Our approach</h4><ul><li>Established enterprise-level program management and governance disciplines to improve visibility, accountability, and decision-making.</li><li>Applied business process engineering and automation principles to identify opportunities for operational improvement.</li><li>Connected business objectives with technology initiatives and operational execution.</li><li>Coordinated cross-functional stakeholders to align priorities, resolve dependencies, and support implementation.</li><li>Focused on embedding process improvements into day-to-day operations rather than treating individual initiatives as isolated projects.</li></ul></div>
     </div>
-    <div class="changed"><h4>What changed</h4><p>Created a more structured approach to enterprise execution, connecting strategic priorities with process improvement, governance, and operational accountability.</p></div>
-    <ul class="dimtags"><li>Operating Model</li><li>Process Optimization</li><li>Governance</li><li>Technology Enablement</li><li>Organizational Alignment</li></ul>
+</details>    <ul class="dimtags"><li>Operating Model</li><li>Process Optimization</li><li>Governance</li><li>Technology Enablement</li><li>Organizational Alignment</li></ul>
   </article><article class="case">
     <header><span class="n">Case study 02</span><h3>Digital Product &amp; Enterprise Operating Model Transformation</h3><span class="ind">Industry: Global Legal Services &amp; Technology</span></header>
-    <div class="cols">
+    <div class="changed"><h4>What changed</h4><p>Advanced an integrated digital service delivery model designed to improve the connection between legal operations, business information, and client-facing insights.</p><p>The initiative established a foundation for more connected service delivery and the continued evolution of digital legal services.</p></div>
+
+    <details class="more"><summary>Challenge and approach</summary>    <div class="cols">
       <div><h4>The challenge</h4><p>A global legal services organization sought to connect fragmented service delivery, business processes, and information across multiple legal disciplines.</p><p>Traditional service delivery models made it difficult to provide enterprise-wide visibility, translate operational data into meaningful business insights, and deliver a consistent client experience.</p><p>The transformation required more than introducing technology. It demanded a new approach to integrating business operations, legal expertise, digital capabilities, and client engagement.</p></div>
       <div><h4>Our approach</h4><ul><li>Helped architect and advance an enterprise digital platform connecting legal services, business processes, data, and client-facing capabilities.</li><li>Worked across legal, business, technology, and operational functions to translate strategic objectives into product and transformation priorities.</li><li>Supported the evolution of service delivery models and the integration of digital capabilities into operational workflows.</li><li>Established cross-functional coordination and executive alignment around transformation priorities.</li><li>Connected product development with organizational readiness and evolving client needs.</li></ul></div>
     </div>
-    <div class="changed"><h4>What changed</h4><p>Advanced an integrated digital service delivery model designed to improve the connection between legal operations, business information, and client-facing insights.</p><p>The initiative established a foundation for more connected service delivery and the continued evolution of digital legal services.</p></div>
-    <ul class="dimtags"><li>Digital Product Strategy</li><li>Operating Model</li><li>Data &amp; Insights</li><li>Cross-Functional Integration</li><li>Service Delivery Transformation</li></ul>
+</details>    <ul class="dimtags"><li>Digital Product Strategy</li><li>Operating Model</li><li>Data &amp; Insights</li><li>Cross-Functional Integration</li><li>Service Delivery Transformation</li></ul>
   </article><article class="case">
     <header><span class="n">Case study 03</span><h3>Enterprise Technology &amp; Business Process Transformation</h3><span class="ind">Industry: Global Industrial &amp; Technology Enterprise</span></header>
-    <div class="cols">
+    <div class="changed"><h4>What changed</h4><p>Supported the modernization of enterprise intellectual property operations and the transition toward a more integrated technology-enabled service model.</p><p>The transformation connected platform modernization with process improvement and cross-functional execution.</p></div>
+
+    <details class="more"><summary>Challenge and approach</summary>    <div class="cols">
       <div><h4>The challenge</h4><p>A global enterprise needed to modernize how it managed intellectual property and related business processes across a complex organizational environment.</p><p>Legacy systems, fragmented workflows, and multiple technology dependencies created challenges for standardization, operational efficiency, and enterprise visibility.</p><p>The transformation required coordinated changes across technology platforms, processes, stakeholders, and ways of working.</p></div>
       <div><h4>Our approach</h4><ul><li>Led and coordinated elements of a technology-enabled business transformation involving the modernization of enterprise intellectual property capabilities.</li><li>Supported the transition toward a more integrated, SaaS-enabled technology environment.</li><li>Connected technology implementation with business process redesign and operational requirements.</li><li>Coordinated stakeholders across business functions, technology teams, and external solution providers.</li><li>Established execution structures to manage dependencies, implementation priorities, and organizational readiness.</li><li>Focused on aligning technology capabilities with sustainable operational improvements.</li></ul></div>
     </div>
-    <div class="changed"><h4>What changed</h4><p>Supported the modernization of enterprise intellectual property operations and the transition toward a more integrated technology-enabled service model.</p><p>The transformation connected platform modernization with process improvement and cross-functional execution.</p></div>
-    <ul class="dimtags"><li>Technology Modernization</li><li>SaaS Transformation</li><li>Process Redesign</li><li>Enterprise Integration</li><li>Change Enablement</li></ul>
+</details>    <ul class="dimtags"><li>Technology Modernization</li><li>SaaS Transformation</li><li>Process Redesign</li><li>Enterprise Integration</li><li>Change Enablement</li></ul>
   </article></div>
 </div></section>
 
@@ -354,5 +370,10 @@
     <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </div></footer>
+<script>
+/* Privacy-friendly event hooks: no cookies, no personal data. Sends only if an analytics script (Plausible or GoatCounter) is added to the page. */
+window.track=function(n){try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+</script>
 </body>
 </html>

@@ -1468,6 +1468,7 @@ function renderQuestion() {
 }
 
 function selectOption(i) {
+  if (window.track && !window._hcStarted) { window._hcStarted = true; window.track('healthcheck_start'); }
   answers[current] = i;
   renderQuestion();
 }
@@ -1508,6 +1509,7 @@ function getDimensionSignals() {
 }
 
 function showResults() {
+  if (window.track) window.track('healthcheck_complete');
   const total = answers.reduce((sum, a, qi) => {
     if (a === null) return sum;
     return sum + questions[qi].options[a].score;
@@ -1571,11 +1573,17 @@ function showResults() {
       ${signalsHTML}
       <div class="result-recommendation">${recommendation}</div>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
-        <a href="#contact" class="btn btn-primary">Discuss Your Readiness →</a>
+        <a href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener" class="btn btn-primary" data-track="healthcheck_book_call">Discuss Your Readiness →</a>
         <button class="btn btn-outline" onclick="restartAssessment()">Retake Assessment</button>
       </div>
       <div class="result-email-opt">
-        <p class="result-email-label">Send me a copy of my results <span style="font-weight:400;color:var(--ink-light);">(optional)</span></p>
+        <p class="result-email-label">Help us tailor the conversation <span style="font-weight:400;color:var(--ink-light);">(optional)</span></p>
+        <div class="result-email-row" style="flex-wrap:wrap">
+          <select id="q-golive" class="result-email-input"><option value="">Go-live timing</option><option>Already live</option><option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>Not scheduled</option></select>
+          <select id="q-platform" class="result-email-input"><option value="">ERP platform</option><option>SAP</option><option>Oracle</option><option>Microsoft Dynamics / Business Central</option><option>NetSuite</option><option>Workday</option><option>Other</option></select>
+          <select id="q-size" class="result-email-input"><option value="">Company revenue</option><option>Under $50M</option><option>$50M–$250M</option><option>$250M–$1B</option><option>Over $1B</option></select>
+        </div>
+        <p class="result-email-label" style="margin-top:1rem">Send me a copy of my results <span style="font-weight:400;color:var(--ink-light);">(optional)</span></p>
         <div class="result-email-row">
           <input type="email" id="result-email" class="result-email-input" placeholder="your@email.com" />
           <button class="btn btn-outline" style="font-size:0.82rem;padding:0.5rem 1rem;" onclick="sendResultsCopy()">Send</button>
@@ -1593,13 +1601,18 @@ function sendResultsCopy() {
   const body = 'ERP Business Readiness Health Check results\n\n'
     + 'Score: ' + r.pct + '% (' + r.level + ')\n'
     + (r.weak && r.weak.length ? 'Areas needing attention:\n- ' + r.weak.join('\n- ') + '\n' : '')
+    + ['q-golive','q-platform','q-size'].map(function(id){var el=document.getElementById(id);return el&&el.value?el.options[0].text+': '+el.value+'\n':'';}).join('')
     + '\nI would like to discuss these results.';
   const url = 'mailto:contact@gettransformativa.com'
     + '?cc=' + encodeURIComponent(email)
     + '&subject=' + encodeURIComponent('My ERP Readiness Health Check results')
     + '&body=' + encodeURIComponent(body);
+  if (window.track) window.track('healthcheck_email_copy');
   window.location.href = url;
-  document.getElementById('result-email-confirm').style.display = 'block';
+  var c = document.getElementById('result-email-confirm');
+  c.style.display = 'block';
+  c.innerHTML = 'Your email app should open with your results ready to send. If nothing opens, <a href="#" id="copy-results" style="color:inherit;text-decoration:underline">copy your results</a> and email them to contact@gettransformativa.com.';
+  document.getElementById('copy-results').onclick = function(ev){ev.preventDefault();var t=decodeURIComponent(url.split('&body=')[1]);if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){ev.target.textContent='copied';});};
 }
 
 function restartAssessment() {
@@ -1610,6 +1623,11 @@ function restartAssessment() {
 
 // Init
 renderQuestion();
+</script>
+<script>
+/* Privacy-friendly event hooks: no cookies, no personal data. Sends only if an analytics script (Plausible or GoatCounter) is added to the page. */
+window.track=function(n){try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
 </html>

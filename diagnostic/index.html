@@ -140,8 +140,8 @@
       <h1>Is your transformation designed to succeed?</h1>
       <p>Most organizations know what they want to change. Fewer have the integrated leadership, capabilities, governance, and organizational readiness to make that change sustainable.</p>
       <p>Evaluate your organization&rsquo;s transformation effectiveness across six critical dimensions.</p>
-      <div class="meta"><span>30 questions</span><span>&middot;</span><span>Approximately 10 minutes</span><span>&middot;</span><span>Personalized executive report</span></div>
-      <button class="btn btn-gold" id="begin">Begin assessment</button>
+      <div class="meta"><span>Quick: 12 questions, about 3 minutes</span><span>&middot;</span><span>Full: 30 questions, about 10 minutes</span></div>
+      <div class="actions" style="margin-top:0"><button class="btn btn-gold" id="begin-quick">Start the quick version</button><button class="btn btn-line" id="begin" style="border-color:rgba(255,255,255,.5);color:#fff">Take the full assessment</button></div>
     </div>
     <div class="six" id="sixgrid"></div>
     <p class="note">Your answers stay in your browser. Nothing is sent or stored, and your results appear immediately with no email required.</p>
@@ -241,7 +241,17 @@ const RISK_T=2.6, GAP_T=1.0;
 /* ---------- STATE ---------- */
 const ctx={}; const ans=Array(Q.length).fill(null);
 let step=0; // 0..5 context, 6..35 questions
-const TOTAL=CTX.length+Q.length;
+let quick=false, plan=[];
+function buildPlan(q){
+  quick=q; plan=[];
+  (q?[1,3]:CTX.map((c,i)=>i)).forEach(i=>plan.push({t:'c',i}));
+  DIMS.forEach(d=>{const ix=Q.map((x,i)=>x[0]===d.k?i:-1).filter(i=>i>=0);ix.slice(0,q?2:5).forEach(i=>plan.push({t:'q',i}));});
+}
+buildPlan(false);
+const nCtx=()=>plan.filter(x=>x.t==='c').length;
+const nQ=()=>plan.filter(x=>x.t==='q').length;
+const askedSet=()=>new Set(plan.filter(x=>x.t==='q').map(x=>x.i));
+const TOTAL_=()=>plan.length;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const band=v=>BANDS.find(b=>v>=b[0]&&v<b[1])||BANDS[0];
@@ -249,46 +259,49 @@ const band=v=>BANDS.find(b=>v>=b[0]&&v<b[1])||BANDS[0];
 /* ---------- INTRO ---------- */
 $('sixgrid').innerHTML=DIMS.map(d=>`<div><b>${esc(d.short)}</b>${esc(d.purpose.replace(/\?$/,'').replace(/^(Does|Is|Do|Can|Are) /,''))}?</div>`.replace(/\?\?/,'?')).join('');
 $('sixgrid').innerHTML=DIMS.map(d=>`<div><b>${esc(d.short)}</b>${esc(d.purpose)}</div>`).join('');
-$('begin').onclick=()=>{show('s-q');step=0;renderStep();window.scrollTo(0,0)};
+function begin(q){buildPlan(q);ans.fill(null);for(const k in ctx)delete ctx[k];step=0;show('s-q');renderStep();window.scrollTo(0,0);if(window.track)window.track(q?'diagnostic_start_quick':'diagnostic_start_full')}
+$('begin').onclick=()=>begin(false);$('begin-quick').onclick=()=>begin(true);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id))}
 
 /* ---------- QUESTION FLOW ---------- */
 function renderStep(){
-  const isCtx=step<CTX.length;
-  const qi=step-CTX.length;
+  const cur0=plan[step];
+  const isCtx=cur0.t==='c';
+  const qi=cur0.i;
+  const nc=nCtx(), per=quick?2:5;
   // progress segments: 1 for context + 6 dimensions
-  const segs=[{label:'Your context',from:0,to:CTX.length}].concat(DIMS.map((d,i)=>({label:d.short,from:CTX.length+i*5,to:CTX.length+i*5+5})));
+  const segs=[{label:'Your context',from:0,to:nc}].concat(DIMS.map((d,i)=>({label:d.short,from:nc+i*per,to:nc+i*per+per})));
   $('secs').innerHTML=segs.map(s=>{const p=Math.max(0,Math.min(1,(step-s.from)/(s.to-s.from)));return `<span><i style="width:${p*100}%"></i></span>`}).join('');
   const cur=segs.find(s=>step>=s.from&&step<s.to);
   $('plabel-l').innerHTML=`<b>${esc(cur.label)}</b>`;
-  $('plabel-r').textContent=isCtx?`Context ${step+1} of ${CTX.length}`:`Question ${qi+1} of ${Q.length}`;
+  $('plabel-r').textContent=isCtx?`Context ${step+1} of ${nc}`:`Question ${step-nc+1} of ${nQ()}`;
   let opts,sel,txt,eye,purpose='';
-  if(isCtx){const c=CTX[step];txt=c.q;eye='A little context';purpose='This tailors your report. It does not change your score.';opts=c.o.map((o,i)=>({t:o,v:o}));sel=ctx[c.id];}
+  if(isCtx){const c=CTX[qi];txt=c.q;eye='A little context';purpose='This tailors your report. It does not change your score.';opts=c.o.map((o,i)=>({t:o,v:o}));sel=ctx[c.id];}
   else{const q=Q[qi];const d=DIMS.find(x=>x.k===q[0]);txt=q[1];eye=`${d.name}`;purpose=d.purpose;opts=q[2].map((t,i)=>({t,v:i+1}));opts.push({t:'Not sure / insufficient visibility',v:0,ns:true});sel=ans[qi];}
   $('q-eyebrow').textContent=eye;$('q-text').textContent=txt;$('q-purpose').textContent=purpose;
   $('q-opts').innerHTML=opts.map((o,i)=>`<button class="opt${o.ns?' ns':''}${sel===o.v&&sel!==null&&sel!==undefined?' sel':''}" data-i="${i}"><span class="dot">${o.ns?'?':(isCtx?'':o.v)}</span><span>${esc(o.t)}</span></button>`).join('');
   document.querySelectorAll('#q-opts .opt').forEach(b=>b.onclick=()=>{
     const o=opts[+b.dataset.i];
-    if(isCtx)ctx[CTX[step].id]=o.v;else ans[qi]=o.v;
+    if(isCtx)ctx[CTX[qi].id]=o.v;else ans[qi]=o.v;
     renderStep();
   });
   $('next').disabled=!(sel!==null&&sel!==undefined);
-  $('next').textContent=step===TOTAL-1?'See my results':'Continue';
+  $('next').textContent=step===TOTAL_()-1?'See my results':'Continue';
   $('prev').style.visibility=step===0?'hidden':'visible';
   $('q-hint').textContent=(!isCtx)?'Choose the statement that best describes today.':'';
 }
 $('prev').onclick=()=>{if(step>0){step--;renderStep();window.scrollTo(0,0)}else{show('s-intro')}};
-$('next').onclick=()=>{if(step<TOTAL-1){step++;renderStep();window.scrollTo(0,0)}else{compute();show('s-results');window.scrollTo(0,0)}};
+$('next').onclick=()=>{if(step<TOTAL_()-1){step++;renderStep();window.scrollTo(0,0)}else{if(window.track)window.track(quick?'diagnostic_complete_quick':'diagnostic_complete_full');compute();show('s-results');window.scrollTo(0,0)}};
 
 /* ---------- SCORING ---------- */
 let R=null;
 function compute(){
   const dims=DIMS.map(d=>{
-    const idx=Q.map((q,i)=>q[0]===d.k?i:-1).filter(i=>i>=0);
+    const aset=askedSet();const idx=Q.map((q,i)=>q[0]===d.k&&aset.has(i)?i:-1).filter(i=>i>=0);
     const vals=idx.map(i=>ans[i]).filter(v=>v>0);
     const ns=idx.length-vals.length;
     const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
-    return Object.assign({},d,{idx,avg,ns,n:idx.length,thin:vals.length<=2});
+    return Object.assign({},d,{idx,avg,ns,n:idx.length,thin:vals.length<Math.ceil(idx.length/2)});
   });
   const live=dims.filter(d=>d.avg!==null);
   const wsum=live.reduce((a,d)=>a+d.w,0);
@@ -327,7 +340,7 @@ function interpretation(){
 }
 function ctxLine(){
   const p=[];
-  if(ctx.stage||ctx.obj||ctx.scope){p.push(`You described a ${(ctx.stage||'').toLowerCase()||'current'} transformation${ctx.obj?` focused on ${ctx.obj.toLowerCase()}`:''}${ctx.scope?` (${ctx.scope.toLowerCase()})`:''}.`);}
+  if(ctx.stage||ctx.obj||ctx.scope){p.push(`You described ${/^[aeiou]/i.test(ctx.stage||"x")?"an":"a"} ${(ctx.stage||'').toLowerCase()||'current'} transformation${ctx.obj?` focused on ${ctx.obj.toLowerCase()}`:''}${ctx.scope?` (${ctx.scope.toLowerCase()})`:''}.`);}
   if(ctx.chal){
     const m=CHAL_MAP[ctx.chal]||[];const low=R.ranked.slice(0,3).map(d=>d.k);
     if(m.some(k=>low.includes(k)))p.push(`You named ${ctx.chal.toLowerCase()} as your biggest challenge, and the assessment supports that.`);
@@ -388,6 +401,10 @@ const DISC='This assessment is based on respondent-provided information and is a
 const LEVELS=[['Level 1','Transformation Effectiveness Diagnostic','Complimentary self-assessment with immediate maturity scoring, risk identification, and this executive report.',true],['Level 2','Transformation Effectiveness Review','Fixed-fee advisory engagement: stakeholder interviews, evidence review, capability validation, risk analysis, and an executive recommendations workshop.',false],['Level 3','Transformation Architecture & Mobilization','Scoped engagement: future-state transformation architecture, transformation office design, governance, capability planning, change enablement, and benefits-realization mechanisms.',false]];
 
 /* ---------- RESULTS (screen) ---------- */
+function quickCard(){
+  if(!quick)return '';
+  return `<div class="card"><h3>This was the quick version</h3><p style="color:var(--ink-mid);margin:8px 0 16px">Your score is based on 12 questions, two per dimension. The full 30-question assessment gives a more reliable profile, sharper risks, and a complete 30/60/90-day plan. Your answers carry over, so you only answer the remaining questions.</p><button class="btn btn-dark" id="goFull">Continue to the full assessment</button></div>`;
+}
 function erpCard(){
   const t=R.dims.find(d=>d.k==='tech');
   const hit=(t&&t.avg!==null&&t.avg<RISK_T)||ctx.stage==='Stabilization'&&t&&t.avg!==null&&t.avg<3.4;
@@ -403,11 +420,11 @@ function renderResults(){
   <div class="eyebrow">Your Transformation Effectiveness Report</div>
   <div class="res-hero">
     <div class="scorebox"><div class="big">${R.idx100===null?'—':R.idx100}</div><div class="of">out of 100</div>${R.cls?`<div class="cls">${R.cls[2]}</div>`:''}</div>
-    <div><h2>${R.cls?esc(R.cls[3]):'Not enough data'}</h2><p>${esc(interpretation())}</p>${c?`<p class="ctx-line">${esc(c)}</p>`:''}</div>
+    <div><h2>${R.cls?esc(R.cls[3]):'Not enough data'}</h2><p>${esc(interpretation())}</p>${c?`<p class="ctx-line">${esc(c)}</p>`:''}<div class="actions" style="margin-top:18px"><a class="btn btn-gold" href="https://calendly.com/natalie-wbffpro/30min" target="_blank" rel="noopener">Book a 30-minute call</a></div></div>
   </div>
   <div class="card"><h3>Transformation capability profile</h3><div class="sub">Average maturity from 1 (Fragmented) to 5 (Optimized)</div>
     <div class="twocol">${radar()}<div>${dimTable()}</div></div>
-    ${R.nsTotal?`<p class="disc" style="margin-top:14px">${R.nsTotal} of ${Q.length} answers were marked not sure. They are excluded from the averages, and dimensions with little evidence are flagged.</p>`:''}
+    ${R.nsTotal?`<p class="disc" style="margin-top:14px">${R.nsTotal} of ${nQ()} answers were marked not sure. They are excluded from the averages, and dimensions with little evidence are flagged.</p>`:''}
   </div>
   <div class="card"><h3>Three priority transformation risks</h3><div class="sub">Your three lowest-scoring dimensions. “High” means the score is below ${RISK_T.toFixed(1)}.</div>
     ${R.risks.map((r,i)=>`<div class="risk"><div class="num">${i+1}</div><div><h4>${esc(r.d.risk)} ${sevPill(r.sev)}</h4><p>${esc(r.d.riskd)}</p></div></div>`).join('')}
@@ -421,6 +438,7 @@ function renderResults(){
     ${recs().slice(0,3).map((r,i)=>`<div class="rec"><div class="n">${i+1}</div><div>${esc(r.a)}</div><div class="t">${r.t}</div></div>`).join('')}
     <p class="note" style="margin-top:12px">The downloadable report includes the full 30/60/90-day plan.</p>
   </div>
+  ${quickCard()}
   ${erpCard()}
   <div class="card"><h3>Your executive report</h3><div class="sub">Branded, six pages, generated in your browser. No email required.</div>
     <div class="actions" style="margin-top:0"><button class="btn btn-dark" id="pdf">Download executive PDF</button></div>
@@ -436,6 +454,7 @@ function renderResults(){
     <p class="ctx-line">Nothing is sent unless you choose to email us. Your answers are calculated in your browser and are not stored.</p></div></div>
   <p class="disc">${DISC}</p>
   <div class="actions"><button class="btn btn-line" id="retake">Retake the assessment</button></div>`;
+  if($('goFull'))$('goFull').onclick=()=>{buildPlan(false);const done=plan.findIndex(x=>x.t==='q'&&ans[x.i]===null);step=done<0?0:done;show('s-q');renderStep();window.scrollTo(0,0)};
   $('retake').onclick=()=>{for(const k in ctx)delete ctx[k];ans.fill(null);step=0;show('s-intro');window.scrollTo(0,0)};
   $('pdf').onclick=()=>{$('report').innerHTML=reportHTML();const t=document.title;document.title='Transformation Effectiveness Report | Transformativa';window.print();document.title=t};
 }
@@ -451,7 +470,7 @@ function reportHTML(){
     <h2>Your Transformation Effectiveness Score</h2>
     <div class="res-hero"><div class="scorebox"><div class="big">${R.idx100===null?'—':R.idx100}</div><div class="of">out of 100</div>${R.cls?`<div class="cls">${R.cls[2]}</div>`:''}</div><div><h2>${R.cls?esc(R.cls[3]):''}</h2><p style="color:#d9e3dc">${esc(interpretation())}</p></div></div>
     ${c?`<p style="margin-top:14px">${esc(c)}</p>`:''}
-    <h3>How to read this report</h3><p>Each of 30 questions is scored from 1 (Fragmented) to 5 (Optimized) using observable organizational behavior. Dimension averages are weighted to produce an overall index from 0 to 100. Weights: ${DIMS.map(d=>d.short+' '+d.w+'%').join(', ')}.</p>${ft(1)}</div>
+    <h3>How to read this report</h3><p>Each of ${nQ()} questions is scored from 1 (Fragmented) to 5 (Optimized) using observable organizational behavior. Dimension averages are weighted to produce an overall index from 0 to 100. Weights: ${DIMS.map(d=>d.short+' '+d.w+'%').join(', ')}.</p>${ft(1)}</div>
   <div class="pg">${hd(2,'Capability profile')}
     <h2>Transformation capability profile</h2>${radar()}${dimTable()}${ft(2)}</div>
   <div class="pg">${hd(3,'Risks and gaps')}
@@ -473,6 +492,11 @@ function reportHTML(){
     <h3>Your transformation is unique. Your roadmap should be too.</h3><p>This assessment provides an initial perspective on your organization&rsquo;s transformation capabilities. Understanding the underlying causes, dependencies, and actions required to achieve lasting change requires a deeper examination. Let&rsquo;s discuss what your results mean for your organization.</p><p><b>contact@gettransformativa.com &middot; gettransformativa.com</b></p>
     <p class="disc" style="margin-top:20px">${DISC}</p>${ft(6)}</div>`;
 }
+</script>
+<script>
+/* Privacy-friendly event hooks: no cookies, no personal data. Sends only if an analytics script (Plausible or GoatCounter) is added to the page. */
+window.track=function(n){try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
 </script>
 </body>
 </html>

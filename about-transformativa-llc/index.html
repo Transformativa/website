@@ -188,5 +188,10 @@
     <a href="https://www.linkedin.com/in/natalie-dudina-4693355/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </div></footer>
+<script>
+/* Privacy-friendly event hooks: no cookies, no personal data. Sends only if an analytics script (Plausible or GoatCounter) is added to the page. */
+window.track=function(n){try{if(window.plausible)window.plausible(n);else if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'event/'+n,title:n,event:true});}catch(e){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;var t=a.getAttribute('data-track');if(!t&&a.href&&a.href.indexOf('calendly.com')>-1)t='book_call_'+(location.pathname.replace(/\W+/g,'_')||'home');if(t)window.track(t);});
+</script>
 </body>
 </html>
